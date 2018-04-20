@@ -1,0 +1,164 @@
+/* * {
+    box-sizing: border-box;
+} */
+
+#body{
+    width: 100%;
+    height: 100%;
+    min-width: 240px;
+    cursor: default;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #e6e6e6;
+}
+
+/* TOP NAV */
+
+#top-nav{
+    width: 110%;
+    height: 43px;
+    top: 0;
+    left: 0;
+    background-color: white;
+    margin-left: -20px;
+    padding-right: 105px;
+    font-size: 0.8em;
+}
+#top-nav > ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#top-nav > ul > li{
+    float: left;
+    padding-left: 10px;
+}
+#top-nav > ul > li > a{
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Main Wrapper */
+
+#wrapper{
+    width: 100%;
+    margin: 3%;
+}
+
+/* Logo */
+
+#logo{
+    float: left;
+}
+#logo-name{
+    margin-bottom: 20px;
+}
+#search-form > form > input{
+    float: left;
+    position: relative;
+    left: 36px;
+    z-index: 12;
+    background-color: white;
+    width: 38%;
+    height: 50px;
+    font-size: 1em;
+    padding: 0 15px;
+    background-image:url(../assets/images/search-icon2.ico); 
+    background-repeat: no-repeat; 
+    background-position: 97% 50%;
+}
+
+/* profile-favorites section */
+
+#profile-favorites{
+    float: right;
+    width: 272px;
+    height: 52px;
+    position: relative;
+    top: -22px;
+    right: 100px;
+    background-color: white;
+}
+#user-nav{
+    font-size: 0.8em;
+}
+#user-nav > ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 18px 10px;
+    text-decoration: none;
+}
+#user-nav > ul > li{
+    float: left;
+    padding-left: 5px;
+}
+#user-nav > ul > li > a{
+    color: black;
+    text-align: center;
+    color: steelblue;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+}
+#user-nav > ul > li > a > img{
+    
+}
+
+/* MAIN NAV */
+#main-nav{
+    position: relative;
+    left: -40px;
+    text-align: center;
+}
+#main-nav > ul{
+    list-style-type: none;
+    padding: 18px 10px;
+    text-decoration: none;
+}   
+#main-nav > ul > li{
+    display: inline-block;
+    position: relative;
+    width: 7.5%;
+    height: 45px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 0.8em;
+    line-height: 15px;
+    vertical-align: top;
+    background-color: steelblue;
+    border: 0.5px solid black;
+}
+#main-nav > ul > li > a{
+    text-decoration: none;  
+    height: 45px;
+    text-align: center;
+    color: white;
+}
+
+/* main-window */
+
+#main-window{
+    position: absolute;
+    left: 49px;
+    border: 1px solid steelblue;
+    width: 1250px;
+    height: 400px;
+}
+
+#promo-div{
+    position: absolute;
+    top: 651px;
+    left: 49px;
+    border: 1px solid steelblue;
+    width: 1250px;
+    height: 350px;
+}
+
+/* footer */
+
+footer > table > th{
+    
+}
