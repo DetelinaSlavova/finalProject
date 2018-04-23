@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="stylesheets/homePage.css">
+    <link rel="stylesheet" href="stylesheets/stylePractice.css">
     <link rel="stylesheet" href="stylesheets/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="../routes/productCtrl.js"></script>
     <title>ТЕХНОПОЛИС</title>
 </head>
-<body id="body">
+<body id="body" ng-app="">
     <nav id="top-nav">
         <ul>
             <li><a href="">ПРОМОЦИИ</a></li>
@@ -66,17 +69,40 @@
             </ul>
         </div>
         <div id="main-window">
-            <div id="reklami"></div>
+            <div id="reklami" ng-controller="productCtrl">
+                <img src="images/reklami/reklama3.jpg"  alt="">
+            </div>
             <div id="reklami-counter"></div>
         </div>
         <div id="promo-div">
-
+            <div>
+                <h3>Промоции</h3>
+                <select name="" id="">
+                    <option value="">Изберете</option>
+                    <option value="">Всички</option>
+                    <option value="">Домакински Електроуреди</option>
+                    <option value="">Малки Електроуреди</option>
+                    <option value="">Климатици и отоплители</option>
+                    <option value="">Спорт и свободно време</option>
+                    <option value="">Компютри и периферия</option>
+                </select>
+                <p>Категория:</p>
+            </div>
+            <div id="promo-images">
+                <ul>
+                    <li><img src="images/reklami/reklama1.jpg" width="20%" height="200px"  alt=""></li>
+                    <li><img src="images/reklami/reklama2.jpg" width="20%" height="200px"  alt=""></li>
+                    <li><img src="images/reklami/reklama3.jpg" width="20%" height="200px"  alt=""></li>
+                    <li><img src="images/reklami/reklama4.jpg" width="20%" height="200px"  alt=""></li>
+                    <li><img src="images/reklami/reklama5.jpg" width="20%" height="200px"  alt=""></li>
+                </ul>
+            </div>
         </div>
     </div>
     <main>
 
     </main>
-    <div>
+    <!-- <div>
         <table>
             <th>ТЕХНОПОЛИС</th>
             <th>КОНТАКТИ</th>
@@ -85,6 +111,6 @@
             <th>НАМЕРЕТЕ НИ В</th>
             <th>ПАЗАРУВАЙТЕ С</th>
         </table>
-    </div>
+    </div> -->
 </body>
 </html>
