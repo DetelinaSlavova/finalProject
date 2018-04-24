@@ -12,10 +12,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    <script src="../routes/productCtrl.js"></script>
     <title>ТЕХНОПОЛИС</title>
 </head>
-<body id="body" ng-app="">
+<body id="body" ng-app="appAng">
     <nav id="top-nav">
         <ul>
             <li><a href="">ПРОМОЦИИ</a></li>
@@ -54,23 +53,162 @@
         <br><br><br>
         <div id="main-nav">
             <ul>
-                <li><a href="">TV, ВИДЕО И GAMING</a></li>
-                <li><a href="">ТЕЛЕФОНИ И ТАБЛЕТИ</a></li>
-                <li><a href="">ФОТО И ВИДЕОКАМЕРИ</a></li>
-                <li><a href="">АВТО И GPS</a></li>
-                <li><a href="">КОМПЮТРИ И ПЕРИФЕРИЯ</a></li>
-                <li><a href="">КОМПЮТЪРНИ АКСЕСОАРИ</a></li>
-                <li><a href="">СПОРТ И СВОБОДНО ВРЕМЕ</a></li>
-                <li><a href="">ДОМ И ГРАДИНА</a></li>
-                <li><a href="">МАЛКИ ЕЛЕКТРОУРЕДИ</a></li>
-                <li><a href="">КЛИМАТИЦИ И ЕЛЕКТРОУРЕДИ</a></li>
-                <li><a href="">КЛИМАТИЦИ И ОТОПЛИТЕЛИ</a></li>
-                <li><a href="">ДОМАКИНСКИ ЕЛЕКТРОУРЕДИ</a></li>
+                <li id="first" class="dropbtn">  TV, ВИДЕО И GAMING 
+                        <i class="fa fa-caret-down"></i>
+                    <br><br>
+                    <div id="TV" class="dropdown-content">
+                            <ul>
+                                <li><a href="">ТЕЛЕВИЗОРИ</a></li>
+                                <li><a href="">SOUNDBAR СИСТЕМИ</a></li>
+                                <li><a href="">ДОМАШНИ КИНА</a></li>
+                                <li><a href="">BLU-RAY И DVD ПЛЕЪРИ</a></li>
+                                <li><a href="">МУЛТИМЕДИЙНИ ПЛЕЪРИ</a></li>
+                                <li><a href="">МУЛТИМЕДИЙНИ ПРОЕКТОРИ И ЕКРАНИ</a></li>
+                            </ul>
+                    </div>
+                </li>
+                <li id="second" class="dropbtn">ТЕЛЕФОНИ И ТАБЛЕТИ
+                    <i class="fa fa-caret-down"></i> 
+                    <br><br>
+                    <div id="Phones" class="dropdown-content">
+                            <ul>
+                                <li><a href="">МОБИЛНИ ТЕЛЕФОНИ</a></li>
+                                <li><a href="">ТАБЛЕТИ</a></li>
+                                <li><a href="">СМАРТ ЧАСОВНИЦИ</a></li>
+                                <li><a href="">ФИТНЕС ГРИВНИ</a></li>
+                                <li><a href="">ВИРТУАЛНА РЕАЛНОСТ</a></li>
+                            </ul>
+                    </div>
+                </li>
+                <li id="third" class="dropbtn">ФОТО И ВИДЕОКАМЕРИ
+                        <i class="fa fa-caret-down"></i> 
+                        <br><br>
+                        <div id="Cameras" class="dropdown-content">
+                                <ul>
+                                    <li><a href="">D-SLR ФОТОАПАРАТИ И ОБЕКТИВИ</a></li>
+                                    <li><a href="">ФОТОАПАРАТИ</a></li>
+                                    <li><a href="">ВИДЕОКАМЕРИ</a></li>
+                                    <li><a href="">ФОТО ПРИНТЕРИ</a></li>
+                                    <li><a href="">БИНОКЛИ</a></li>
+                                </ul>
+                        </div>
+                </li>
+                <li id="fourth">АВТО И GPS
+                    <i class="fa fa-caret-down"></i> 
+                    <br><br><br>
+                    <div id="GPS" class="dropdown-content">
+                            <ul>
+                                <li><a href="">GPS НАВИГАЦИИ</a></li>
+                                <li><a href="">GPS АКСЕСОАРИ</a></li>
+                                <li><a href="">CD/DVD РЕСИИВЪРИ</a></li>
+                                <li><a href="">TV И МОНИТОРИ ЗА КОЛИ</a></li>
+                                <li><a href="">ГОВОРИТЕЛИ</a></li>
+                                <li><a href="">УСИЛВАТЕЛИ</a></li>
+                            </ul>
+                    </div>
+                </li>
+                <li id="five">КОМПЮТРИ И ПЕРИФЕРИЯ
+                    <i class="fa fa-caret-down"></i> 
+                    <br><br>
+                    <div id="Computers" class="dropdown-content">
+                            <ul>
+                                <li><a href="">ЛАПТОПИ</a></li>
+                                <li><a href="">НАСТОЛНИ КОМПЮТРИ</a></li>
+                                <li><a href="">ПРИНТЕРИ И СКЕНЕРИ</a></li>
+                                <li><a href="">МОНИТОРИ</a></li>
+                                <li><a href="">ЕЛЕКТРОННИ КНИГИ И АКСЕСОАРИ</a></li>
+                                <li><a href="">КОНЗОЛИ</a></li>
+                            </ul>
+                    </div>
+                </li>
+                <li id="six">КОМПЮТЪРНИ АКСЕСОАРИ
+                    <i class="fa fa-caret-down"></i> 
+                    <br><br>
+                    <div id="CompAcsesory" class="dropdown-content">
+                            <ul>
+                                <li><a href="">УЕБ КАМЕРИ</a></li>
+                                <li><a href="">USB ПАМЕТИ</a></li>
+                                <li><a href="">ДЖОЙСТИЦИ И ВОЛАНИ</a></li>
+                                <li><a href="">СЛУШАЛКИ И МИКРОФОНИ</a></li>
+                                <li><a href="">КОМПЮТЪРНИ ТОНКОЛОНИ</a></li>
+                                <li><a href="">МИШКИ И КЛАВИАТУРИ</a></li>
+                            </ul>
+                    </div>
+                </li>
+                <li id="seven">СПОРТ И СВОБОДНО ВРЕМЕ
+                    <i class="fa fa-caret-down"></i> 
+                    <br>
+                    <div id="Sport" class="dropdown-content">
+                        <ul>
+                            <li><a href="">ВЕЛОЕРГОМЕТРИ</a></li>
+                            <li><a href="">ПЪТЕКИ</a></li>
+                            <li><a href="">ФИТНЕС ГРИВНИ</a></li>
+                            <li><a href="">ФЕНЕРИ</a></li>
+                            <li><a href="">MP3/MP4 ПЛЕЪРИ</a></li>
+                            <li><a href="">АУДИО СЛУШАЛКИ И МИКРОФОНИ</a></li>
+                            <li><a href="">ПОРТАТИВНИ ГОВОРИТЕЛИ</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="eight">ДОМ И ГРАДИНА
+                    <i class="fa fa-caret-down"></i> 
+                    <br><br>
+                    <div id="HomeGarden" class="dropdown-content">
+                        <ul>
+                            <li><a href="">ЕЛЕКТРИЧЕСКИ КРУШКИ</a></li>
+                            <li><a href="">ДИГИТАЛНИ ФОТОРАМКИ</a></li>
+                            <li><a href="">РАДИО ЧАСОВНИЦИ</a></li>
+                            <li><a href="">РАДИОПРИЕМНИЦИ</a></li>
+                            <li><a href="">РАЗКЛОНИТЕЛИ</a></li>
+                            <li><a href="">ГРАДИНСКИ ИНСТРУМЕНТИ</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="nine">МАЛКИ ЕЛЕКТРОУРЕДИ
+                    <i class="fa fa-caret-down"></i> 
+                    <br><br>
+                    <div id="SmallThings" class="dropdown-content">
+                        <ul>
+                            <li><a href="">МИКРОВЪЛНОВИ</a></li>
+                            <li><a href="">ПРАХОСМУКАЧКИ</a></li>
+                            <li><a href="">ВОДО И ПАРАСТРУЙКИ</a></li>
+                            <li><a href="">КАФЕМАШИНИ И АВТОМАТИ</a></li>
+                            <li><a href="">ЗА КУХНЯТА</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="ten">КЛИМАТИЦИ И ОТОПЛИТЕЛИ
+                    <i class="fa fa-caret-down"></i> 
+                    <br><br>
+                    <div id="AirCon" class="dropdown-content">
+                        <ul>
+                            <li><a href="">ИНВЕРТОРНИ SPLIT СИСТЕМИ</a></li>
+                            <li><a href="">ПРОФЕСИОНАЛНА КЛИМАТИЧНА ТЕХНИКА</a></li>
+                            <li><a href="">МОБИЛНИ КЛИМАТИЦИ</a></li>
+                            <li><a href="">ВЕНТИЛАТОРИ</a></li>
+                            <li><a href="">ОТОПЛИТЕЛИ</a></li>
+                        </ul>
+                    </div>                  
+                </li>
+                <li id="eleven">ДОМАКИНСКИ ЕЛЕКТРОУРЕДИ
+                    <i class="fa fa-caret-down"></i> 
+                    <br><br>
+                    <div id="HomeStuff" class="dropdown-content">
+                        <ul>
+                            <li><a href="">ПЕРАЛНИ</a></li>
+                            <li><a href="">СУШИЛНИ</a></li>
+                            <li><a href="">ХЛАДИЛНИЦИ</a></li>
+                            <li><a href="">ФРИЗЕРИ</a></li>
+                            <li><a href="">СЪДОМИЯЛНИ</a></li>
+                        </ul>
+                    </div>                  
+                </li>
             </ul>
         </div>
+        
         <div id="main-window">
-            <div id="reklami" ng-controller="productCtrl">
-                <img src="images/reklami/reklama3.jpg"  alt="">
+            <div ng-controller="reklamiCtrl" id="reklami">
+                <img ng-src="{{reklama.photo}}"  alt="">
             </div>
             <div id="reklami-counter"></div>
         </div>
@@ -112,5 +250,7 @@
             <th>ПАЗАРУВАЙТЕ С</th>
         </table>
     </div> -->
+    <script src="../public/js/appAng.js"></script>
+    <script src="../public/js/reklamiCtrl.js"></script>
 </body>
 </html>
