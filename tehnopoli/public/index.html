@@ -226,21 +226,22 @@
                 </select>
                 <p>Категория:</p>
             </div>
-            <div id="promo-images">
-                <ul>
-                    <li><img src="images/reklami/reklama1.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img src="images/reklami/reklama2.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img src="images/reklami/reklama3.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img src="images/reklami/reklama4.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img src="images/reklami/reklama5.jpg" width="20%" height="200px"  alt=""></li>
+            <div id="promo-images" ng-controller="prode">
+                <ul ng-repeat="nam in names">
+                    <li><img ng-src="{{nam.photo}}" width="20%" height="200px"  alt=""></li>
+                    <!-- <li><img ng-src="images/reklami/reklama1.jpg" width="20%" height="200px"  alt=""></li>
+                    <li><img ng-src="images/reklami/reklama2.jpg" width="20%" height="200px"  alt=""></li>
+                    <li><img ng-src="images/reklami/reklama3.jpg" width="20%" height="200px"  alt=""></li>
+                    <li><img ng-src="images/reklami/reklama4.jpg" width="20%" height="200px"  alt=""></li>
+                    <li><img ng-src="images/reklami/reklama5.jpg" width="20%" height="200px"  alt=""></li> -->
                 </ul>
             </div>
         </div>
     </div>
     <main>
-        <div ng-controller="prode">
+        <!-- <div ng-controller="prode">
             <img ng-src="{{name.photo}}" alt="">
-        </div>
+        </div> -->
     </main>
     <!-- <div>
         <table>
