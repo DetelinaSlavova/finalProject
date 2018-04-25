@@ -1,0 +1,68 @@
+#registration {
+    width: 80%;
+}
+
+a, p, span, p > a {
+    font-size: 0.8em;
+}
+
+
+#containerForTitel {
+    padding: 5px 20px;
+    border-bottom: 1px solid rgb(194, 193, 193, 0.6);
+}
+
+#clientInfo {
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgb(248, 245, 245);
+    border-bottom: 1px solid rgb(194, 193, 193, 0.6);
+}
+
+#clientInfo input, select {
+    opacity: 0.9;
+    height: 30px;
+    background-color: white;
+    font-size: 0.8em;
+    border: 1px solid rgb(194, 193, 193, 0.6)   ;
+   
+}
+#clientInfo fieldset {
+    margin-top: 20px;
+}
+
+#clientInfo fieldset, p, option{
+    font-size: 0.8em;
+}
+#robot {
+    border: 1px solid rgb(194, 193, 193, 0.6);
+    height: 70px;
+}
+
+.btn{
+    border-radius: 0%;
+    margin: 5px;
+    border: none;
+}
+
+.blue {
+    background-color: #004fa2;
+    padding: 5px 35px;
+}
+.red {
+    background-color: #dc1f26;
+    padding: 5px 15px;
+}
+
+button, input, select {
+    cursor: pointer;
+}
+
+.agreed {
+    padding-left: 20px;
+}
+
+sup {
+    font-size:smaller;
+    color:#dc1f26;
+}

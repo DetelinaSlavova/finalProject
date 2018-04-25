@@ -5,10 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongodb = require('mongodb');
 var monk = require('monk');
-var db = mongodb('mongodb://svetla:tehnopolis@ds147469.mlab.com:47469/tehnopolis');
+var db = monk('mongodb://svetla:tehnopolis@ds147469.mlab.com:47469/tehnopolis');
+var session = require('express-session');
+var sha1 = require("sha1");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var registerRouter = require('./routes/register');
+var loginRouter = require('./routes/login');
+var productRouter = require('./routes/product');
 
 var app = express();
 
@@ -21,9 +26,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+  app.use(session({
+    secret: '1234',
+    resavu: true,
+    saveUninitialized: true,
+    cookie: {maxAge: 6000000}
+  }));
+app.use(function(res, req, next){
+  req.db = db;
+  next();
+})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/register', registerRouter);
+app.use('/product', productRouter);
+app.use('/login', loginRouter);
+
+// app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
