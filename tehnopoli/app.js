@@ -32,10 +32,10 @@ app.use(express.static(path.join(__dirname, 'public')));
     saveUninitialized: true,
     cookie: {maxAge: 6000000}
   }));
-app.use(function(res, req, next){
+app.use(function(req, res, next){
   req.db = db;
   next();
-})
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
