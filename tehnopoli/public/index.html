@@ -206,43 +206,9 @@
             </ul>
         </div>
         
-        <div id="main-window">
-            <div ng-controller="reklamiCtrl" id="reklami">
-                <img ng-src="{{reklama.photo}}"  alt="">
-            </div>
-            <div id="reklami-counter"></div>
-        </div>
-        <div id="promo-div">
-            <div>
-                <h3>Промоции</h3>
-                <select name="" id="">
-                    <option value="">Изберете</option>
-                    <option value="">Всички</option>
-                    <option value="">Домакински Електроуреди</option>
-                    <option value="">Малки Електроуреди</option>
-                    <option value="">Климатици и отоплители</option>
-                    <option value="">Спорт и свободно време</option>
-                    <option value="">Компютри и периферия</option>
-                </select>
-                <p>Категория:</p>
-            </div>
-            <div id="promo-images" ng-controller="prode">
-                <ul ng-repeat="nam in names">
-                    <li><img ng-src="{{nam.photo}}" width="20%" height="200px"  alt=""></li>
-                    <!-- <li><img ng-src="images/reklami/reklama1.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img ng-src="images/reklami/reklama2.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img ng-src="images/reklami/reklama3.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img ng-src="images/reklami/reklama4.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img ng-src="images/reklami/reklama5.jpg" width="20%" height="200px"  alt=""></li> -->
-                </ul>
-            </div>
-        </div>
+        <main ng-view></main>
     </div>
-    <main>
-        <!-- <div ng-controller="prode">
-            <img ng-src="{{name.photo}}" alt="">
-        </div> -->
-    </main>
+    
     <!-- <div>
         <table>
             <th>ТЕХНОПОЛИС</th>
@@ -253,9 +219,11 @@
             <th>ПАЗАРУВАЙТЕ С</th>
         </table>
     </div> -->
-    <script src="../public/js/appAng.js"></script>
-    <script src="../public/js/reklamiCtrl.js"></script>
-
-    <script src="../public/js/prode.js"></script>
+    <script src="js/appAng.js"></script>
+    <script src="js/products/productController.js"></script>
+    <script src="js/products/productService.js"></script>
+    <script src="js/reklamiCtrl.js"></script>
+    <script src="js/reklamiService.js"></script>
+    <!-- <script src="js/prode.js"></script> -->
 </body>
 </html>
