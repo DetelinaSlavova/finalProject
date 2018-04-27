@@ -7,7 +7,7 @@ router.get('/', function(req, res){
     collection.find({}, {}, function(err, result){
         if(err){
             res.status(500);
-            res.json({err})
+            res.json({err});
         }else{
             res.status(200);
             res.json(result);
