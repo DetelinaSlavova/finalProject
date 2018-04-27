@@ -16,6 +16,23 @@ function validateEmail(email) {
     return (typeof pass === 'string' && pass.length >= PASS_LENGHT)
   };
 
+  
+  router.get('/', function (req, res) {
+    var db = req.db;
+    var usersCollection = req.db.get('users');
+    var idToSearch = req.params.id;
+
+    usersCollection.find({}, {}, function(err, result){
+        if(err){
+            res.status(500);
+            res.json({err})
+        }else{
+            res.status(200);
+            res.json(result);
+        }
+    });
+  });
+
   router.post('/', function(res, req, next){
     res.setHeader('content-type', 'aplication/json');
     var userCollection = req.db.get('users');
@@ -34,8 +51,8 @@ function validateEmail(email) {
             }
             if(docs.length===0){
                 res.status(200);
-                res.json({massages:"not find user"});
-                res.redirect('login.html');
+                res.json({massages:"nuser is not find"});
+                res.redirect('');
             } else {
                 req.session.user = docs[0];
                 res.json({id: doc[0]._id});

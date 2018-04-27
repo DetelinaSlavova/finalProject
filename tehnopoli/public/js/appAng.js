@@ -3,6 +3,16 @@ var app = angular.module("appAng",['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider
+        // .when('/login', {
+        //     controller: 'loginController',
+        //     templateUrl: 'js/login/login.htm'
+           
+        // })
+        .when('/register', {
+            controller: 'registerController',
+            templateUrl: 'js/login/register.htm'
+           
+         })
         // .when('/product/:id', { // примерен url за преглеждане на един продукт, който се взема по неговото id от mongo
         //     templateUrl: '....',
         //     controller: '....' // контролера трябва да е добавен в index.html. 
