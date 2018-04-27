@@ -21,18 +21,23 @@ function validateEmail(email) {
     return re.test(String(phone));
   };
 
-  router.post('/', function(res, req, next){
-      res.setHeader('content-type', 'aplication/json');
-      var userCollection = req.db.get('users');
-      console.log(userCollection)
+  router.post('/', function(req, res, next){
+      // req.setHeader('Content-type', 'aplication/json');
+      var userCollection = req.db.get('user');
       var newUser = req.body;
+      console.log(userCollection)
+      console.log(newUser)
+      userCollection.insert(newUser, function(err, docs){
+        if(err) throw err;
+        res.status(200)
+      });
 
       if(!(isValidPassword(newUser.email)) && !(isValidPassword(newUser.password)) 
           && !(isValidString(newUser.firstname)) && !(isValidString(newUser.lastname))){
           res.status(200);
           res.json({massages:"invalid data"});
       } else {
-        userCollection.find({emai:newUser.email}, {}, function(err, docs){
+        userCollection.find({email:newUser.email}, {}, function(err, docs){
           if (err){
             res.status(500);
             res.json({err:err});
@@ -41,30 +46,16 @@ function validateEmail(email) {
           if(docs.length === 0) {
             newUser.password = sha1(newUser.password);
             userCollection.insert(newUser, function(err, docs){
-              if(err) throw err;
-              res.status(200)
+              if(!err) throw err;
+              res.status(200);
             });
           } else {
-            res.status(200);
-            res.json({message: "There is a user registered with this email"})
+            res.status(500);
+            res.json({err: err})
           }
         });
       }
     });
-    router.get('/', function (req, res) {
-      var db = req.db;
-      var usersCollection = req.db.get('users');
-      var idToSearch = req.params.id;
-  
-      usersCollection.find({}, {}, function(err, result){
-          if(err){
-              res.status(500);
-              res.json({err})
-          }else{
-              res.status(200);
-              res.json(result);
-          }
-      });
-    })
+   
 
     module.exports = router;

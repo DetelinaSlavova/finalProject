@@ -15,8 +15,8 @@
     
     <title>Login</title>
 </head>
-<body>
-<form action="">
+<body ng-controller='registerController'ng-app="app">
+<div >
     <div id="registration">
         <div id="containerForTitel">
             <h3>Регистрация</h3>
@@ -37,11 +37,13 @@
                                 <option value="miss"><sup>*</sup>Г-ца</option>
                         </select>
                         <fieldset>Емейл:<sup>*</sup></fieldset>
-                        <input class="col-sm-8" type="email" name="email">
+                        <input  ng-model='newUser.email' class="col-sm-8" type="email" name="email" required='required' />
+                        <p ng-show = "wrongEmail" class="{red: error">Грешен емейл</p>
                         <div class="password">
                             <fieldset>Парола:<sup>*</sup></fieldset>
-                            <input class="col-sm-8" type="password" name="password">
+                            <input ng-model = "newUser.password" class="col-sm-8" type="password" name="password" required="required"/>
                             <p>Минималната дължина трябва да е 8 знака</p>
+                            <p ng-show = "wrongPassword" class="error">Паролата трябва да е с дължина 8 знака</p>
                         </div>
                         <div class="col-sm-10" id="robot">
                             <input  type="checkbox" name="notRobot"> <span>Не съм робот</span> 
@@ -51,17 +53,21 @@
                 
                     <div class="col-sm-4">
                         <fieldset>Име:<sup>*</sup></fieldset>
-                        <input class="col-sm-8" type="text" name="fname">
+                        <input ng-model="newUser.firstname" required = "required" class="col-sm-8" type="text" name="fname">
+                        <p ng-show = "wrongFirstName" class="error">Невалидно име</p>
                         <fieldset>Фамилия:<sup>*</sup></fieldset>
-                        <input class="col-sm-8"type="text" name="lname">
+                        <input ng-model="newUser.lastname" required = "required" class="col-sm-8"type="text" name="lname">
+                        <p ng-show = "wronglastName" class="error">Невалидно фамилия</p>
                         <fieldset>Потвърдете паролата:<sup>*</sup></fieldset>
-                        <input class="col-sm-8 password" type="password" name="confirmPassword">
+                        <input ng-model="newUser.repeatedpass" required = "required" class="col-sm-8 password" type="password" name="confirmPassword">
+                        <p ng-show = "wrongReapedPass" class="error">Няма съвпадение с въведената парола</p>
                     </div>
                 
                     <div class="col-sm-4">
                         <fieldset>Телефон:</fieldset>
-                        <input class="col-sm-8" type="text" name="phone">
-                    </div>       
+                        <input ng-model="newUser.phone" required = "required" class="col-sm-8" type="text" name="phone">
+                        <p ng-show = "wrongPhoneNumber" class="error">Невалиден телефон</p>
+                    </div>    
                 </div>
             </div>
             
@@ -72,12 +78,12 @@
                 </div>
                 <div class="col-sm-4 robot"> 
                     <button type="button" class="btn btn-secondary blue" ng-click="">ОТКАЗ</button>
-                    <button type="button" class="btn btn-secondary red"ng-click="">ЗАПАЗВАНЕ</button>
+                    <button type="button" class="btn btn-secondary red" ng-click="userRegister($event)">ЗАПАЗВАНЕ</button>
                 </div>
             </div>  
         </div>
     </div> 
-</form>  
+</div>  
 </body>
 </html>
 

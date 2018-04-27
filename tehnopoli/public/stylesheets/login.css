@@ -61,6 +61,9 @@ button, input, select {
 .agreed {
     padding-left: 20px;
 }
+.error {
+    color: red;
+}
 
 sup {
     font-size:smaller;

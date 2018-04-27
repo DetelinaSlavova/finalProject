@@ -38,10 +38,10 @@ app.use(function(req, res, next){
 });
 
 app.use('/', indexRouter);
+app.use('/login', loginRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/product', productRouter);
-app.use('/login', loginRouter);
 
 // app.use('/login', loginRouter);
 
