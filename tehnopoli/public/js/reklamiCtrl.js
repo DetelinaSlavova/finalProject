@@ -1,5 +1,5 @@
 
-app.controller('reklamiCtrl',function($scope,$http, reklamiService){
+app.controller('reklamiCtrl',function($scope, $http, reklamiService){
     $scope.reklami = [
         {photo : "images/reklami/reklama1.jpg"},
         {photo : "images/reklami/reklama2.jpg"},
