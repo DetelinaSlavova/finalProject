@@ -14,6 +14,13 @@ var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var productRouter = require('./routes/product');
+// novo dobaveni ROUTove
+var phonesTabletRouter = require('./routes/phonesTablet');
+var computersRouter = require('./routes/computers');
+var photosCamerasRouter = require('./routes/photosCameras');
+var TvVideoGamingRouter = require('./routes/TvVideoGaming');
+var autoGpsRouter = require('./routes/autoGps');
+// tva beshe
 
 var app = express();
 
@@ -38,10 +45,17 @@ app.use(function(req, res, next){
 });
 
 app.use('/', indexRouter);
-app.use('/login', loginRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/product', productRouter);
+app.use('/login', loginRouter);
+// novi middleware
+app.use('/phonesTablet',phonesTabletRouter);
+app.use('/computers',computersRouter);
+app.use('/photosCameras',photosCamerasRouter);
+app.use('/TvVideoGaming',TvVideoGamingRouter);
+app.use('/autoGps',autoGpsRouter);
+// krai middleware
 
 // app.use('/login', loginRouter);
 

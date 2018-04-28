@@ -148,10 +148,10 @@
 
 /* main-window */
 
-#main-window{
+.main-window{
     position: absolute;
     left: 49px;
-    border: 1px solid steelblue;
+    /* border: 1px solid steelblue; */
     width: 1250px;
     height: 333px;
 }
@@ -160,7 +160,7 @@
     position: absolute;
     top: 651px;
     left: 49px;
-    border: 1px solid steelblue;
+    /* border: 1px solid steelblue; */
     width: 1250px;
     height: 350px;
 }
@@ -299,3 +299,10 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+/* Main-div */
+
+/* #products{
+    position: relative;
+    top: 750px;
+} */

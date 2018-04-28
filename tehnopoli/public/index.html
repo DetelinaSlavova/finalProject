@@ -13,9 +13,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
     <title>ТЕХНОПОЛИС</title>
 </head>
-<body id="body" ng-app="appAng">
+<body id="body" ng-app="app">
     <nav id="top-nav">
         <ul>
             <li><a href="">ПРОМОЦИИ</a></li>
@@ -59,7 +60,7 @@
                     <br><br>
                     <div id="TV" class="dropdown-content">
                             <ul>
-                                <li><a href="">ТЕЛЕВИЗОРИ</a></li>
+                                <li><a href="#!/TvVideoGaming">ТЕЛЕВИЗОРИ</a></li>
                                 <li><a href="">SOUNDBAR СИСТЕМИ</a></li>
                                 <li><a href="">ДОМАШНИ КИНА</a></li>
                                 <li><a href="">BLU-RAY И DVD ПЛЕЪРИ</a></li>
@@ -74,7 +75,7 @@
                     <div id="Phones" class="dropdown-content">
                             <ul>
                                 <li><a href="">МОБИЛНИ ТЕЛЕФОНИ</a></li>
-                                <li><a href="">ТАБЛЕТИ</a></li>
+                                <li><a href="#!/phonesTablet">ТАБЛЕТИ</a></li>
                                 <li><a href="">СМАРТ ЧАСОВНИЦИ</a></li>
                                 <li><a href="">ФИТНЕС ГРИВНИ</a></li>
                                 <li><a href="">ВИРТУАЛНА РЕАЛНОСТ</a></li>
@@ -86,7 +87,7 @@
                         <br><br>
                         <div id="Cameras" class="dropdown-content">
                                 <ul>
-                                    <li><a href="">D-SLR ФОТОАПАРАТИ И ОБЕКТИВИ</a></li>
+                                    <li><a href="#!/photosCameras">D-SLR ФОТОАПАРАТИ И ОБЕКТИВИ</a></li>
                                     <li><a href="">ФОТОАПАРАТИ</a></li>
                                     <li><a href="">ВИДЕОКАМЕРИ</a></li>
                                     <li><a href="">ФОТО ПРИНТЕРИ</a></li>
@@ -99,7 +100,7 @@
                     <br><br><br>
                     <div id="GPS" class="dropdown-content">
                             <ul>
-                                <li><a href="">GPS НАВИГАЦИИ</a></li>
+                                <li><a href="#!/autoGps">GPS НАВИГАЦИИ</a></li>
                                 <li><a href="">GPS АКСЕСОАРИ</a></li>
                                 <li><a href="">CD/DVD РЕСИИВЪРИ</a></li>
                                 <li><a href="">TV И МОНИТОРИ ЗА КОЛИ</a></li>
@@ -113,7 +114,7 @@
                     <br><br>
                     <div id="Computers" class="dropdown-content">
                             <ul>
-                                <li><a href="">ЛАПТОПИ</a></li>
+                                <li><a href="#!/computers">ЛАПТОПИ</a></li>
                                 <li><a href="">НАСТОЛНИ КОМПЮТРИ</a></li>
                                 <li><a href="">ПРИНТЕРИ И СКЕНЕРИ</a></li>
                                 <li><a href="">МОНИТОРИ</a></li>
@@ -209,6 +210,7 @@
         
         <main ng-view></main>
     </div>
+    <!-- <div ng-include="js/PhonesTablets/phonesTablets.htm"></div> -->
     
     <!-- <div>
         <table>
@@ -220,15 +222,35 @@
             <th>ПАЗАРУВАЙТЕ С</th>
         </table>
     </div> -->
-    <script src="js/appAng.js"></script>
+    <script src="js/app.js"></script>
    
     
     <script src="js/products/productController.js"></script>
     <script src="js/products/productService.js"></script>
+
     <script src="js/reklamiCtrl.js"></script>
     <script src="js/reklamiService.js"></script>
+
     <script src = "js/login/registerController.js"></script>
     <script src = "js/login/registerService.js"></script> 
+
+    <script src="js/PhonesTablets/phonesTabletsController.js"></script>
+    <script src="js/PhonesTablets/phonesTabletsService.js"></script>
+
+    <script src="js/Computers/computersController.js"></script>
+    <script src="js/Computers/computerService.js"></script>
+
+    <script src="js/PhotosCameras/photosCamerasController.js"></script>
+    <script src="js/PhotosCameras/photosCamerasService.js"></script>
+
+    <script src="js/TvVideoGaming/TvVideoGamingController.js"></script>
+    <script src="js/TvVideoGaming/TvVideoGamingService.js"></script>
+
+    <script src="js/AutoGPS/autoGpsController.js"></script>
+    <script src="js/AutoGPS/autoGpsService.js"></script>
+
+    <script src="js/computerAcc/computerAccController.js"></script>
+    <script src="js/computerAcc/computerAccService.js"></script>
     <!-- <script src="js/prode.js"></script> -->
 </body>
 </html>
