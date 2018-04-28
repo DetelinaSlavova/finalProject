@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../stylesheets/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheets/login.css"> 
+    <!-- <link rel="stylesheet" href="../stylesheets/login.css">  -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
@@ -18,7 +18,7 @@
 <body ng-controller='registerController'ng-app="app">
 <div >
     <div id="registration">
-        <div id="containerForTitel">
+        <div class="containerForTitel">
             <h3>Регистрация</h3>
         </div>
         
@@ -37,11 +37,11 @@
                                 <option value="miss"><sup>*</sup>Г-ца</option>
                         </select>
                         <fieldset>Емейл:<sup>*</sup></fieldset>
-                        <input  ng-model='newUser.email' class="col-sm-8" type="email" name="email" required='required' />
+                        <input  ng-model='newUser.email' ng-keypress="" required = "required" id="emailForRegister" class="col-sm-8" type="email" name="email" required='required' />
                         <p ng-show = "wrongEmail" class="{red: error">Грешен емейл</p>
                         <div class="password">
                             <fieldset>Парола:<sup>*</sup></fieldset>
-                            <input ng-model = "newUser.password" class="col-sm-8" type="password" name="password" required="required"/>
+                            <input ng-model = "newUser.password" ng-keypress="checkPassword($event)" class="col-sm-8" type="password" name="password" required="required"/>
                             <p>Минималната дължина трябва да е 8 знака</p>
                             <p ng-show = "wrongPassword" class="error">Паролата трябва да е с дължина 8 знака</p>
                         </div>
@@ -53,19 +53,19 @@
                 
                     <div class="col-sm-4">
                         <fieldset>Име:<sup>*</sup></fieldset>
-                        <input ng-model="newUser.firstname" required = "required" class="col-sm-8" type="text" name="fname">
+                        <input ng-model="newUser.firstname" required = "required" ng-keypress="checkFisrtName($event)"  class="col-sm-8" type="text" name="fname">
                         <p ng-show = "wrongFirstName" class="error">Невалидно име</p>
                         <fieldset>Фамилия:<sup>*</sup></fieldset>
-                        <input ng-model="newUser.lastname" required = "required" class="col-sm-8"type="text" name="lname">
-                        <p ng-show = "wronglastName" class="error">Невалидно фамилия</p>
+                        <input ng-model="newUser.lastname" required = "required" ng-keypress="checkLastName($event)" class="col-sm-8"type="text" name="lname">
+                        <p ng-show = "wrongLastName" class="error">Невалидно фамилия</p>
                         <fieldset>Потвърдете паролата:<sup>*</sup></fieldset>
-                        <input ng-model="newUser.repeatedpass" required = "required" class="col-sm-8 password" type="password" name="confirmPassword">
+                        <input ng-model="newUser.repeatedpass" ng-required = "true" ng-keypress="checkRepeatedPassword($event)" class="col-sm-8 password" type="password" name="confirmPassword">
                         <p ng-show = "wrongReapedPass" class="error">Няма съвпадение с въведената парола</p>
                     </div>
                 
                     <div class="col-sm-4">
                         <fieldset>Телефон:</fieldset>
-                        <input ng-model="newUser.phone" required = "required" class="col-sm-8" type="text" name="phone">
+                        <input ng-model="newUser.phone" required = "required" ng-keypress="checkedPhone($event)" class="col-sm-8" type="text" name="phone">
                         <p ng-show = "wrongPhoneNumber" class="error">Невалиден телефон</p>
                     </div>    
                 </div>
@@ -73,11 +73,11 @@
             
             <div class="row agreed">
                 <div class="col-sm-8 robot"> 
-                    <input  type="checkbox" name="agreed"><span>Приемам  </span><a href="">Общите условия</a>
+                    <input  type="checkbox" required="required" name="agreed"><span>Приемам  </span><a href="">Общите условия</a>
                 </br><a href="">Сигурност на информацията и защита на личните данни</a>
                 </div>
                 <div class="col-sm-4 robot"> 
-                    <button type="button" class="btn btn-secondary blue" ng-click="">ОТКАЗ</button>
+                    <button type="button" class="btn btn-secondary blue" ng-click="clearAllInput()">ОТКАЗ</button>
                     <button type="button" class="btn btn-secondary red" ng-click="userRegister($event)">ЗАПАЗВАНЕ</button>
                 </div>
             </div>  

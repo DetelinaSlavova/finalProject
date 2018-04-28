@@ -22,83 +22,83 @@ app.controller('registerController', function ($scope, registerService) {
    $scope.wrongPhoneNumber = false;
    $scope.registered = false;
 
+   const PASS_LENGHT = 8;
+   const MAX_LENGHT = 25;
+
    function isValidEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   };
   
   function isValidString(str) {
-    return (typeof str === 'string' && str.length > 0);
+    return (typeof str === 'string' && str.length > 0 && str.length <=MAX_LENGHT);
   };
-  const PASS_LENGHT = 8;
+  
   
   function isValidPassword(pass) {
-    return (isValidString && pass.length >= PASS_LENGHT)
+    return (isValidString && pass.length >= PASS_LENGHT && pass.length<=MAX_LENGHT)
   };
   
   function isValidPhoneNumber(phone) {
     var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     return re.test(String(phone));
   };
-    angular.element('#email').on('focus', function () {
-    $scope.wrongEmail = false;
-    });
-    angular.element('#password').on('focus', function () {
-        $scope.wrongPassword = false;
-    });
 
-    angular.element('#fname').on('focus', function () {
-        $scope.wrongFirstName = false;
-    });
-
-    angular.element('#lname').on('focus', function () {
-        $scope.wrongLastName = false;
-    });
-    angular.element('#confirmPassword').on('focus', function () {
-        $scope.wrongReapedPass = false;
-    });
-
-    angular.element('#phone').on('focus', function () {
-        $scope.wrongPhoneNumber = false;
-    });
+  $scope.clearAllInput = function (){
+      $scope.newUser.email = "";
+      $scope.newUser.password = "";
+      $scope.newUser.firstname = "";
+      $scope.newUser.lastname = "";
+      $scope.newUser.repeatedpass = "";
+      $scope.newUser.phone = "";
+  }
 
   
   $scope.userRegister = function ($event) {
     $event.preventDefault();
-    
-    console.log($event)
-    if (!isValidEmail){
+    if (!(isValidEmail($scope.newUser.email))){
         $scope.wrongEmail = true;
+        $scope.newUser.email = "";
+        return;
+    }
+   
+    if (!(isValidPassword($scope.newUser.password))){
+        $scope.wrongPassword = true;
+        $scope.newUser.password = '';
+        return;
+    } 
+
+    if (!(isValidString($scope.newUser.firstname))){
+        $scope.wrongFirstName = true;
+        $scope.newUser.firstname = "";
         return;
     }
 
-    if (!isValidPassword){
-        $scope.wrongPassword = true;
-        return;
-    }
-    if (!isValidPassword){
-        $scope.wrongPassword = true;
+    if (!(isValidString($scope.newUser.lastname))){
+        $scope.wrongLastName = true;
+        $scope.newUser.lastname="";
         return;
     }
 
-    if (!isValidPhoneNumber){
+    if (!($scope.newUser.password===$scope.newUser.repeatedpass)){
+        $scope.wrongReapedPass = true;
+        $scope.newUser.repeatedpass = "";
+        return;
+    } 
+    if (!(isValidPhoneNumber($scope.newUser.phone))){
         $scope.wrongPhoneNumber = true;
+        $scope.newUser.phone = "";
         return;
     }
- 
-  registerService.register($scope.newUser)
-  .then(function (data) {
-    
-      $scope.wrongReapedPass = false;
-      if (data == null) {
+    registerService.register($scope.newUser)
+    .then(function (data) {
+        location.replace('#');
         $scope.$apply(function () {
-          $scope.registered = true;
-        })
-      } else {
-          location.replace('/');
-      }
-  })
+            $scope.registered = true;
+            console.log($scope.reqistered)
+            })
+        
+    })
 }
 
-
-}) 
+})

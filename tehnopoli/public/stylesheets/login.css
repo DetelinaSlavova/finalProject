@@ -7,7 +7,7 @@ a, p, span, p > a {
 }
 
 
-#containerForTitel {
+.containerForTitel {
     padding: 5px 20px;
     border-bottom: 1px solid rgb(194, 193, 193, 0.6);
 }
