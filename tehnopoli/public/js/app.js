@@ -3,11 +3,11 @@ var app = angular.module("app",['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider
-        // .when('/login', {
+        .when('/login', {
         //     controller: 'loginController',
-        //     templateUrl: 'js/login/login.htm'
+              templateUrl: 'js/login/login.htm'
            
-        // })
+        })
         .when('/register', {
             controller: 'registerController',
             templateUrl: 'js/login/register.htm'
@@ -40,7 +40,7 @@ app.config(function ($routeProvider) {
         //                        //  примермо: app.controller('testCongtroller', function(..., $routeParams) { productService.getProduct($routeParams.id) })
         // })
         .otherwise({
-            templateUrl: 'js/products/product.htm',
-            controller: 'productController'
+        templateUrl: 'js/products/product.htm',
+        // controller: 'productController'
         });
 });

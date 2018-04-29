@@ -12,7 +12,7 @@ a, p, span, p > a {
     border-bottom: 1px solid rgb(194, 193, 193, 0.6);
 }
 
-#clientInfo {
+.clientInfo {
     padding: 20px;
     margin-bottom: 20px;
     background: rgb(248, 245, 245);
@@ -47,7 +47,7 @@ a, p, span, p > a {
 
 .blue {
     background-color: #004fa2;
-    padding: 5px 35px;
+    padding: 5px 30px;
 }
 .red {
     background-color: #dc1f26;
@@ -60,6 +60,9 @@ button, input, select {
 
 .agreed {
     padding-left: 20px;
+}
+.error {
+    color: red;
 }
 
 sup {

@@ -1,6 +1,44 @@
-p{
-    font-weight: bold;
+
+.mainWrapper{
+background:  rgba(255, 252, 252, 0.6);
+width: 95%;
+border: 1px solid salmon;
 }
-.main-divs{
-background-color: rgb(194, 193, 193, 0.6);
+
+#conteinerForProduct {
+    box-sizing: border-box;
+    width: 80%;
+    margin-left: 0px;
+    
+}
+
+.left {
+    padding-left: 50px;
+}
+.side {
+
+    height: 250px;
+    padding: 20px;
+    padding-bottom: 50px;
+    background: white;
+    border-bottom: 1px solid rgb(194, 194, 194);
+    
+}
+
+.right {
+    background:  rgba(197, 195, 195, 0.6);
+    text-align: center;
+    
+    
+}
+.first {
+    height: 80%;
+}
+
+hr {
+    font-size: 5px;
+}
+
+.buy {
+    padding: 5px;
 }

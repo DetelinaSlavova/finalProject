@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../../stylesheets/reset.css">
-    <link rel="stylesheet" href="../../stylesheets/category.css">
+    <link rel="stylesheet" href="../stylesheets/category.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -15,13 +15,50 @@
     
 </head>
 <body>
-        <div class="main-window">
-                <div ng-controller="TvVideoGamingController" class="row main-divs">
-                    <div class="col-4" id="Tv" ng-repeat="tv in tvs">
-                        <p>{{tv.name}}</p>
-                        <!-- <img ng-src="{{product.img}}" alt=""> -->
-                    </div>
+    <div ng-controller="TvVideoGamingController" class="mainWrapper">
+        <!-- <div  class= "main-divs"> -->
+        <div id="conteinerForProduct" class="row" ng-repeat="tv in tvs">
+                <div class="col-sm-3 side left" >
+                    
+                        <div class="first">
+                            <img ng-src="{{tv.img}}"width: "100px" height="100px"/>
+                        </div>
+                        <hr style="visibility: hidden">
+                        <div>
+                            <span>ЛЮБИМИ</span>
+                            <span>СРАВНИ</span>
+                        </div>
                 </div>
-        </div>
+                <div class="col-sm-5 side center">
+                    <div class="first"> 
+                        <p>{{tv.name}}</p>
+                        <p>КОД:{{tv.code}}</p>
+                        <ul ng-repeat="(description, inf) in info" >
+                            <li>{{description}}: {{inf}}<li>
+                        </ul>
+                       
+                    </div>
+                    
+                <hr>
+                <div>
+                        <span>*****</span>
+                        <span>РЕЙТИНГ</span>
+                </div>
+                </div>
+                <div  class="col-sm-3 side right">
+                    <p>ЦЕНА: {{tv.price}}</p>
+                    <hr>
+                    <div>
+                        <button type="button" class="btn btn-secondary btn-sm blue buy" ng-click="">КУПИ</button>
+                    </div>
+                    <div><button type="button" class="btn btn-secondary btn-sm red" ng-click="">ВИЖ ОЩЕ</button></div>
+                    
+                </div>  
+            
+        </div> 
+           
+    </div>
+
+    
 </body>
 </html>
