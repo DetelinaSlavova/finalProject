@@ -35,10 +35,24 @@
             <img id="logo-name" src="images/logo.png" alt="">
             <img src="images/robot.png" alt="">
         </div>
-        <div id="search-form">
+        <div id="search-form" ng-controller="allproductController">
             <form action="">
-                <input type="text"  placeholder="ТЪРСИ В САЙТА НА ТЕХНОПОЛИС ">
-                <img src="images/search-icon.png" width="20px" alt="">
+                <!-- <input type="text" ng-model="globalSearch.$"  placeholder="ТЪРСИ В САЙТА НА ТЕХНОПОЛИС "> -->
+                <!-- <div> -->
+                    <!-- <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
+                        <li class="list-group-item" ng-repeat="product in allProducts | filter:globalSearch">
+                            {{product.name}}
+                        </li>
+                    </ul> -->
+                <!-- </div> -->
+                <!-- <img src="images/search-icon.png" width="20px" alt=""> -->
+                <!-- <div id="searchBoxes">
+                    <input type="text" ng-model="globalSearch.$">
+                </div> -->
+                <input type="text" name="product" id="product" ng-model="product" ng-keyup="complete(product)" class="form-control"/>
+                    <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
+                        <li class="list-group-item" ng-repeat="productdata in filterProduct" ng-click="fillTextbox(productdata)">{{productdata}}</li>
+                    </ul>
             </form>
         </div>
         <div id="profile-favorites">
@@ -252,6 +266,9 @@
 
     <script src="js/computerAcc/computerAccController.js"></script>
     <script src="js/computerAcc/computerAccService.js"></script>
+
+    <script src="js/allproducts/allproductController.js"></script>
+    <script src="js/allproducts/allproductService.js"></script>
     <!-- <script src="js/prode.js"></script> -->
 </body>
 </html>
