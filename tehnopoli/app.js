@@ -20,6 +20,7 @@ var computersRouter = require('./routes/computers');
 var photosCamerasRouter = require('./routes/photosCameras');
 var TvVideoGamingRouter = require('./routes/TvVideoGaming');
 var autoGpsRouter = require('./routes/autoGps');
+var allProductsRouter = require('./routes/allproduct');
 // tva beshe
 
 var app = express();
@@ -55,6 +56,7 @@ app.use('/computers',computersRouter);
 app.use('/photosCameras',photosCamerasRouter);
 app.use('/TvVideoGaming',TvVideoGamingRouter);
 app.use('/autoGps',autoGpsRouter);
+app.use('/allproduct',allProductsRouter);
 // krai middleware
 
 // app.use('/login', loginRouter);
