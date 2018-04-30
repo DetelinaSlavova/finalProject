@@ -17,11 +17,11 @@
 <body>
     <div ng-controller="TvVideoGamingController" class="mainWrapper">
         <!-- <div  class= "main-divs"> -->
-        <div id="conteinerForProduct" class="row" ng-repeat="tv in tvs">
+        <div id="conteinerForProduct" class="row" ng-repeat="product in products">
                 <div class="col-sm-3 side left" >
                     
                         <div class="first">
-                            <img ng-src="{{tv.img}}"width: "100px" height="100px"/>
+                            <img ng-src="{{product.img}}"width: "100px" height="100px"/>
                         </div>
                         <hr style="visibility: hidden">
                         <div>
@@ -31,10 +31,10 @@
                 </div>
                 <div class="col-sm-5 side center">
                     <div class="first"> 
-                        <p>{{tv.name}}</p>
-                        <p>КОД:{{tv.code}}</p>
-                        <ul ng-repeat="(description, inf) in info" >
-                            <li>{{description}}: {{inf}}<li>
+                        <p>{{product.name}}</p>
+                        <p>КОД:{{product.code}}</p>
+                        <ul  >
+                            <li> {{product.info}}</li>
                         </ul>
                        
                     </div>
@@ -46,7 +46,7 @@
                 </div>
                 </div>
                 <div  class="col-sm-3 side right">
-                    <p>ЦЕНА: {{tv.price}}</p>
+                    <p>ЦЕНА: {{product.price}}</p>
                     <hr>
                     <div>
                         <button type="button" class="btn btn-secondary btn-sm blue buy" ng-click="">КУПИ</button>
