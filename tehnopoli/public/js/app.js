@@ -3,11 +3,11 @@ var app = angular.module("app",['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider
-        // .when('/login', {
-        //     controller: 'loginController',
-        //     templateUrl: 'js/login/login.htm'
+        .when('/login', {
+           controller: 'loginController',
+           templateUrl: 'js/login/login.htm'
            
-        // })
+         })
         .when('/register', {
             controller: 'registerController',
             templateUrl: 'js/login/register.htm'

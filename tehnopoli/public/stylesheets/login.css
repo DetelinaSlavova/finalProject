@@ -1,8 +1,9 @@
-#registration {
+.registration {
     width: 80%;
+   
 }
 
-a, p, span, p > a {
+a, p, span, p > a, li, fieldset {
     font-size: 0.8em;
 }
 
@@ -68,4 +69,22 @@ button, input, select {
 sup {
     font-size:smaller;
     color:#dc1f26;
+}
+
+.side {
+    border-right: 1px solid rgba(185, 184, 184, 0.8);
+}
+
+.side:last-child {
+    border-right: none;
+}
+
+#regInfo {
+    list-style-type: disc;
+    list-style: red;
+
+}
+
+#regTitle {
+    background: white;
 }
