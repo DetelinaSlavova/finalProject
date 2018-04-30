@@ -51,5 +51,20 @@ function validateEmail(email) {
         });
       }
     });
+    router.get('/', function (req, res) {
+      var db = req.db;
+      var usersCollection = req.db.get('users');
+      var idToSearch = req.params.id;
+  
+      usersCollection.find({}, {}, function(err, result){
+          if(err){
+              res.status(500);
+              res.json({err})
+          }else{
+              res.status(200);
+              res.json(result);
+          }
+      });
+    })
 
     module.exports = router;

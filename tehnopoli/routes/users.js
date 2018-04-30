@@ -22,34 +22,35 @@ function isValidPhoneNumber(phone) {
 }
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  var usersCollection = req.db.get('users');
-    usersCollection.find({}, {}, function (err, docs) {
-        if (err) {
+
+router.get('/', function (req, res) {
+    var db = req.db;
+    var usersCollection = req.db.get('users');
+    var idToSearch = req.params.id;
+
+    usersCollection.find({}, {}, function(err, result){
+        if(err){
             res.status(500);
-            res.json(err);
-        } else {
+            res.json({err})
+        }else{
             res.status(200);
-            res.json(docs);
+            res.json(result);
         }
     });
-});
+// 
 
-router.get('/:id', function (req, res, next) {
-  var usersCollection = req.db.get('users');
-  var idToSearch = req.params.id;
-
-  usersCollection.find({ _id: idToSearch}, {}, function (err, docs) {
-      if (err) {
-          res.status(500);
-          res.json(err);
-      } else {
-          var user = docs[0];
-          delete user.password;
-          res.status(200);
-          res.json(docs);
-      }
-  });
+//   usersCollection.find({ _id: idToSearch}, {}, function (err, docs) {
+//       if (err) {
+//           res.status(500);
+//           res.json(err);
+//       } else {
+//           var user = docs[0];
+//           delete user.password;
+//           res.status(200);
+//           res.json(docs);
+//           console.log(docs)
+//       }
+//   });
 });
 
 module.exports = router;

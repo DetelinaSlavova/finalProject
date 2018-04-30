@@ -1,0 +1,22 @@
+<div>
+    <input type="text" ng-model="product.name">
+    <input type="text" ng-model="product.code">
+    <input type="text" ng-model="product.price">
+    <input type="text" ng-model="product.code">
+    <input type="checkbox" ng-model="product.isPromotion">
+    <input type="checkbox" ng-model="product.isInBasket">
+    <input type="checkbox" ng-model="product.isSold">
+    <input type="text" ng-model="product.quantity">
+    <input type="text" ng-model="product.rate">
+    <input type="checkbox" ng-model="product.isFavorite">
+    <input type="text" ng-model="product.type">
+    <input type="text" ng-model="product.img">
+    <ul>
+        <li ng-repeat="(key, value) in product.info[0] track by $index">
+            <input type="text" value="{{key}}" ng-keyup="changeKey(key,$event.target.value)"/>
+            <input type="text" ng-model="product.info[0][key]">
+        </li>
+    </ul>
+    <button ng-click="addSpecification()">ДОБАВИ ХАРАКТЕРИСТИКА</button>
+    <button ng-click="save()">ЗАПАЗИ</button>
+</div>

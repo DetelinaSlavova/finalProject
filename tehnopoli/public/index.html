@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="stylesheets/stylePractice.css">
     <link rel="stylesheet" href="stylesheets/reset.css">
+    <link rel = "stylesheet" href="stylesheets/login.css"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
     <title>ТЕХНОПОЛИС</title>
 </head>
-<body id="body" ng-app="appAng">
+<body id="body" ng-app="app">
     <nav id="top-nav">
         <ul>
             <li><a href="">ПРОМОЦИИ</a></li>
@@ -33,10 +35,24 @@
             <img id="logo-name" src="images/logo.png" alt="">
             <img src="images/robot.png" alt="">
         </div>
-        <div id="search-form">
+        <div id="search-form" ng-controller="allproductController">
             <form action="">
-                <input type="text"  placeholder="ТЪРСИ В САЙТА НА ТЕХНОПОЛИС ">
-                <img src="images/search-icon.png" width="20px" alt="">
+                <!-- <input type="text" ng-model="globalSearch.$"  placeholder="ТЪРСИ В САЙТА НА ТЕХНОПОЛИС "> -->
+                <!-- <div> -->
+                    <!-- <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
+                        <li class="list-group-item" ng-repeat="product in allProducts | filter:globalSearch">
+                            {{product.name}}
+                        </li>
+                    </ul> -->
+                <!-- </div> -->
+                <!-- <img src="images/search-icon.png" width="20px" alt=""> -->
+                <!-- <div id="searchBoxes">
+                    <input type="text" ng-model="globalSearch.$">
+                </div> -->
+                <input type="text" name="product" id="product" ng-model="product" ng-keyup="complete(product)" class="form-control"/>
+                    <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
+                        <li class="list-group-item" ng-repeat="productdata in filterProduct" ng-click="fillTextbox(productdata)">{{productdata.name}}</li>
+                    </ul>
             </form>
         </div>
         <div id="profile-favorites">
@@ -44,7 +60,7 @@
                 <ul>
                     <li><a href="">ВХОД</a></li>
                     <li>/</li>
-                    <li><a href="">МОЯТ ПРОФИЛ</a></li>
+                    <li><a href="#!/register">МОЯТ ПРОФИЛ</a></li>
                     <li><a href=""><img width="32px" src="images/favorite.png" alt=""></a></li>
                     <li><a href=""><img width="32px" src="images/byingbasket.png" alt=""></a></li>
                 </ul>
@@ -58,12 +74,10 @@
                     <br><br>
                     <div id="TV" class="dropdown-content">
                             <ul>
-                                <li><a href="">ТЕЛЕВИЗОРИ</a></li>
-                                <li><a href="">SOUNDBAR СИСТЕМИ</a></li>
-                                <li><a href="">ДОМАШНИ КИНА</a></li>
-                                <li><a href="">BLU-RAY И DVD ПЛЕЪРИ</a></li>
-                                <li><a href="">МУЛТИМЕДИЙНИ ПЛЕЪРИ</a></li>
-                                <li><a href="">МУЛТИМЕДИЙНИ ПРОЕКТОРИ И ЕКРАНИ</a></li>
+                                <li><a href="#!/TvVideoGaming/tv">ТЕЛЕВИЗОРИ</a></li>
+                                <li><a href="#!/TvVideoGaming/radioPlayer">РАДИО ПЛЕЪРИ</a></li>
+                                <li><a href="#!/TvVideoGaming/homeCinema">ДОМАШНИ КИНА</a></li>
+                                <li><a href="#!/TvVideoGaming/games">ИГРИ</a></li>
                             </ul>
                     </div>
                 </li>
@@ -72,11 +86,10 @@
                     <br><br>
                     <div id="Phones" class="dropdown-content">
                             <ul>
-                                <li><a href="">МОБИЛНИ ТЕЛЕФОНИ</a></li>
-                                <li><a href="">ТАБЛЕТИ</a></li>
-                                <li><a href="">СМАРТ ЧАСОВНИЦИ</a></li>
-                                <li><a href="">ФИТНЕС ГРИВНИ</a></li>
-                                <li><a href="">ВИРТУАЛНА РЕАЛНОСТ</a></li>
+                                <li><a href="#!/TvVideoGaming/phone">МОБИЛНИ ТЕЛЕФОНИ</a></li>
+                                <li><a href="#!/TvVideoGaming/tablets">ТАБЛЕТИ</a></li>
+                                <li><a href="#!/TvVideoGaming/smartWatch">СМАРТ ЧАСОВНИЦИ</a></li>
+                                <li><a href="#!/TvVideoGaming/bluetoothColums">BLUETOОTH КОЛОНКИ</a></li>                           
                             </ul>
                     </div>
                 </li>
@@ -85,11 +98,10 @@
                         <br><br>
                         <div id="Cameras" class="dropdown-content">
                                 <ul>
-                                    <li><a href="">D-SLR ФОТОАПАРАТИ И ОБЕКТИВИ</a></li>
-                                    <li><a href="">ФОТОАПАРАТИ</a></li>
-                                    <li><a href="">ВИДЕОКАМЕРИ</a></li>
-                                    <li><a href="">ФОТО ПРИНТЕРИ</a></li>
-                                    <li><a href="">БИНОКЛИ</a></li>
+                                    <li><a href="#!/TvVideoGaming/camera">ФОТОАПАРАТИ</a></li>
+                                    <li><a href="#!/TvVideoGaming/videoCamera">ВИДЕОКАМЕРИ</a></li>
+                                    <li><a href="#!/TvVideoGaming/memoryCard">КАРТИ ПАМЕТ</a></li>
+                                    <li><a href="#!/TvVideoGaming/binoculars">БИНОКЛИ</a></li>
                                 </ul>
                         </div>
                 </li>
@@ -98,12 +110,10 @@
                     <br><br><br>
                     <div id="GPS" class="dropdown-content">
                             <ul>
-                                <li><a href="">GPS НАВИГАЦИИ</a></li>
-                                <li><a href="">GPS АКСЕСОАРИ</a></li>
-                                <li><a href="">CD/DVD РЕСИИВЪРИ</a></li>
-                                <li><a href="">TV И МОНИТОРИ ЗА КОЛИ</a></li>
-                                <li><a href="">ГОВОРИТЕЛИ</a></li>
-                                <li><a href="">УСИЛВАТЕЛИ</a></li>
+                                <li><a href="#!/TvVideoGaming/autoNavigation">GPS НАВИГАЦИИ</a></li>
+                                <li><a href="#!/TvVideoGaming/autoRegistrators">АВТОРЕГИСТРАТОРИ</a></li>
+                                <li><a href="#!/TvVideoGaming/detectors">РАДАРНИ ДЕТЕКТОРИ</a></li>
+                                <li><a href="#!/TvVideoGaming/speakers">ГОВОРИТЕЛИ</a></li>
                             </ul>
                     </div>
                 </li>
@@ -112,12 +122,10 @@
                     <br><br>
                     <div id="Computers" class="dropdown-content">
                             <ul>
-                                <li><a href="">ЛАПТОПИ</a></li>
-                                <li><a href="">НАСТОЛНИ КОМПЮТРИ</a></li>
-                                <li><a href="">ПРИНТЕРИ И СКЕНЕРИ</a></li>
-                                <li><a href="">МОНИТОРИ</a></li>
-                                <li><a href="">ЕЛЕКТРОННИ КНИГИ И АКСЕСОАРИ</a></li>
-                                <li><a href="">КОНЗОЛИ</a></li>
+                                <li><a href="#!/TvVideoGaming/laptop">ЛАПТОПИ</a></li>
+                                <li><a href="#!/TvVideoGaming/virtualReality">ВИРТУАЛНА РЕАЛНОСТ</a></li>
+                                <li><a href="#!/TvVideoGaming/printer">ПРИНТЕРИ И СКЕНЕРИ</a></li>
+                                <li><a href="#!/TvVideoGaming/monitor">МОНИТОРИ</a></li>
                             </ul>
                     </div>
                 </li>
@@ -206,42 +214,10 @@
             </ul>
         </div>
         
-        <div id="main-window">
-            <div ng-controller="reklamiCtrl" id="reklami">
-                <img ng-src="{{reklama.photo}}"  alt="">
-            </div>
-            <div id="reklami-counter"></div>
-        </div>
-        <div id="promo-div">
-            <div>
-                <h3>Промоции</h3>
-                <select name="" id="">
-                    <option value="">Изберете</option>
-                    <option value="">Всички</option>
-                    <option value="">Домакински Електроуреди</option>
-                    <option value="">Малки Електроуреди</option>
-                    <option value="">Климатици и отоплители</option>
-                    <option value="">Спорт и свободно време</option>
-                    <option value="">Компютри и периферия</option>
-                </select>
-                <p>Категория:</p>
-            </div>
-            <div id="promo-images">
-                <ul>
-                    <li><img src="images/reklami/reklama1.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img src="images/reklami/reklama2.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img src="images/reklami/reklama3.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img src="images/reklami/reklama4.jpg" width="20%" height="200px"  alt=""></li>
-                    <li><img src="images/reklami/reklama5.jpg" width="20%" height="200px"  alt=""></li>
-                </ul>
-            </div>
-        </div>
+        <main ng-view></main>
     </div>
-    <main>
-        <div ng-controller="prode">
-            <img ng-src="{{name.photo}}" alt="">
-        </div>
-    </main>
+    <!-- <div ng-include="js/PhonesTablets/phonesTablets.htm"></div> -->
+    
     <!-- <div>
         <table>
             <th>ТЕХНОПОЛИС</th>
@@ -252,9 +228,44 @@
             <th>ПАЗАРУВАЙТЕ С</th>
         </table>
     </div> -->
-    <script src="../public/js/appAng.js"></script>
-    <script src="../public/js/reklamiCtrl.js"></script>
+    <script src="js/app.js"></script>
+   
+    
+    <script src="js/products/productController.js"></script>
+    <script src="js/products/productService.js"></script>
 
-    <script src="../public/js/prode.js"></script>
+    <script src="js/reklamiCtrl.js"></script>
+    <script src="js/reklamiService.js"></script>
+
+    <script src = "js/login/registerController.js"></script>
+    <script src = "js/login/registerService.js"></script> 
+
+    <script src="js/PhonesTablets/phonesTabletsController.js"></script>
+    <script src="js/PhonesTablets/phonesTabletsService.js"></script>
+
+    <script src="js/Computers/computersController.js"></script>
+    <script src="js/Computers/computerService.js"></script>
+
+    <script src="js/PhotosCameras/photosCamerasController.js"></script>
+    <script src="js/PhotosCameras/photosCamerasService.js"></script>
+
+    <script src="js/TvVideoGaming/TvVideoGamingController.js"></script>
+    <script src="js/TvVideoGaming/TvVideoGamingService.js"></script>
+
+    <script src="js/AutoGPS/autoGpsController.js"></script>
+    <script src="js/AutoGPS/autoGpsService.js"></script>
+
+    <script src="js/computerAcc/computerAccController.js"></script>
+    <script src="js/computerAcc/computerAccService.js"></script>
+
+    <script src="js/allproducts/allproductController.js"></script>
+    <script src="js/allproducts/allproductService.js"></script>
+
+    <script src="js/singleProduct/singleProductController.js"></script>
+    <script src="js/singleProduct/singleProductService.js"></script>
+
+    <script src="js/admin/adminController.js"></script>
+    <script src="js/admin/adminService.js"></script>
+    <!-- <script src="js/prode.js"></script> -->
 </body>
 </html>

@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 router.get('/', function(req, res){
     var db = req.db;
-    var collection = req.db.get('TvVideoGaming');
-   
+    var collection = req.db.get('allProducts');
+
     collection.find({}, {}, function(err, result){
         if(err){
             res.status(500);
@@ -14,20 +14,19 @@ router.get('/', function(req, res){
         }
     });
 });
-
-router.get('/:id', function(req, res){
+router.get('/search/:name', function(req, res){
     var db = req.db;
     var collection = req.db.get('allProducts');
 
-    collection.find({_id:req.params.id}, {}, function(err, result){
+    collection.find({name:new RegExp(req.params.name , 'i')}, {limit: 10}, function(err, result){
         if(err){
             res.status(500);
             res.json({err})
         }else{
             res.status(200);
-            res.json(result[0]);
+            res.json(result);
         }
     });
 });
 
-module.exports = router;
+module.exports = router;    
