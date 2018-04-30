@@ -35,7 +35,7 @@ function validateEmail(email) {
 
   router.post('/', function(res, req, next){
     res.setHeader('content-type', 'aplication/json');
-    var userCollection = req.db.get('users');
+    var userCollection = req.db.get('user');
     var logedUser = req.body;
 
     if(!(isValidPassword(newUser.email)) && !(isValidPassword(newUser.password)) 

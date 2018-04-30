@@ -62,7 +62,7 @@
     height: 50px;
     font-size: 1em;
     padding: 0 15px;
-    background-image:url(../assets/images/search-icon2.ico); 
+    background-image:url(../images/search-icon2.ico); 
     background-repeat: no-repeat; 
     background-position: 97% 50%;
 }
@@ -308,3 +308,9 @@
   }
 
 /* search items */
+/* Main-div */
+
+/* #products{
+    position: relative;
+    top: 750px;
+} */
