@@ -57,16 +57,58 @@ app.controller('productController', function ($scope, $timeout, productService) 
         productP.isPromotion = !productP.isPromotion;
     }
 
-    $scope.toggleSold = function(product){
+    $scope.toggleSold = function (product) {
         var productP = $scope.products.find(p => product == p);
         productP.isSold = !productP.isSold;
     }
 
-    $scope.toggleBasket = function(product){
+    $scope.toggleBasket = function (product) {
         var productP = $scope.products.find(p => product == p);
         productP.isInBasket = !productP.isInBasket;
         $scope.basket.push($scope.productP);
     }
 
+
+    function ascendingPrice() {
+        $scope.products.sort(function (p1, p1) {
+            return p1.price - p1.price;
+        });
+    }
+
+    function descendingPrice() {
+        $scope.products.sort(function (p1, p2) {
+            return p2.price - p1.price;
+        });
+    }
+
+    function ascendingName() {
+        $scope.products.sort(function (p1, p1) {
+            var name1 = p1.name.toLowerCase();
+            var name2 = p2.name.toLowerCase();
+
+            if (name1 < name2) {
+                return -1;
+            }
+            if (name1 > name2) {
+                return 1;
+            }
+            return 0;
+        });
+    }
+
+    function descendingName() {
+        $scope.products.sort(function (p1, p1) {
+            var name1 = p1.name.toLowerCase();
+            var name2 = p2.name.toLowerCase();
+
+            if (name1 < name2) {
+                return 1;
+            }
+            if (name1 > name2) {
+                return -1;
+            }
+            return 0;
+        });
+    }
 
 });
