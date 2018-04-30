@@ -1,5 +1,5 @@
 app.service('productService', function ($http) {
-    this.getAllProducts = () => $http.get('http://localhost:3000/allProducts');
+    this.getAllProducts = () => $http.get('http://localhost:3000/allProduct');
 
     /*this.getAllProducts = function () {
         return new Promise(function (resolve, reject) {
@@ -12,11 +12,11 @@ app.service('productService', function ($http) {
     }*/
     
     this.getProductById = function(id){
-        return $http.get('http://localhost:3000/allProducts' + id);
+        return $http.get('http://localhost:3000/allProduct' + id);
     }
 
     this.getProductByCategory = function(category){
-        return $http.get('http://localhost:3000/allProducts' + category);
+        return $http.get('http://localhost:3000/allProduct' + category);
     }
 
 });

@@ -6,7 +6,7 @@ app.controller('allproductController',function ($scope, allproductService) {
         angular.forEach($scope.allProducts,function(p){
             $scope.names.push(p.name);
         });
-        console.log($scope.names);
+        //console.log($scope.names);
         $scope.complete = function(string){
             var output = [];
             angular.forEach($scope.names, function(product){
