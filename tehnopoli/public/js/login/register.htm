@@ -6,6 +6,7 @@
     <div class="registration">
         <div class="containerForTitel">
             <h3>Регистрация</h3>
+            <p ng-show ="isError" class="{red: error}" >{{error}}</p>
         </div>
         
         
@@ -24,34 +25,34 @@
                         </select>
                         <fieldset>Емейл:<sup>*</sup></fieldset>
                         <input  ng-model='newUser.email' ng-keypress="" required = "required" id="emailForRegister" class="col-sm-8" type="email" name="email" required='required' />
-                        <p ng-show = "wrongEmail" class="{red: error">Грешен емейл</p>
+                        <p ng-show = "wrongEmail" class="error">Грешен емейл</p>
                         <div class="password">
                             <fieldset>Парола:<sup>*</sup></fieldset>
-                            <input ng-model = "newUser.password" ng-keypress="checkPassword($event)" class="col-sm-8" type="password" name="password" required="required"/>
+                            <input ng-model = "newUser.password" ng-keypress="checkPassword($event)" class="col-sm-8" type="password" name="password" required="required" id="password"/>
                             <p>Минималната дължина трябва да е 8 знака</p>
                             <p ng-show = "wrongPassword" class="error">Паролата трябва да е с дължина 8 знака</p>
                         </div>
                         <div class="col-sm-10" id="robot">
-                            <input  type="checkbox" name="notRobot"> <span>Не съм робот</span> 
+                            <input  type="checkbox" checked="checked" name="notRobot"> <span>Не съм робот</span> 
                         </div>
-                        
+
                     </div>
                 
                     <div class="col-sm-4">
                         <fieldset>Име:<sup>*</sup></fieldset>
-                        <input ng-model="newUser.firstname" required = "required" ng-keypress="checkFisrtName($event)"  class="col-sm-8" type="text" name="fname">
+                        <input ng-model="newUser.firstname" required = "required" ng-keypress="checkFisrtName($event)"  class="col-sm-8" type="text" name="fname" id="firstname">
                         <p ng-show = "wrongFirstName" class="error">Невалидно име</p>
                         <fieldset>Фамилия:<sup>*</sup></fieldset>
-                        <input ng-model="newUser.lastname" required = "required" ng-keypress="checkLastName($event)" class="col-sm-8"type="text" name="lname">
+                        <input ng-model="newUser.lastname" required = "required" ng-keypress="checkLastName($event)" class="col-sm-8"type="text" name="lname" id="lasttname">
                         <p ng-show = "wrongLastName" class="error">Невалидно фамилия</p>
                         <fieldset>Потвърдете паролата:<sup>*</sup></fieldset>
-                        <input ng-model="newUser.repeatedpass" ng-required = "true" ng-keypress="checkRepeatedPassword($event)" class="col-sm-8 password" type="password" name="confirmPassword">
+                        <input ng-model="newUser.repeatedpass" ng-required = "true" ng-keypress="checkRepeatedPassword($event)" class="col-sm-8 password" type="password" name="confirmPassword" id="confirmPassword">
                         <p ng-show = "wrongReapedPass" class="error">Няма съвпадение с въведената парола</p>
                     </div>
                 
                     <div class="col-sm-4">
                         <fieldset>Телефон:</fieldset>
-                        <input ng-model="newUser.phone" required = "required" ng-keypress="checkedPhone($event)" class="col-sm-8" type="text" name="phone">
+                        <input ng-model="newUser.phone" required = "required" ng-keypress="checkedPhone($event)" class="col-sm-8" type="text" name="phone" id="phone">
                         <p ng-show = "wrongPhoneNumber" class="error">Невалиден телефон</p>
                     </div>    
                 </div>
@@ -63,13 +64,13 @@
                 </br><a href="">Сигурност на информацията и защита на личните данни</a>
                 </div>
                 <div class="col-sm-4 robot"> 
-                    <button type="button" class="btn btn-secondary blue" ng-click="clearAllInput()">ОТКАЗ</button>
+                    <button ng-click="changeLocation('/')"type="button" class="btn btn-secondary blue" >ОТКАЗ</button>
                     <button type="button" class="btn btn-secondary red" ng-click="userRegister($event)">ЗАПАЗВАНЕ</button>
                 </div>
             </div>  
         </div>
     </div> 
-</div>  
+</form>  
 </body>
 
 

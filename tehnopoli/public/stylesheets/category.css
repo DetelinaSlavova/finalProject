@@ -1,4 +1,9 @@
-
+p{
+    font-weight: bold;
+}
+.main-divs{
+    background-color: rgb(194, 193, 193, 0.6);
+}
 .mainWrapper{
 background:  rgba(255, 252, 252, 0.6);
 width: 95%;

@@ -21,6 +21,7 @@ var photosCamerasRouter = require('./routes/photosCameras');
 var TvVideoGamingRouter = require('./routes/TvVideoGaming');
 var autoGpsRouter = require('./routes/autoGps');
 var allProductsRouter = require('./routes/allproduct');
+var adminRouter = require('./routes/admin');
 // tva beshe
 
 var app = express();
@@ -57,6 +58,8 @@ app.use('/photosCameras',photosCamerasRouter);
 app.use('/TvVideoGaming',TvVideoGamingRouter);
 app.use('/autoGps',autoGpsRouter);
 app.use('/allproduct',allProductsRouter);
+app.use('/admin',adminRouter);
+
 // krai middleware
 
 // app.use('/login', loginRouter);

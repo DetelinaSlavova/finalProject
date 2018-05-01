@@ -13,25 +13,41 @@ app.config(function ($routeProvider) {
             templateUrl: 'js/login/register.htm'
            
          })
-        .when('/phonesTablet',{
-            templateUrl: 'js/PhonesTablets/phonesTablets.htm',
-            controller: 'phonesTabletsController'
+        .when('/phonesTablet/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
-        .when('/computers',{
-            templateUrl : 'js/Computers/computers.htm',
-            controller: 'computersController'
+        .when('/computers/:type',{
+            templateUrl : 'js/getProduct/products.htm',
+            controller: 'productController'
         })
-        .when('/photosCameras',{
-            templateUrl: 'js/PhotosCameras/photosCameras.htm',
-            controller: 'photosCamerasController'
+        .when('/photosCameras/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
         .when('/TvVideoGaming',{
-            templateUrl: 'js/TvVideoGaming/TvVideoGaming.htm',
-            controller: 'TvVideoGamingController'
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
-        .when('/autoGps',{
-            templateUrl: 'js/AutoGPS/autoGps.htm',
-            controller: 'autoGpsController'
+        .when('/autoGps/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
+        })
+        .when('/TvVideoGaming/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
+        })
+        .when('/product/:id',{
+            templateUrl : 'js/singleProduct/singleProduct.htm',
+            controller : 'singleProductController'
+        })
+        .when('/admin/edit/:id',{
+            templateUrl : 'js/admin/admin.htm',
+            controller : 'adminController'
+        })
+        .when('/admin/create',{
+            templateUrl : 'js/admin/admin.htm',
+            controller : 'adminController'
         })
         // .when('/product/:id', { // примерен url за преглеждане на един продукт, който се взема по неговото id от mongo
         //     templateUrl: '....',
