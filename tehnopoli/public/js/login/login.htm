@@ -1,45 +1,58 @@
+
+
 <body ng-controller="loginController" ng-app = "app">
 <div>
-    <div class="loginForm">
+    <div class="registration">
         <div ng-app="app">
+                <div class="containerForTitel">
+                       <!-- <div id="regTitle"> <h3>ВХОД/РЕГИСТРАЦИЯ</h3> </div> 
+                        -->
+                    </div>
             <div class="row">
-                <div class="clientInfo">
-                    <div class="col-sm-4">
-                            <h3>ВХОД:</h3>
+                
+              
+                    <div class="col-sm-4 side">
+                            <h4>ВХОД:</h4>
+                            <hr>
+                            
                             <p>Аз вече съм ваш клиент:</p>
+                            
                             <fieldset>Електронна поща:<sup>*</sup></fieldset>
                         <input  ng-model='user.email' ng-keypress="" required = "required" id="emailForRegister" class="col-sm-8" type="email" name="email" required='required' />
                         <p ng-show = "wrongEmail" class="{red: error">Грешен емейл</p>
                         <div class="password">
                             <fieldset>Парола:<sup>*</sup></fieldset>
-                            <input ng-model = "user.password" ng-keypress="" class="col-sm-8" type="password" name="password" required="required"/>
+                            <input ng-model = "user.password" ng-keypress="" class="col-sm-8" type="password" name="password" required="required" id="password"/>
                             <p ng-show = "wrongPassword" class="error">Грешна парола</p>
                         </div>
                         <button type="button" class="btn btn-secondary blue" ng-click="clearAllInput()">ВХОД</button>
                     </div>
-                </div>
+                
              
 
-                <div class="col-sm-4"> 
-                    <h3>РЕГИСТРАЦИЯ:</h3>
+                <div class="col-sm-4 side"> 
+                    
+                    <h4 >РЕГИСТРАЦИЯ:</h4>
+                    <hr>
                 </hr>
                     <p>Аз съм нов клиент:
                             Ако сте нов клиент, моля регистрирайте се, за да можете да правите поръчки на наши продукти.
                              С посочването на E-mail адрес и парола ще създадете свой личен потребителски акаунт, който освен възможността за пазаруване ще Ви осигури достъп и до допълнителни функционалности като:
                     </p>     
-                    <ul>
+                    <ul id="regInfo" > 
                         <li>Архив поръчки</li>
                         <li>Персонализация</li>
                         <li>Преглед на изпратени поръчки и проследяване на поръчка</li>
                         <li>Запазване на кошници с покупки</li>
                     </ul>
                    
-                    <button type="button" class="btn btn-secondary blue" ng-click="clearAllInput()">РЕГИСТРИРАЙ СЕ</button>
+                    <button type="button" class="btn btn-secondary blue" ng-click = "changeLocation('/register')" >РЕГИСТРИРАЙ СЕ</button>
 
 
                 </div>
-                <div class="col-sm-4">
-                    <h3>Вход с Facebook</h3>
+                <div class="col-sm-4 side">
+                    <h4>Вход с Facebook</h4>
+                    <hr>
                     <p>Регистрирай се чрез Facebook профила си</p>
                     <button type="button" class="btn btn-secondary blue" ng-click="clearAllInput()">Влез с facebook</button>
 

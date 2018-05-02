@@ -13,7 +13,7 @@ router.post('/product', function(req, res){
             }
         });
     } else {
-        collection.insert(req.data,function(err,data){
+        collection.insert(req.body,function(err,data){
             res.json(data);
         });
     }

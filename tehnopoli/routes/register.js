@@ -35,20 +35,21 @@ function isValidPhoneNumber(phone) {
           res.json({massages:"invalid data"});
       } else {
         userCollection.find({email:newUser.email}, {}, function(err, docs){
-          if (err){
-            res.status(500);
-            res.json({err:err});
-          } else {
+            if (err){
+              res.status(500);
+              res.json({err: err});
+            } else {
               if(docs.length === 0) {
                 newUser.password = sha1(newUser.password);
+                newUser.repeatedpass = sha1(newUser.repeatedpass);
                 userCollection.insert(newUser, function(err, docs){
-                  if(!err) throw err;
-                  res.status(200);
-                  res.redirect('/')
+                  if(err) throw err;
+                  res.json({statusText: "Wrong username or password"});
+                  
                 });
               } else {
-                res.status(500);
-                res.json({err: err})
+                res.status(413);
+                res.json({statusText: "Има регистриран потребител с такъв емейл"})
               }
             }
         });

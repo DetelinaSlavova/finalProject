@@ -3,39 +3,39 @@ var app = angular.module("app",['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider
-        // .when('/login', {
-        //     controller: 'loginController',
-        //     templateUrl: 'js/login/login.htm'
+        .when('/login', {
+           controller: 'loginController',
+           templateUrl: 'js/login/login.htm'
            
-        // })
+         })
         .when('/register', {
             controller: 'registerController',
             templateUrl: 'js/login/register.htm'
            
          })
-        .when('/phonesTablet',{
-            templateUrl: 'js/PhonesTablets/phonesTablets.htm',
-            controller: 'phonesTabletsController'
+        .when('/phonesTablet/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
-        .when('/computers',{
-            templateUrl : 'js/Computers/computers.htm',
-            controller: 'computersController'
+        .when('/computers/:type',{
+            templateUrl : 'js/getProduct/products.htm',
+            controller: 'productController'
         })
-        .when('/photosCameras',{
-            templateUrl: 'js/PhotosCameras/photosCameras.htm',
-            controller: 'photosCamerasController'
+        .when('/photosCameras/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
         .when('/TvVideoGaming',{
-            templateUrl: 'js/TvVideoGaming/TvVideoGaming.htm',
-            controller: 'TvVideoGamingController'
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
-        .when('/autoGps',{
-            templateUrl: 'js/AutoGPS/autoGps.htm',
-            controller: 'autoGpsController'
+        .when('/autoGps/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
         .when('/TvVideoGaming/:type',{
-            templateUrl: 'js/TvVideoGaming/TvVideoGaming.htm',
-            controller: 'TvVideoGamingController'
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
         .when('/product/:id',{
             templateUrl : 'js/singleProduct/singleProduct.htm',

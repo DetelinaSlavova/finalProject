@@ -21,10 +21,10 @@ app.controller('productController', function ($scope, $timeout, productService) 
 
     productService.getAllProducts().then(function (products) { // зареждаме всички продукти и ги слагаме в $scope променлива, която е достъпна в htm файла
         //$scope.products = products.data;
-        // $timeout(function () {
-        $scope.$apply(function () {
-            $scope.products = products;
-        });
+        // // $timeout(function () {
+        // $scope.$apply(function () {
+        //     $scope.products = products;
+        // });
         // }, 0);
     });
 

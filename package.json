@@ -4,7 +4,7 @@
   "description": "A sample Node.js app using Express 4",
   "engines": {
     "node": "8.9.1"
-  },  
+  },
   "main": "./tehnopoli/bin/www",
   "scripts": {
     "start": "node ./tehnopoli/bin/www"
