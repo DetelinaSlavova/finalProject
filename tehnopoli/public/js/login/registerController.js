@@ -1,11 +1,6 @@
 
 
 app.controller('registerController', function ($scope, registerService) {
-<<<<<<< HEAD
-    registerService.getAllUsers().then(function (users) { // зареждаме всички продукти и ги слагаме в $scope променлива, която е достъпна в htm файла
-        $scope.users = users.data;
-    });
-=======
    $scope.newUser = {
     firstname: "",
     lastname: "",
@@ -106,5 +101,4 @@ app.controller('registerController', function ($scope, registerService) {
     })
 }
 
->>>>>>> 2648130203e816902a2e5bc2b9baa68cf6de7da3
 })
