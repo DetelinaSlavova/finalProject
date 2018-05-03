@@ -21,6 +21,8 @@ app.controller('adminController',function ($scope, $http, $routeParams, $locatio
         $scope.product.info[0][newKey] = $scope.product.info[0][oldKey];
         delete $scope.product.info[0][oldKey];
     }
-
+    $scope.changeLocation = function (path){
+        $location.path(path);
+    };
    
 });
