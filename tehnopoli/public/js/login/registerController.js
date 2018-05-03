@@ -11,7 +11,8 @@ app.controller('registerController', function ($scope, registerService, $locatio
      cart: [],
      favorite: [],
      orders: [],
-     isAdmin: false
+     isAdmin: false,
+     isLoged: false,
     }
  
     $scope.wrongEmail = false;
@@ -27,9 +28,9 @@ app.controller('registerController', function ($scope, registerService, $locatio
     const MAX_LENGHT = 25;
  
     function isValidEmail(email) {
-     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-     return re.test(String(email).toLowerCase());
-   };
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    };
    
    function isValidString(str) {
      return (typeof str === 'string' && str.length > 0 && str.length <=MAX_LENGHT);
@@ -44,16 +45,6 @@ app.controller('registerController', function ($scope, registerService, $locatio
      var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
      return re.test(String(phone));
    };
- 
-//    $scope.clearAllInput = function (){
-//        $scope.newUser.email = "";
-//        $scope.newUser.password = "";
-//        $scope.newUser.firstname = "";
-//        $scope.newUser.lastname = "";
-//        $scope.newUser.repeatedpass = "";
-//        $scope.newUser.phone = "";
-       
-//    }
 
     $scope.changeLocation = function (path){
         $location.path(path);
@@ -89,10 +80,6 @@ app.controller('registerController', function ($scope, registerService, $locatio
     $scope.wrongPhoneNumber = false;
    });
 
-   angular.element("#cancelRegForm").on("click", function(){
-    $location.path("/");
-   });
-   
   
 
    $scope.userRegister = function ($event, path) {
@@ -134,6 +121,7 @@ app.controller('registerController', function ($scope, registerService, $locatio
 
 
      registerService.register($scope.newUser)
+    //  console.log($scope.newUser)
         .then(function (data) {
             $location.path('/login')
         })

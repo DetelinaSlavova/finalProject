@@ -13,26 +13,31 @@
               
                     <div class="col-sm-4 side">
                             <h4>ВХОД:</h4>
+                            <p ng-show="isLoged" href="#!/login">{{logedUser.email}}</p> 
+                          
                             <hr>
                             
                             <p>Аз вече съм ваш клиент:</p>
                             
                             <fieldset>Електронна поща:<sup>*</sup></fieldset>
-                        <input  ng-model='user.email' ng-keypress="" required = "required" id="emailForRegister" class="col-sm-8" type="email" name="email" required='required' />
+                        <input  ng-model='logedUser.email' ng-keypress="" required = "required" id="loginEmail" class="col-sm-8" type="email" name="email" id="loginEmail" />
                         <p ng-show = "wrongEmail" class="{red: error">Грешен емейл</p>
                         <div class="password">
                             <fieldset>Парола:<sup>*</sup></fieldset>
-                            <input ng-model = "user.password" ng-keypress="" class="col-sm-8" type="password" name="password" required="required" id="password"/>
+                            <input ng-model = "logedUser.password"  class="col-sm-8" type="password" name="password" required="required" id="loginPassword"/>
                             <p ng-show = "wrongPassword" class="error">Грешна парола</p>
+                            <p ng-show = "isError" class="error">Грешна парола</p>
                         </div>
-                        <button type="button" class="btn btn-secondary blue" ng-click="clearAllInput()">ВХОД</button>
+                        <button type="button" class="btn btn-secondary blue" ng-click="userLogin($event)">ВХОД</button>
                     </div>
+                    
                 
              
 
                 <div class="col-sm-4 side"> 
                     
                     <h4 >РЕГИСТРАЦИЯ:</h4>
+                   <p ng-show="isLoged" href="#!/login">{{logedUser.email}}</p> 
                     <hr>
                 </hr>
                     <p>Аз съм нов клиент:

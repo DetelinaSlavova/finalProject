@@ -1,3 +1,9 @@
 app.service('loginService', function ($http) {
-    this.login = (user) => $http.get('http://localhost:3000/login');
+    this.login = function (user) {
+
+        return $http.post(window.location.origin + '/login', user);
+
+    
+    }
+
 });
