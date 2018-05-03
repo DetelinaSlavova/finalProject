@@ -49,14 +49,9 @@ app.config(function ($routeProvider) {
             templateUrl : 'js/admin/admin.htm',
             controller : 'adminController'
         })
-        // .when('/product/:id', { // примерен url за преглеждане на един продукт, който се взема по неговото id от mongo
-        //     templateUrl: '....',
-        //     controller: '....' // контролера трябва да е добавен в index.html. 
-        //                        // в контролера стойността на id-то се достъпва като се добави променива $routeParams във функцията на контролера.
-        //                        //  примермо: app.controller('testCongtroller', function(..., $routeParams) { productService.getProduct($routeParams.id) })
-        // })
+       
         .otherwise({
             templateUrl: 'js/products/product.htm',
-            controller: 'productController'
+            // controller: 'productController'
         });
 });
