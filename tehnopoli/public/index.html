@@ -19,7 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
     <title>ТЕХНОПОЛИС</title>
 </head>
-<body id="body" ng-app="app">
+<body id="body" ng-controller="registerController" ng-app="app">
     <nav id="top-nav">
         <ul>
             <li><a href="">ПРОМОЦИИ</a></li>
@@ -35,7 +35,7 @@
     </nav>
     <div id="wrapper">
         <div id="logo">
-            <img id="logo-name" src="images/logo.png" alt="">
+            <img id="logo-name" src="images/logo.png" alt="" ng-click="changeLocation('/')">
             <img src="images/robot.png" alt="">
         </div>
         <div id="search-form" ng-controller="allproductController">
@@ -60,9 +60,12 @@
         </div>
         <div id="profile-favorites">
                
-            <nav id="user-nav">
-                <ul>
-                    <li><a href="#!/login">ВХОД</a></li>
+            <nav  id="user-nav">
+                <ul ng-controller="loginController" ng-app="app"> 
+                   
+                    <li><a ng-show="!isLoged" href="#!/login">ВХОД</a></li>
+                    <li><a ng-show="isLoged" href="#!/login">ИЗХОД</a></li>
+                
                     <li>/</li>
                     <li><a href="#!/register">МОЯТ ПРОФИЛ</a></li>
                     <li><a href=""><img width="32px" src="images/favorite.png" alt=""></a></li>
@@ -276,6 +279,7 @@
     <script src="js/allproducts/allproductController.js"></script>
     <script src="js/allproducts/allproductService.js"></script>
 
+    <link rel="stylesheet" href="stylesheets/singleProduct.css">
     <script src="js/singleProduct/singleProductController.js"></script>
     <script src="js/singleProduct/singleProductService.js"></script>
 
