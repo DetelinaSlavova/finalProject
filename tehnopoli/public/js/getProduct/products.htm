@@ -37,8 +37,6 @@
                         <img src="images/star.png" width="12px" alt="">
                         <img src="images/star.png" width="12px" alt="">
                     </span>
-                   
-                   
                 </div>
                 <br>
             </div>
@@ -46,7 +44,7 @@
                 <p>ЦЕНА: {{product.price}} лв.</p>
                 <hr>
                 <div class="text-center">
-                    <button type="button" class="btn btn-secondary  blue buy" ng-click="">КУПИ</button>
+                        <button type="button" class="btn btn-secondary btn-sm blue buy" ng-click="AddToCart(product)">КУПИ</button>
                 </div>
                 <div class="text-center"><button type="button" class="btn btn-secondary btn-sm red" ng-click="">ВИЖ ОЩЕ</button></div>
                 <div class="text-center"ng-controller="adminController"><button type="button" class="btn btn-secondary btn-sm red" ng-click="removeProduct(product)">ПРЕМАХНИ</button></div>
