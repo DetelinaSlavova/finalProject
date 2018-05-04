@@ -15,11 +15,14 @@ var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var productRouter = require('./routes/product');
 // novo dobaveni ROUTove
-
+var phonesTabletRouter = require('./routes/phonesTablet');
+var computersRouter = require('./routes/computers');
+var photosCamerasRouter = require('./routes/photosCameras');
 var TvVideoGamingRouter = require('./routes/TvVideoGaming');
-
+var autoGpsRouter = require('./routes/autoGps');
 var allProductsRouter = require('./routes/allproduct');
 var adminRouter = require('./routes/admin');
+// var cartRouter = require('./routes/cart');
 // tva beshe
 
 var app = express();
@@ -37,38 +40,27 @@ app.use(express.static(path.join(__dirname, 'public')));
     secret: '1234',
     resavu: true,
     saveUninitialized: true,
-    cookie: {maxAge: 1000000}
+    cookie: {maxAge: 6000000}
   }));
 app.use(function(req, res, next){
   req.db = db;
   next();
 });
 
-function checkLogin (req, res, next){
-  if((req.session) && (req.session.logedUser)) {
-    next();
-
-  } else 
-    res.json({status: "not autorized"})
-}
-
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/product', productRouter);
 app.use('/login', loginRouter);
-app.use('/logout', checkLogin, function (req, res, next) {
-  req.session.destroy();
-  res.redirect('/login.html');
-});
 // novi middleware
-
-
+app.use('/phonesTablet',phonesTabletRouter);
+app.use('/computers',computersRouter);
+app.use('/photosCameras',photosCamerasRouter);
 app.use('/TvVideoGaming',TvVideoGamingRouter);
-
+app.use('/autoGps',autoGpsRouter);
 app.use('/allproduct',allProductsRouter);
 app.use('/admin',adminRouter);
+// app.use('/cart', cartRouter);
 
 // krai middleware
 
