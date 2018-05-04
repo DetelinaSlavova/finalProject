@@ -352,9 +352,15 @@ main {
 
 ul>li {
     padding: 0px 5px;
-    text-align: center;
-    font-weight: bold
+    
 }
+#conteinerForProduct {
+  border-bottom: 1px solid rgb(4, 4, 46, 0.2);
+}
+
+#conteinerForProduct p, div{
+   padding: 20px;
+  }
 
 @-webkit-keyframes zoom {
     from {
