@@ -1,0 +1,11 @@
+<div ng-controller="cartController">
+   <div ng-repeat="product in productForBuy">
+       <p>{{product.name | currency}}</p>
+       <p>{{product.price | currency}}</p>
+       <img width="150px" ng-src="{{product.img}}" alt="">
+       <button ng-click="RemoveFromCart(product); refreshTotalPrice()">Премахни от количката</button>
+   </div>
+   <div>
+       <p>Вашата сметка е : {{totalPrice | currency}}</p>
+   </div>
+</div>
