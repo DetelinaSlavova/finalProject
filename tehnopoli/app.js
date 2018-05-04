@@ -15,11 +15,8 @@ var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var productRouter = require('./routes/product');
 // novo dobaveni ROUTove
-var phonesTabletRouter = require('./routes/phonesTablet');
-var computersRouter = require('./routes/computers');
-var photosCamerasRouter = require('./routes/photosCameras');
-var TvVideoGamingRouter = require('./routes/TvVideoGaming');
-var autoGpsRouter = require('./routes/autoGps');
+
+var mainRouter = require('./routes/main');
 var allProductsRouter = require('./routes/allproduct');
 var adminRouter = require('./routes/admin');
 // var cartRouter = require('./routes/cart');
@@ -40,18 +37,13 @@ app.use(express.static(path.join(__dirname, 'public')));
     secret: '1234',
     resavu: true,
     saveUninitialized: true,
-<<<<<<< HEAD
     cookie: {maxAge: 1000}
-=======
-    cookie: {maxAge: 6000000}
->>>>>>> b7125c8a974c6c9e05d9da0b99ec6425747992df
   }));
 app.use(function(req, res, next){
   req.db = db;
   next();
 });
 
-<<<<<<< HEAD
 function checkLogin (req, res, next){
   if((req.session) && (req.session.logedUser)) {
     console.log(req.session)
@@ -62,19 +54,14 @@ function checkLogin (req, res, next){
 }
 
 
-=======
->>>>>>> b7125c8a974c6c9e05d9da0b99ec6425747992df
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/product', productRouter);
 app.use('/login', loginRouter);
 // novi middleware
-app.use('/phonesTablet',phonesTabletRouter);
-app.use('/computers',computersRouter);
-app.use('/photosCameras',photosCamerasRouter);
-app.use('/TvVideoGaming',TvVideoGamingRouter);
-app.use('/autoGps',autoGpsRouter);
+
+app.use('/TvVideoGaming',mainRouter);
 app.use('/allproduct',allProductsRouter);
 app.use('/admin',adminRouter);
 // app.use('/cart', cartRouter);

@@ -3,39 +3,39 @@ var app = angular.module("app",['ngRoute'],);
 
 app.config(function ($routeProvider) {
     $routeProvider
-        // .when('/login', {
-        //     controller: 'loginController',
-        //     templateUrl: 'js/login/login.htm'
+        .when('/login', {
+            controller: 'loginController',
+            templateUrl: 'js/login/login.htm'
            
-        // })
+        })
         .when('/register', {
             controller: 'registerController',
             templateUrl: 'js/login/register.htm'
            
          })
-        .when('/phonesTablet',{
-            templateUrl: 'js/PhonesTablets/phonesTablets.htm',
-            controller: 'phonesTabletsController'
+        .when('/phonesTablet/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
-        .when('/computers',{
-            templateUrl : 'js/Computers/computers.htm',
-            controller: 'computersController'
+        .when('/computers/:type',{
+            templateUrl : 'js/getProduct/products.htm',
+            controller: 'productController'
         })
-        .when('/photosCameras',{
-            templateUrl: 'js/PhotosCameras/photosCameras.htm',
-            controller: 'photosCamerasController'
+        .when('/photosCameras/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
+        })
+        .when('/autoGps/:type',{
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
         .when('/TvVideoGaming',{
-            templateUrl: 'js/TvVideoGaming/TvVideoGaming.htm',
-            controller: 'TvVideoGamingController'
-        })
-        .when('/autoGps',{
-            templateUrl: 'js/AutoGPS/autoGps.htm',
-            controller: 'autoGpsController'
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
         .when('/TvVideoGaming/:type',{
-            templateUrl: 'js/TvVideoGaming/TvVideoGaming.htm',
-            controller: 'TvVideoGamingController'
+            templateUrl: 'js/getProduct/products.htm',
+            controller: 'productController'
         })
         .when('/product/:id',{
             templateUrl : 'js/singleProduct/singleProduct.htm',
@@ -53,14 +53,9 @@ app.config(function ($routeProvider) {
             templateUrl: 'js/cart/cart.htm',
             controller : 'cartController'
         })
-        // .when('/product/:id', { // примерен url за преглеждане на един продукт, който се взема по неговото id от mongo
-        //     templateUrl: '....',
-        //     controller: '....' // контролера трябва да е добавен в index.html. 
-        //                        // в контролера стойността на id-то се достъпва като се добави променива $routeParams във функцията на контролера.
-        //                        //  примермо: app.controller('testCongtroller', function(..., $routeParams) { productService.getProduct($routeParams.id) })
-        // })
+        
         .otherwise({
             templateUrl: 'js/main/homePage.htm',
-            // controller: 'productController'
+            controller: 'productController'
         });
 });
