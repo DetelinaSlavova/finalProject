@@ -374,8 +374,8 @@ ul>li {
     }
   }
   
-  .carousel-inner .item > img {
-    -webkit-animation: zoom 20s;
-    animation: zoom 20s;
-  }
+  /* .carousel-inner .carousel-item > img {
+    -webkit-animation: zoom 5s;
+    animation: zoom 5s;
+  } */
 

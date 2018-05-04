@@ -2,29 +2,22 @@
     width: 80%;
    
 }
-
-
-
-
 .containerForTitel {
     padding: 5px 20px;
     border-bottom: 1px solid rgb(194, 193, 193, 0.6);
 }
-
 .clientInfo {
     padding: 20px;
     margin-bottom: 20px;
     background: rgb(248, 245, 245);
     border-bottom: 1px solid rgb(194, 193, 193, 0.6);
 }
-
 #clientInfo input, select {
     opacity: 0.9;
     height: 30px;
     background-color: white;
     font-size: 0.8em;
-    border: 1px solid rgb(194, 193, 193, 0.6)   ;
-   
+    border: 1px solid rgb(194, 193, 193, 0.6)   ;   
 }
 #clientInfo fieldset {
     margin-top: 20px;

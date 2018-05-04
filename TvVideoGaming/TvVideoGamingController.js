@@ -1,5 +1,5 @@
-app.controller('productController', function ($scope, $routeParams,  productService) {
-    productService.getTvs($routeParams.type ? $routeParams.type : '').then(function(tvs){
+app.controller('TvVideoGamingController', function ($scope, $routeParams, TvVideoGamingService) {
+    TvVideoGamingService.getTvs($routeParams.type ? $routeParams.type : '').then(function(tvs){
         $scope.products = tvs.data;
     });
 
@@ -33,6 +33,5 @@ app.controller('productController', function ($scope, $routeParams,  productServ
     //     });
     // };
     // $scope.refreshTotalPrice();
-
 
 })

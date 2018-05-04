@@ -1,10 +1,10 @@
-<div ng-controller="productController" class="mainWrapper">
+    <div ng-controller="TvVideoGamingController" class="mainWrapper">
         <!-- <div  class= "main-divs"> -->
         <div id="conteinerForProduct" class="row" ng-repeat="product in products">
                 <div class="col-sm-3 side left" >
                         <div class="first">
                             <a href="#!/product/{{product._id}}">
-                            <img ng-src="{{product.img}}"width: "150px" height="150px"/>
+                            <img ng-src="{{product.img}}"width: "100px" height="100px"/>
                             </a>
                         </div>
                         <hr style="visibility: hidden">
@@ -17,7 +17,7 @@
                             </span>
                         </div>
                 </div>
-                <div class="col-sm-4 side center">
+                <div class="col-sm-5 side center">
                     <div class="first"> 
                         <p>{{product.name}}</p>
                         <p>КОД:{{product.code}}</p>
@@ -42,12 +42,17 @@
             <div class="col-sm-3 side right">
                 <p>ЦЕНА: {{product.price}} лв.</p>
                 <hr>
-                <div class="text-center">
-                    <button type="button" class="btn btn-secondary  blue buy" ng-click="">КУПИ</button>
+                <div>
+                    <button type="button" class="btn btn-secondary btn-sm blue buy" ng-click="AddToCart(product)">КУПИ</button>
                 </div>
-                <div><button type="button" class="btn btn-secondary btn-sm red" ng-click="">ВИЖ ОЩЕ</button></div>
-                <div ng-controller="adminController"><button type="button" class="btn btn-secondary btn-sm red" ng-click="removeProduct(product)">ПРЕМАХНИ</button></div>
-                <div><button type="button" class="btn btn-secondary btn-sm red" ng-click=""><a href="#!/admin/edit/{{product._id}}">РЕДАКТИРАЙ</a></button></div>   
-        </div>        
+                    <div><button type="button" class="btn btn-secondary btn-sm red" ng-click="">ВИЖ ОЩЕ</button></div>
+                    <div ng-controller="adminController"><button type="button" class="btn btn-secondary btn-sm red" ng-click="removeProduct(product)">ПРЕМАХНИ</button></div>
+                    <div><button type="button" class="btn btn-secondary btn-sm red" ng-click=""><a href="#!/admin/edit/{{product._id}}">РЕДАКТИРАЙ</a></button></div>
+        </div> 
+           
     </div>
 
+
+</body>
+
+</html>

@@ -51,7 +51,7 @@ app.config(function ($routeProvider) {
         })
        
         .otherwise({
-            templateUrl: 'js/products/product.htm',
+            templateUrl: 'js/main/homePage.htm',
             // controller: 'productController'
         });
 });
