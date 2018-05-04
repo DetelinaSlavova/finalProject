@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
     secret: '1234',
     resavu: true,
     saveUninitialized: true,
-    cookie: {maxAge: 1000000}
+    cookie: {maxAge: 1000}
   }));
 app.use(function(req, res, next){
   req.db = db;
@@ -46,6 +46,7 @@ app.use(function(req, res, next){
 
 function checkLogin (req, res, next){
   if((req.session) && (req.session.logedUser)) {
+    console.log(req.session)
     next();
 
   } else 

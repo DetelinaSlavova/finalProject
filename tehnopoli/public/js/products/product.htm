@@ -1,47 +1,85 @@
-<div id="main-window">
-    <div ng-controller="reklamiCtrl" id="reklami">
-        <img ng-src="{{reklama.photo}}" alt="">
-    </div>
-    <div id="reklami-counter"></div>
-</div>
-<div id="promo-div">
-    <div>
-        <h3>Промоции</h3>
-        <select name="" id="">
-            <option value="">Изберете</option>
-            <option value="">Всички</option>
-            <option value="">Домакински Електроуреди</option>
-            <option value="">Малки Електроуреди</option>
-            <option value="">Климатици и отоплители</option>
-            <option value="">Спорт и свободно време</option>
-            <option value="">Компютри и периферия</option>
-        </select>
-        <p>Категория:</p>
-    </div>
-    <div id="promo-images">
-        <ul>
-            <li>
-                <img src="images/reklami/reklama1.jpg" width="20%" height="200px" alt="">
-            </li>
-            <li>
-                <img src="images/reklami/reklama2.jpg" width="20%" height="200px" alt="">
-            </li>
-            <li>
-                <img src="images/reklami/reklama3.jpg" width="20%" height="200px" alt="">
-            </li>
-            <li>
-                <img src="images/reklami/reklama4.jpg" width="20%" height="200px" alt="">
-            </li>
-            <li>
-                <img src="images/reklami/reklama5.jpg" width="20%" height="200px" alt="">
-            </li>
-        </ul>
-    </div>
-</div>
 
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100 img-responsive" src="images/reklami/reklama1.jpg"  width="100%"alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>My Caption Title (1st Image)</h5>
+                    <p>The whole caption will only show up if the screen is at least medium size.</p>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <img class="d-block w-100 img-responsive" src="images/reklami/reklama2.jpg" width="100%"  alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                    <img class="d-block w-100 img-responsive" src="images/reklami/reklama3.jpg" width="100%"  alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                    <img class="d-block w-100 img-responsive" src="images/reklami/reklama4.jpg" width="100%"  alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                    <img class="d-block w-100 img-responsive" src="images/reklami/reklama5.jpg" width="100%"  alt="Third slide">
+            </div>
+        </div>
+        
+    </div>
 
-
-<div ng-repeat="product in products">
-    <h1>{{product.name}}</h1>
-    <img ng-src="{{product.img}}" alt="">
-</div>
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>Промоции</h3>
+        </div>
+        <div class="col-sm-4 left-side"> 
+           
+            <span>Категория:</span>
+            <span>
+            <select name="" id="">
+                <option value="">Изберете</option>
+                <option value="">Всички</option>
+                <option value="">Домакински Електроуреди</option>
+                <option value="">Малки Електроуреди</option>
+                <option value="">Климатици и отоплители</option>
+                <option value="">Спорт и свободно време</option>
+                <option value="">Компютри и периферия</option>
+            </select>
+            </span>
+        </div>
+       
+        
+           
+            
+        </div>
+        <div id="promo-images">
+            <ul>
+                <li>
+                    <img class="d-block w-20 img-responsive" src="images/reklami/reklama1.jpg" width="20%" height="200px" alt="">
+                </li>
+                <li>
+                    <img class="d-block w-20 img-responsive"src="images/reklami/reklama2.jpg" width="20%" height="200px" alt="">
+                </li>
+                <li>
+                    <img class="d-block w-20 img-responsive"src="images/reklami/reklama3.jpg" width="20%" height="200px" alt="">
+                </li>
+                <li>
+                    <img class="d-block w-20 img-responsive" src="images/reklami/reklama4.jpg" width="20%" height="200px" alt="">
+                </li>
+                <li>
+                    <img class="d-block w-20 img-responsive"src="images/reklami/reklama5.jpg" width="20%" height="200px" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    
+    <div ng-repeat="product in products">
+        <h1>{{product.name}}</h1>
+        <img ng-src="{{product.img}}" alt="">
+    </div>

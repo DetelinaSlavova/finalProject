@@ -3,9 +3,7 @@
    
 }
 
-a, p, span, p > a, li, fieldset {
-    font-size: 0.8em;
-}
+
 
 
 .containerForTitel {
@@ -48,11 +46,15 @@ a, p, span, p > a, li, fieldset {
 
 .blue {
     background-color: #004fa2;
-    padding: 5px 30px;
+    color: white;
+    width: 120px;
+    
 }
 .red {
     background-color: #df070e;
-    padding: 5px 15px;
+    color: white;
+    width: 120px;
+    
 }
 
 button, input, select {

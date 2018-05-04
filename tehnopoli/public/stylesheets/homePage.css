@@ -2,8 +2,8 @@
     box-sizing: border-box;
 } */
 
-#body{
-    width: 100%;
+body{
+    width: 80%;
     height: 100%;
     min-width: 240px;
     cursor: default;
@@ -44,7 +44,7 @@
 /* Main Wrapper */
 
 #wrapper{
-    width: 100%;
+    width: 90%;
     margin: 3%;
 }
 
@@ -88,7 +88,7 @@
 #user-nav > ul{
     list-style-type: none;
     text-align: center;
-    padding: 18px 10px;
+    padding: 10px 10px;
     text-decoration: none;
 }
 #user-nav > ul > li{
@@ -106,18 +106,18 @@
 /* MAIN NAV */
 #main-nav{
     position: relative;
-    left: -40px;
+   
     text-align: center;
 }
 #main-nav > ul{
     list-style-type: none;
-    padding: 18px 10px;
+    padding: 10px 10px;
     text-decoration: none;
 }   
 #main-nav > ul > li{
     display: inline-block;
     position: relative;
-    width: 7.5%;
+    /* width: 7.5%; */
     height: 45px;
     font-weight: bold;
     font-family: sans-serif;
@@ -154,11 +154,31 @@
     height: 350px;
 }
 
+@-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(1, 1);
+    }
+    to {
+      -webkit-transform: scale(1.5, 1.5);
+    }
+  }
+  
+  @keyframes zoom {
+    from {
+      transform: scale(1, 1);
+    }
+    to {
+      transform: scale(1.5, 1.5);
+    }
+  }
+  
+  .carousel-inner .item > img {
+    -webkit-animation: zoom 20s;
+    animation: zoom 20s;
+  }
+
+  
 /* footer */
 
-footer > table > th{
-    
-}
 
-/* Detelina changes */
 

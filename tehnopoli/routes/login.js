@@ -29,9 +29,6 @@ function isValidPhoneNumber(phone) {
     res.setHeader('content-type', 'aplication/json');
     var userCollection = req.db.get('user');
     var logedUser = req.body;
-    // console.log(logedUser)
-    
-
     if(!(isValidPassword(logedUser.email)) || !(isValidPassword(logedUser.password))) {
         res.status(412);
         res.json({massages:"invalid data"});
@@ -44,10 +41,14 @@ function isValidPhoneNumber(phone) {
             }
             if(docs.length>0) {
                 res.status(200);
-                tmpUser = docs[0]
+                tmpUser = docs[0] 
+                tmpUserId= docs[0]._id
+               
+                userCollection.update({_id:tmpUserId},{ $set:{
+                  "isLoged":true,
+                }})
                 req.session.tmpUser = tmpUser;
-                tmpUser.isLoged = true;
-                console.log(tmpUser)
+                console.log(req.session.tmpUser)
                 delete tmpUser.password;
                 delete tmpUser.repeatedpass;
                 

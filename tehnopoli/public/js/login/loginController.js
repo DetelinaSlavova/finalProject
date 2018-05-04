@@ -2,9 +2,7 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
     //login
     $scope.wrongPassword = false;
     $scope.wrongEmail = false;
-    $scope.noUser = false;
-    $scope.loggedUserMail = "";
-   
+    $scope.hideLogin = false;
 
     $scope.logedUser = {
         email: '',
@@ -16,6 +14,8 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
 
     const PASS_LENGHT = 8;
     const MAX_LENGHT = 25;
+
+   
  
     function isValidEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -48,10 +48,10 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
         
     });
 
-    $scope.userLogin = function ($event, path) {
+    $scope.userLogin = function ($event) {
         $event.preventDefault();
-        
-
+       
+    
         if (!isValidEmail($scope.logedUser.email)) {
             $scope.wrongEmail = true;
             return;
@@ -60,24 +60,22 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
             $scope.wrongPassword = true;
             return;
         }
-
+       
         loginService.login($scope.logedUser)
             .then(function (response) {
-                $scope.isLoged = false;
                 if (response.status >= 200 && response.status <= 399) {
                     $rootScope.logedUser = response.data;
-                    alert ("Вие влязохте успешно" + response.data)
-                    console.log(response.data)
-                    $scope.loggedUserMail = response.data.isLogged
-
+                    alert ("Вие влязохте успешно" + response.data.email)
                     $location.path('/');
+                   
                   }
                 })
                   .catch(function (err) {
                     alert("Грешно име или парола");
-                  });
+                });
             
+                
               } 
-              
-              
+             
+      
 })

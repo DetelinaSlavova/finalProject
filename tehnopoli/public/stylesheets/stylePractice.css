@@ -40,8 +40,8 @@
 /* Main Wrapper */
 
 #wrapper{
-    width: 100%;
-    margin: 3%;
+    width: 85%;
+    margin: 5%;
 }
 
 /* Logo */
@@ -222,10 +222,6 @@
 }
 
 
-
-
-
-
 #main-nav > ul > li:hover{
     background-color: white;
     color: steelblue;
@@ -334,18 +330,19 @@ main {
 .navbar {
     width: 100%;
     background: rgb(46, 46, 216);
+    border-radius: 0px;
     
 }
 
 .navbar-nav> li{
+    
     float:none; 
     width: 9%;
-    padding-left: 5px;
-    padding-right: 5px;
+    
     font-size: 0.7em; 
     text-align: center;
     border-right: 1px solid rgb(4, 4, 46, 0.2);
-    color: white;
+    color: rgb(241, 226, 226);
 
     
 }
@@ -353,6 +350,32 @@ main {
     border-right: none;
 } 
 
+ul>li {
+    padding: 0px 5px;
+    text-align: center;
+    font-weight: bold
+}
 
-
+@-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(1, 1);
+    }
+    to {
+      -webkit-transform: scale(1.5, 1.5);
+    }
+  }
+  
+  @keyframes zoom {
+    from {
+      transform: scale(1, 1);
+    }
+    to {
+      transform: scale(1.5, 1.5);
+    }
+  }
+  
+  .carousel-inner .item > img {
+    -webkit-animation: zoom 20s;
+    animation: zoom 20s;
+  }
 
