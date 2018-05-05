@@ -9,7 +9,7 @@ var db = monk('mongodb://svetla:tehnopolis@ds147469.mlab.com:47469/tehnopolis');
 var session = require('express-session');
 var sha1 = require("sha1");
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
     secret: '1234',
     resavu: true,
     saveUninitialized: true,
-    cookie: {maxAge: 1000}
+    cookie: {maxAge: 6000000}
   }));
 app.use(function(req, res, next){
   req.db = db;
@@ -46,13 +46,10 @@ app.use(function(req, res, next){
 
 function checkLogin (req, res, next){
   if((req.session) && (req.session.logedUser)) {
-    console.log(req.session)
     next();
-
   } else 
     res.json({status: "not autorized"})
 }
-
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

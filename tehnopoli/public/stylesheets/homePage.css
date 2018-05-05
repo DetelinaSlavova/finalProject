@@ -1,184 +1,65 @@
-/* * {
-    box-sizing: border-box;
-} */
-
-body{
-    width: 80%;
-    height: 100%;
-    min-width: 240px;
-    cursor: default;
-    position: relative;
-    overflow-x: hidden;
-    background-color: #e6e6e6;
-}
-
-/* TOP NAV */
-
-#top-nav{
-    width: 110%;
-    height: 43px;
-    top: 0;
-    left: 0;
-    background-color: white;
-    margin-left: -20px;
-    padding-right: 105px;
-    font-size: 0.8em;
-}
-#top-nav > ul{
-    list-style-type: none;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-#top-nav > ul > li{
-    float: left;
-    padding-left: 10px;
-}
-#top-nav > ul > li > a{
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Main Wrapper */
-
-#wrapper{
-    width: 90%;
-    margin: 3%;
-}
-
-/* Logo */
-
-#logo{
-    float: left;
-}
-#logo-name{
-    margin-bottom: 20px;
-}
-#search-form > form > input{
-    float: left;
-    position: relative;
-    left: 36px;
-    z-index: 12;
-    background-color: white;
-    width: 38%;
-    height: 50px;
-    font-size: 1em;
-    padding: 0 15px;
-    background-image:url(../images/search-icon2.ico); 
-    background-repeat: no-repeat; 
-    background-position: 97% 50%;
-}
-
-/* profile-favorites section */
-
-#profile-favorites{
-    float: right;
-    width: 272px;
-    height: 52px;
-    position: relative;
-    top: -22px;
-    right: 100px;
-    background-color: white;
-}
-#user-nav{
-    font-size: 0.8em;
-}
-#user-nav > ul{
-    list-style-type: none;
-    text-align: center;
-    padding: 10px 10px;
-    text-decoration: none;
-}
-#user-nav > ul > li{
-    float: left;
-    padding-left: 5px;
-}
-#user-nav > ul > li > a{
-    color: black;
-    text-align: center;
-    color: steelblue;
-    /* padding: 14px 16px; */
-    text-decoration: none;
-}
-
-/* MAIN NAV */
-#main-nav{
-    position: relative;
-   
-    text-align: center;
-}
-#main-nav > ul{
-    list-style-type: none;
-    padding: 10px 10px;
-    text-decoration: none;
-}   
-#main-nav > ul > li{
-    display: inline-block;
-    position: relative;
-    /* width: 7.5%; */
-    height: 45px;
-    font-weight: bold;
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 0.8em;
-    line-height: 15px;
-    vertical-align: top;
-    background-color: steelblue;
-    border: 0.5px solid black;
-}
-#main-nav > ul > li > a{
-    text-decoration: none;  
-    height: 45px;
-    text-align: center;
-    color: white;
-}
-
-/* main-window */
-
-#main-window{
-    position: absolute;
-    left: 49px;
-    border: 1px solid steelblue;
-    width: 1250px;
-    height: 400px;
-}
-
-#promo-div{
-    position: absolute;
-    top: 651px;
-    left: 49px;
-    border: 1px solid steelblue;
-    width: 1250px;
-    height: 350px;
-}
-
-@-webkit-keyframes zoom {
-    from {
-      -webkit-transform: scale(1, 1);
-    }
-    to {
-      -webkit-transform: scale(1.5, 1.5);
-    }
+/* body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
   
-  @keyframes zoom {
-    from {
-      transform: scale(1, 1);
-    }
-    to {
-      transform: scale(1.5, 1.5);
-    }
+  a {
+    color: #00B7FF;
+  }
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+  body {
+    font-family: 'Open Sans', 'sans-serif';
+  }
+  .mega-dropdown {
+    position: static !important;
+  }
+  .mega-dropdown-menu {
+      padding: 20px 0px;
+      width: 100%;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+  }
+  .mega-dropdown-menu > li > ul {
+    padding: 0;
+    margin: 0;
+  }
+  .mega-dropdown-menu > li > ul > li {
+    list-style: none;
+  }
+  .mega-dropdown-menu > li > ul > li > a {
+    display: block;
+    color: #222;
+    padding: 3px 5px;
+  }
+  .mega-dropdown-menu > li ul > li > a:hover,
+  .mega-dropdown-menu > li ul > li > a:focus {
+    text-decoration: none;
+  }
+  .mega-dropdown-menu .dropdown-header {
+    font-size: 18px;
+    color: #ff3546;
+    padding: 5px 60px 5px 5px;
+    line-height: 30px;
   }
   
-  .carousel-inner .item > img {
-    -webkit-animation: zoom 20s;
-    animation: zoom 20s;
+  .carousel-control {
+    width: 30px;
+    height: 30px;
+    top: -35px;
+  
   }
+  .left.carousel-control {
+    right: 30px;
+    left: inherit;
+  }
+  .carousel-control .glyphicon-chevron-left, 
+  .carousel-control .glyphicon-chevron-right {
+    font-size: 12px;
+    background-color: #fff;
+    line-height: 30px;
+    text-shadow: none;
+    color: #333;
+    border: 1px solid #ddd;
+  } */
 
   
-/* footer */
-
-
-

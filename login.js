@@ -39,28 +39,30 @@ function isValidPhoneNumber(phone) {
           res.status(500);
           res.json({err:err});
         }
-          if(docs.length>0) {
-            res.status(200);
-            tmpUser = docs[0] 
-            tmpUserId= docs[0]._id
-            userCollection.update({_id:tmpUserId},{ $set:{
-              "isLoged":true,
-            }})
-            req.session.tmpUser = tmpUser;
-            delete tmpUser.password;
-            delete tmpUser.repeatedpass;
-            // console.log( req.session)
-            res.json(docs[0])    
+        if(docs.length>0) {
+          res.status(200);
+          tmpUser = docs[0] 
+          tmpUserId= docs[0]._id
+          
+          userCollection.update({_id:tmpUserId},{ $set:{
+            "isLoged":true,
+          }})
+          req.session.tmpUser = tmpUser;
+          console.log(req.session.tmpUser)
+          delete tmpUser.password;
+          delete tmpUser.repeatedpass;  
+          res.json(docs[0])  
         } else {
           res.status(401);
-          res.json({status: "Bad credential"});
+          res.json({status: "Bad credential"});   
         }
       });
-  }
-});
+    } 
+  });
 
   router.get('/', function (req, res, next) {
     var usersCollection = req.db.get('users');
+  
     usersCollection.find({}, {}, function (err, docs) {
       if (err) {
         res.status(500);
@@ -74,27 +76,20 @@ function isValidPhoneNumber(phone) {
 
   router.post('/logout', function (req, res, next) {
     res.setHeader('content-type', 'aplication/json');
-    var usersCollection = req.db.get('user');
-    var tmpUserId = req.session.tmpUser._id;
-    var tmpIsLogged = req.session.tmpUser.isLoged;
-    if((req.session) && (tmpIsLogged)) {
-      usersCollection.update({_id:tmpUserId},{ $set:{
-        "isLoged":false,
-      }})
-      
-      // , function (err, docs) {
-      //   if (err) {
-      //     res.status(500);
-      //     res.json(err);
-      //   } else {
-      //     res.status(200);
-      //     res.json({statusText: "ОК"});
-      //   }
-        
-      // }) 
-    }
-  })
+    var userCollection = req.db.get('user');
+    req.session.destroy();
+    res.redirect('/');
+    var logedUser = req.body;
+      userCollection.find({email:logedUser.email, password:logedUser.password}, {},function(err, docs){
+        if(err){
+            res.status(500);
+            res.json({err:err});
+        }
+        userCollection.update({_id:tmpUserId},{ $set:{
+          "isLoged":true,
+        }})
+      })   
 
-
+  });
 
   module.exports = router;

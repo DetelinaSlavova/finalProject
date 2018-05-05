@@ -2,18 +2,19 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
     //login
     $scope.wrongPassword = false;
     $scope.wrongEmail = false;
+    $scope.hideLogin = false;
     $scope.isError = false;
 
     $scope.logedUser = {
         email: '',
         password: '',
     }
-
-    $rootScope.isLog = false;
  
     const PASS_LENGHT = 8;
     const MAX_LENGHT = 25;
 
+   
+ 
     function isValidEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
@@ -23,6 +24,7 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
      return (typeof str === 'string' && str.length > 0 && str.length <=MAX_LENGHT);
    };
    
+   
    function isValidPassword(pass) {
      return (isValidString && pass.length >= PASS_LENGHT && pass.length<=MAX_LENGHT)
    };
@@ -31,17 +33,19 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
     $location.path(path);
  }
     angular.element('#loginEmail').on('click', function () {
-        $scope.wrongEmail = false;
-        $scope.noUser = false;
+        
+            $scope.wrongEmail = false;
+            $scope.noUser = false;
+        
     });
 
     angular.element('#loginPassword').on('focus', function () {
             $scope.wrongPassword = false;
             $scope.noUser = false;
             $scope.isError = false;
+        
     });
 
-    // $scope.isLogged = false;
     $scope.userLogin = function ($event) {
         $event.preventDefault(); 
         if (!isValidEmail($scope.logedUser.email)) {
@@ -52,28 +56,23 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
             $scope.wrongPassword = true;
             return;
         }
-
+       
         loginService.login($scope.logedUser)
             .then(function (response) {
                 if (response.status >= 200 && response.status <= 399) {
-                    $rootScope.logUser = response.data.email;
-                    $rootScope.isLog = true;
-                    $rootScope.isAdmin = response.data.isAdmin;
+                    $rootScope.logedUser = response.data;
                     alert ("Вие влязохте успешно" + response.data.email)
-                    $location.path('/');             
-                }
+                    $location.path('/');                 
+                  }
             })
             .catch(function (err) {
             alert("Грешно име или парола");
             });   
     }
-   
+    
     $scope.userLogout = function ($event) {
         $event.preventDefault(); 
-        loginService.logout()
-            $rootScope.isLog = false;
-            $rootScope.isAdmin = false;
+        loginService.logout($scope.logedUser) 
              
     }
-
 })

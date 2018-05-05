@@ -45,10 +45,10 @@
                 <hr>
                 <div class="text-center">
                         <button type="button" class="btn btn-secondary btn-sm blue buy" ng-click="AddToCart(product)">КУПИ</button>
-                </div>
+                </div ng-controller="loginController">
                 <div class="text-center"><button type="button" class="btn btn-secondary btn-sm red" ng-click="">ВИЖ ОЩЕ</button></div>
-                <div class="text-center"ng-controller="adminController"><button type="button" class="btn btn-secondary btn-sm red" ng-click="removeProduct(product)">ПРЕМАХНИ</button></div>
-                <div class="text-center"><button type="button" class="btn btn-secondary btn-sm red" ng-click=""><a href="#!/admin/edit/{{product._id}}">РЕДАКТИРАЙ</a></button></div>   
+                <div ng-show="isAdmin" class="text-center"ng-controller="adminController"><button type="button" class="btn btn-secondary btn-sm red" ng-click="removeProduct(product)">ПРЕМАХНИ</button></div>
+                <div ng-show="isAdmin" class="text-center"><button type="button" class="btn btn-secondary btn-sm red" ng-click=""><a href="#!/admin/edit/{{product._id}}">РЕДАКТИРАЙ</a></button></div>   
         </div>        
     </div>
 

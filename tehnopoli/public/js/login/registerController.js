@@ -118,10 +118,7 @@ app.controller('registerController', function ($scope, registerService, $locatio
          $scope.newUser.phone = "";
          return;
      }
-
-
      registerService.register($scope.newUser)
-    //  console.log($scope.newUser)
         .then(function (data) {
             $location.path('/login')
         })
@@ -129,8 +126,7 @@ app.controller('registerController', function ($scope, registerService, $locatio
             if (err){
                 $scope.isError = true;
                 $scope.error = err.data.statusText;
-            } 
-            
+            }     
         })
 
         $scope.changeLocation = function (path){
