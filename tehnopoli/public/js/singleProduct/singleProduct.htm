@@ -22,7 +22,8 @@
                     <div class="row">
                         <div class="col-sm-4 small cursor"><img src="images/heart.png" width="15px" alt="heart">
                             Любими &nbsp;</div>
-                        <div class="col-sm-4 small"> <img src="images/compare.png" width="15px" alt="compare"> Сравни</div>
+                        <div class="col-sm-4 small"> <img src="images/compare.png" width="15px" alt="compare"
+                             ng-click="compareProducts(product)"> Сравни</div>
                     </div>
                     <div>
                         <li ng-repeat="(key, value) in product.info[0]"> {{key|uppercase}}: {{value}}</li>

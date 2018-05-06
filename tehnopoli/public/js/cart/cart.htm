@@ -4,8 +4,19 @@
        <p>{{product.price | currency}}</p>
        <img width="150px" ng-src="{{product.img}}" alt="">
        <button ng-click="RemoveFromCart(product); refreshTotalPrice()">Премахни от количката</button>
+       <button ng-click="buy($event)">КУПИ</button>
    </div>
    <div>
        <p>Вашата сметка е : {{totalPrice | currency}}</p>
    </div>
+   
+   <div><button ng-click="myOrders($event)">Моите поръчки</button></div>
+   <div ng-repeat="order in orders">
+    <div>
+        <div> {{order.name}} </div>
+        <img ng-src = "{{order.img}}" width="150px"/>  
+        <div> {{order.price}} лв. </div>
+    </div>
+   
+    </div>
 </div>

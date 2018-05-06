@@ -72,7 +72,7 @@
                 <ul ng-controller="loginController" ng-app="app"> 
                    
                     <li><a ng-show="!isLog" href="#!/login">ВХОД </a></li>
-                    <li><a ng-show="isLog" ng-click = "userLogout($event)" href="#!/login">ИЗХОД <p>Потребител: {{logUser}} </p> </a></li>
+                    <li><a ng-show="isLog" ng-click = "userLogout($event)" href="#!/">ИЗХОД <p>Потребител: {{logUser}} </p> </a></li>
                 
                     <li>/</li>
                     <li><a href="#!/register">МОЯТ ПРОФИЛ</a></li>
@@ -304,7 +304,7 @@
     <script src="js/admin/adminService.js"></script>
 
     <script src="js/cart/cartController.js"></script>
-    <script src="js/admin/adminService.js"></script>
+    <script src="js/cart/cartService.js"></script>
     <!-- <script src="js/prode.js"></script> -->
 </body>
 </html>

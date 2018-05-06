@@ -1,4 +1,4 @@
-app.controller('productController', function ($scope, $routeParams,  productService) {
+app.controller('productController', function ($scope, $routeParams, $location, productService) {
     productService.getTvs($routeParams.type ? $routeParams.type : '').then(function(tvs){
         $scope.products = tvs.data;
     });
@@ -26,13 +26,17 @@ app.controller('productController', function ($scope, $routeParams,  productServ
         $scope.productForBuy.splice(index,1);
         
     };
-    // $scope.refreshTotalPrice = function(){
-    //     $scope.totalPrice = 0;
-    //     $scope.productForBuy.forEach(function(p){
-    //     $scope.totalPrice += (+p.price);
-    //     });
-    // };
-    // $scope.refreshTotalPrice();
+    $scope.refreshTotalPrice = function(){
+        $scope.totalPrice = 0;
+        $scope.productForBuy.forEach(function(p){
+        $scope.totalPrice += (+p.price);
+        });
+    };
+    $scope.refreshTotalPrice();
+
+    $scope.changeLocation = function (path){
+        $location.path(path);
+    };
 
 
 })

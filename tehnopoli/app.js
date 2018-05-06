@@ -18,6 +18,7 @@ var productRouter = require('./routes/product');
 
 var mainRouter = require('./routes/main');
 var allProductsRouter = require('./routes/allproduct');
+var ordersRouter = require('./routes/orders')
 var adminRouter = require('./routes/admin');
 // var cartRouter = require('./routes/cart');
 // tva beshe
@@ -60,6 +61,7 @@ app.use('/login', loginRouter);
 
 app.use('/TvVideoGaming',mainRouter);
 app.use('/allproduct',allProductsRouter);
+app.use('/orders', ordersRouter)
 app.use('/admin',adminRouter);
 // app.use('/cart', cartRouter);
 

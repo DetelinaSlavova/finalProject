@@ -43,9 +43,9 @@ function isValidPhoneNumber(phone) {
             res.status(200);
             tmpUser = docs[0] 
             tmpUserId= docs[0]._id
-            userCollection.update({_id:tmpUserId},{ $set:{
-              "isLoged":true,
-            }})
+            // userCollection.update({_id:tmpUserId},{ $set:{
+            //   "isLoged":true,
+            // }})
             req.session.tmpUser = tmpUser;
             delete tmpUser.password;
             delete tmpUser.repeatedpass;
@@ -67,7 +67,7 @@ function isValidPhoneNumber(phone) {
         res.json(err);
       } else {
         res.status(200);
-        res.json({ email: req.session.logedUser.email });
+        res.json({ _id: req.session.logedUser._id });
       }
     })
   });
@@ -77,10 +77,13 @@ function isValidPhoneNumber(phone) {
     var usersCollection = req.db.get('user');
     var tmpUserId = req.session.tmpUser._id;
     var tmpIsLogged = req.session.tmpUser.isLoged;
-    if((req.session) && (tmpIsLogged)) {
-      usersCollection.update({_id:tmpUserId},{ $set:{
-        "isLoged":false,
-      }})
+    if((req.session)) {
+      // usersCollection.update({_id:tmpUserId},{ $set:{
+      //   "isLoged":false,
+      // }})
+      console.log(req.session)
+      req.session.destroy();
+      console.log(req.session)
       
       // , function (err, docs) {
       //   if (err) {
@@ -94,7 +97,6 @@ function isValidPhoneNumber(phone) {
       // }) 
     }
   })
-
 
 
   module.exports = router;

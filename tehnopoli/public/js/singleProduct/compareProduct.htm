@@ -1,0 +1,14 @@
+<div ng-controller="singleProductController" ng-app="app" class="productWrapper">
+        <div class="row">
+                <div class="col-sm-6 left"  >
+                        <p class="text-uppercase font-weight-bold">{{product.name}}</p>
+                    <div ng-repeat="(key, value) in product.info[0]"> {{key|uppercase}}</div>
+                </div>
+                <div class="col-sm-6 left" >
+                </div>
+                <div class="col-sm-6 left">
+                </div>
+                <div class="col-sm-6 left">
+                </div>
+        </div>
+</div>

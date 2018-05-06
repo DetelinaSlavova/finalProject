@@ -73,7 +73,7 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
         loginService.logout()
             $rootScope.isLog = false;
             $rootScope.isAdmin = false;
-             
+            $location.path('/');       
     }
 
 })

@@ -53,6 +53,11 @@ app.config(function ($routeProvider) {
             templateUrl: 'js/cart/cart.htm',
             controller : 'cartController'
         })
+
+        .when('/compare',{
+            templateUrl: 'js/singleProduct/compareProduct.htm',
+            controller : 'singleProductController'
+        })
         
         .otherwise({
             templateUrl: 'js/main/homePage.htm',
