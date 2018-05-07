@@ -1,4 +1,50 @@
 <div ng-controller="productController" class="mainWrapper">
+
+    <!--For sorts -->
+        <div>
+            <!--<input list="prods">
+                    
+            <datalist id="prods">
+                <option value="Име (възходящ ред)">
+                <option value="Име (низходящ ред)">
+                <option value="Цена (възходящ ред)">
+                <option value="Цена (низходящ ред)">
+            </datalist>-->
+            <div id="button">
+                <ul>
+                    <li class="top">Сортирай:</li>
+                    <li class="item" ng-click='ascendingName()'><a href="">Име (възходящ ред)</a></li>
+                    <li class="item" ng-click='descendingName()'><a href="">Име (низходящ ред)</a></li>
+                    <li class="item" ng-click='ascendingPrice()'><a href="">Цена (възходящ ред)</a></li>
+                    <li class="item" ng-click='descendingPrice()'><a href="">Цена (низходящ ред)</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--<div id='boxes'>
+        <input type="checkbox" class='try' id='b' value='TOSHIBA' ng-click='sortByBrand()'>TOSHIBA</input>
+        <input type="checkbox" class='try' id='s' value='SANG' ng-click='sortByBrand()'>SANG</input>
+        <input type="checkbox" class='try' id='r' value='JVC' ng-click='sortByBrand()'>JVC</input>            
+        </div>-->
+
+        <div ng-repeat="product in products">
+            <label>
+                <input type="checkbox" ng-true-value="'{{product.name.split(' ')[1]}}'" ng-false-value="''" ng-model="selectedBrands[$index]" ng-change="selectBrand(product)">
+                    {{product.name.split(" ")[1]}}
+            </label>
+        </div>
+
+        <br>
+            
+        <div ng-repeat="brand in selectedBrands track by $index" ng-if="brand">
+            {{brand}}
+            <div ng-repeat="product in products" ng-hide='check(product)' >
+                <label>
+                </label>
+            </div>
+        </div>
+
+    <!--End of sorts -->
+
         <!-- <div  class= "main-divs"> -->
         <div id="conteinerForProduct" class="row" ng-repeat="product in products">
                 <div class="col-sm-3 side left" >
