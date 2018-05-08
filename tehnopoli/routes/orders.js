@@ -6,12 +6,10 @@ router.post('/', function (req, res, next) {
     res.setHeader('content-type', 'aplication/json');
     var usersCollection = req.db.get('user');
     var tmpUserId = req.session.tmpUser._id;
-    var orders = req.session.tmpUser.orders
-    var newOrder = {
-        "name": req.body[0].name,
-        "img": req.body[0].img,
-        "price": req.body[0].price
-    } 
+    var orders = req.session.tmpUser.orders;
+    var newOrder = req.body
+    newOrder = JSON.stringify(newOrder)
+    
       usersCollection.update({_id:tmpUserId},{$push: { "orders": newOrder}
            },
             function(err, doc){
@@ -37,7 +35,7 @@ router.post('/', function (req, res, next) {
             }else{
                 if (doc.length > 0) {
                     res.status(200);
-                    res.json(doc[0]);  
+                    res.json(doc[0]); 
                 } else {
                     res.status(401);
                     res.json({status: "not authorized"})

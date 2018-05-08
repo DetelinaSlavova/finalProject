@@ -4,11 +4,8 @@
     <input type="text" ng-model="product.price">
     <input type="text" ng-model="product.code">
     <input type="checkbox" ng-model="product.isPromotion">
-    <input type="checkbox" ng-model="product.isInBasket">
-    <input type="checkbox" ng-model="product.isSold">
     <input type="text" ng-model="product.quantity">
     <input type="text" ng-model="product.rate">
-    <input type="checkbox" ng-model="product.isFavorite">
     <input type="text" ng-model="product.type">
     <input type="text" ng-model="product.img">
     <ul>
@@ -18,5 +15,6 @@
         </li>
     </ul>
     <button ng-click="addSpecification()">ДОБАВИ ХАРАКТЕРИСТИКА</button>
+    <label for="deleted">Премахни продукти:</label><input id="deleted" type="checkbox" ng-model="product.isSold">
     <button ng-click="save()">ЗАПАЗИ</button>
 </div>

@@ -53,7 +53,7 @@
         </div>
             
         </div>
-        <div id="promo-images">
+        <!-- <div id="promo-images">
             <ul>
                 <li>
                     <img class="d-block w-20 img-responsive" src="images/reklami/reklama1.jpg" width="20%" height="200px" alt="">
@@ -71,7 +71,19 @@
                     <img class="d-block w-20 img-responsive"src="images/reklami/reklama5.jpg" width="20%" height="200px" alt="">
                 </li>
             </ul>
+        </div> -->
+
+        <div id="promo-images" ng-controller="productController">
+            <div ng-repeat="product in products | filter: { isPromotion : true }"> 
+                <a href="#!/product/{{product._id}}">
+                    <p>ПРОМОЦИЯ</p>
+                    <img class="d-block w-20 img-responsive" ng-src="{{product.img}}" width="20%" height="200px" alt="">
+                    <p>{{product.name}}</p>
+                    <p>{{product.promotionPrice | currency}}</p>
+                </a>
+            </div>
         </div>
+        
     </div>
     
     

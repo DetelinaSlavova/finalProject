@@ -134,4 +134,55 @@ app.controller('registerController', function ($scope, registerService, $locatio
         };
     }
 
+    // var myCtrl = function (recaptchaFactory) {
+    //     var recaptcha = recaptchaFactory.create('.my-recaptcha', {
+    //         sitekey: '6LcfD1gUAAAAAIQb6mP_dK1w3W74SJsgR0NoZlps'
+    //     });
+    //     recaptcha.render();
+    // }
+    
+    // angular
+    //     .module("app", ['ngGoogleRecaptcha'])
+    //     .controller("myCtrl", [
+    //         'recaptchaFactory',
+    //         myCtrl
+    //     ]);
+
+    //     var callbacks = {
+    //         /* executes when recaptcha is successfully rendered on page */
+    //         created: function (widgetId) {
+    //             console.log("I'm created with widgetId: " + widgetId);
+    //         },
+    //         /* executes when user submits successfull recaptcha response */
+    //         success: function (response) {
+    //             console.log('Successfully got response from Google:', response);
+    //             var params = {
+    //                 response: response
+    //             };
+    //             /* makes GET request to given url with some params and executes callback on success */
+    //             recaptcha.verify('/your_verification_url', params, function(data){
+    //                 console.log('Verified and get response: ', data);
+    //             });
+    //         },
+    //         /* executes when recaptcha response expires */
+    //         expired: function (widgetId) {
+    //             console.log("Recaptcha with widgetId: " + widgetId + " is expired");
+    //             recaptcha.reload();
+    //         }
+    //     }
+    //     recaptcha.setConfig(callbacks);
+    //     recaptcha.render();
+
+    //     var lookConfig = {
+    //         /* 'light' by default */
+    //         theme: 'dark',
+    //         /* 'image' by default */
+    //         type: 'audio',
+    //         /* 'normal' by default */
+    //         size: 'compact',
+    //         /* 0 by default */
+    //         tabindex: 1
+    //     };
+    //     recaptcha.setConfig(lookConfig);
+
  })

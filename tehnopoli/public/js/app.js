@@ -1,4 +1,5 @@
-var app = angular.module("app",['ngRoute'],);
+var app = angular.module("app",['ngRoute']);
+// ['ngGoogleRecaptcha']
 // var loginapp = angular.module("loginapp");
 
 app.config(function ($routeProvider) {
@@ -54,9 +55,14 @@ app.config(function ($routeProvider) {
             controller : 'cartController'
         })
 
+        .when('/favorite',{
+            templateUrl: 'js/cart/favorite.htm',
+            controller : 'favoriteController'
+        })
+
         .when('/compare',{
-            templateUrl: 'js/singleProduct/compareProduct.htm',
-            controller : 'singleProductController'
+            templateUrl: 'js/compare/compare.htm',
+            controller : 'productController'
         })
         
         .otherwise({

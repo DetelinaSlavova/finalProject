@@ -19,6 +19,7 @@
     "mongodb": "^3.0.7",
     "monk": "^6.0.5",
     "morgan": "~1.9.0",
+    "ng-google-recaptcha": "^0.1.0",
     "nodemon": "^1.17.3",
     "sha1": "^1.1.1"
   },

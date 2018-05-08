@@ -1,0 +1,35 @@
+<div ng-controller="compareController">
+    <div>   
+        
+        <table>
+            <tr>
+                <th></th>
+                <td ng-repeat="product in compareProducts | limitTo: 4"><a href="#!/product/{{product._id}}"><img width="200px" ng-src="{{product.img}}" alt=""></a></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td ng-repeat="product in compareProducts | limitTo: 4">{{product.name}}</td>
+            </tr>
+            <tr >
+                <th>Price</th>   
+                <td ng-repeat="product in compareProducts | limitTo: 4">{{product.price}}</td>
+            </tr>
+            <tr >
+                <th>Code</th>    
+                <td ng-repeat="product in compareProducts | limitTo: 4">{{product.code}}</td>
+            </tr>
+            <tr >
+                <th>Rate</th>
+                <td ng-repeat="product in compareProducts | limitTo: 4">{{product.rate}}</td>
+            </tr>
+            <tr>
+                <th>Info</th>
+                <td ng-repeat="product in compareProducts | limitTo: 4">
+                <li ng-repeat="(key, value) in product.info[0]"> {{key|uppercase}}: {{value}}</li></td>
+            </tr>
+            <!-- <tr ng-repeat="row in compareProducts">
+                <td ng-repeat="col in row.info">{{ col }}</td>
+            </tr> -->
+        </table>
+    </div>
+</div>

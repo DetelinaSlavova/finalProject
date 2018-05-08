@@ -1,0 +1,11 @@
+<div ng-productController="favotitesController">
+    <div ng-repeat="product in favorites">
+        <p>{{product.name }}</p>
+        <p>{{product.price | currency}}</p>
+        <img width="150px" ng-src="{{product.img}}" alt="">
+        <button ng-click="RemoveFromFavorite(product)">Премахни от любими</button>
+        <button ng-controller="productController" ng-click="AddToCart(product); RemoveFromFavorite(product)">КУПИ</button>
+    </div>
+    
+    
+ </div>

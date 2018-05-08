@@ -1,42 +1,34 @@
 app.controller('cartController',function(cartService, $scope, $rootScope){
     $scope.totalPrice = 0;
-    $scope.productForBuy = [];
-    $scope.data = localStorage.getItem('$scope.productForBuy')
-    $scope.realdata = JSON.parse($scope.data);
-    // $scope.final = [];
-    for(var index = 0;index<$scope.realdata.length;index++){
-        $scope.productForBuy.push($scope.realdata[index]);
+    $scope.data = sessionStorage.getItem('productForBuy')
+    if ($scope.data) {
+        $scope.productsInCart = JSON.parse($scope.data); 
+    } else {
+        alert ("нямате добавени продукти в кошницата")
     }
-    $scope.refreshTotalPrice = function(){
-        $scope.totalPrice = 0;
-        $scope.productForBuy.forEach(function(p){
-        $scope.totalPrice += (+p.price);
-        });
-    };
-    $scope.refreshTotalPrice();
-    // $scope.productForBuy.push($scope.realdata[0]);
-    console.log($scope.productForBuy);
-    // $scope.productForBuy = [];
-    // $scope.AddToCart = function(product){
-    //     var newProduct = product;
-    //     $scope.productForBuy.push(newProduct);
-    //     console.log($scope.productForBuy);
 
-    // };
-    $scope.RemoveFromCart = function(product){
+
+    $scope.RemoveFromCart = function(product){  
         $scope.product = product;
-        var index = $scope.productForBuy.indexOf($scope.product);
-        $scope.productForBuy.splice(index,1);
-        // $scope.productForBuy = JSON.stringify($scope.productForBuy);
-        localStorage.setItem('$scope.productForBuy',$scope.productForBuy);
+        $scope.data = sessionStorage.getItem('productForBuy')
+        if ($scope.data) {
+            $scope.productsInCart = JSON.parse($scope.data);
+          
+            var index = $scope.productsInCart.findIndex(function (product){
+                return product._id == $scope.product._id;
+            });
+         
+            $scope.productsInCart.splice(index,1);
+            if (index > 0) {
+                sessionStorage.setItem('productForBuy',JSON.stringify($scope.productsInCart));
+                refreshTotalPrice();
+            } else {
+                sessionStorage.removeItem('productForBuy') 
+            }
+        }
+        
     }
-    $scope.refreshTotalPrice = function(){
-        $scope.totalPrice = 0;
-        $scope.productForBuy.forEach(function(p){
-        $scope.totalPrice += (+p.price);
-        });
-    };
-    $scope.refreshTotalPrice();
+    
 
     //Detelina add
 
@@ -45,26 +37,35 @@ app.controller('cartController',function(cartService, $scope, $rootScope){
         cartService.addToOrders($scope.data) 
         .then(function (response) {
             if (response.status >= 200 && response.status <= 399) {
+                sessionStorage.removeItem('productForBuy');
+                $scope.productsInCart = [];
                 alert ("Покупката завърши успешно")
             }
         })
         .catch (function (err){
-            alert({err:err})    
+            alert("Моля влезте в профила си")    
         })
     }
 
+    $rootScope.showOrders = true;
+    function toggleShow () {
+        $rootScope.showOrders=!$rootScope.showOrders 
+    }
     $scope.myOrders = function ($event) {
         $event.preventDefault();
-
         cartService.getMyOrders ()
             .then(function(response){
                 $scope.orders = response.data.orders;
+                $scope.orders = JSON.parse("[" + $scope.orders + "]");
+                toggleShow();
+                
             })
             .catch (function(err){
-               $rootScope.err = err;
-                console.log($rootScope.err)
+               alert("Моля влезте в профила си")
+                
             })
         }
-    
+
+          
     
 });

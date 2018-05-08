@@ -1,6 +1,6 @@
 <div ng-controller="cartController">
-   <div ng-repeat="product in productForBuy">
-       <p>{{product.name | currency}}</p>
+   <div ng-repeat="product in productsInCart">
+       <p>{{product.name }}</p>
        <p>{{product.price | currency}}</p>
        <img width="150px" ng-src="{{product.img}}" alt="">
        <button ng-click="RemoveFromCart(product); refreshTotalPrice()">Премахни от количката</button>
@@ -10,12 +10,11 @@
        <p>Вашата сметка е : {{totalPrice | currency}}</p>
    </div>
    
-   <div><button ng-click="myOrders($event)">Моите поръчки</button></div>
+   <div><button ng-show=showOrders ng-click="myOrders($event)">Моите поръчки</button></div>
+   <div><button ng-show=!showOrders ng-click="myOrders($event)">Затвори</button></div>
    <div ng-repeat="order in orders">
-    <div>
-        <div> {{order.name}} </div>
-        <img ng-src = "{{order.img}}" width="150px"/>  
-        <div> {{order.price}} лв. </div>
+    <div ng-show=!showOrders>
+        <div ng-repeat="o in order">  <img  ng-src="{{o.img}}" width="150px"/> <span>{{o.name}} </span>  <span>{{o.price}} лв. </span> </div>
     </div>
    
     </div>

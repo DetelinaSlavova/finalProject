@@ -1,4 +1,4 @@
-app.controller('adminController',function ($scope, $http, $routeParams, $location, singleProductService, adminService){
+app.controller('adminController',function ($scope,$rootScope, $http, $routeParams, $location, singleProductService, adminService){
     if($routeParams.id){
         singleProductService.show($routeParams.id).then(function(res){
             $scope.product = res.data;
@@ -24,5 +24,7 @@ app.controller('adminController',function ($scope, $http, $routeParams, $locatio
     $scope.changeLocation = function (path){
         $location.path(path);
     };
+
+    
    
 });

@@ -63,10 +63,13 @@
                     <input  type="checkbox" required="required" name="agreed"><span>Приемам  </span><a href="">Общите условия</a>
                 </br><a href="">Сигурност на информацията и защита на личните данни</a>
                 </div>
-                <div class="col-sm-4 robot"> 
-                    <button ng-click="changeLocation('/')"type="button" class="btn btn-secondary blue" >ОТКАЗ</button>
-                    <button type="button" class="btn btn-secondary red" ng-click="userRegister($event)">ЗАПАЗВАНЕ</button>
+                <div class="my-recaptcha" data-sitekey="6LcfD1gUAAAAAIQb6mP_dK1w3W74SJsgR0NoZlps">
+                        <div class="col-sm-4 robot">
+                                <button ng-click="changeLocation('/')"type="button" class="btn btn-secondary blue" >ОТКАЗ</button>
+                                <button type="button" class="btn btn-secondary red" ng-click="userRegister($event)">ЗАПАЗВАНЕ</button>
+                            </div>
                 </div>
+               
             </div>  
         </div>
     </div> 
