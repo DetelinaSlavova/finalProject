@@ -4,12 +4,12 @@
     margin: 0 auto;
     background: white;
     padding: 20px;
-    z-index:400;
+    z-index:1000;
 }
 
 .tittleForSingleProduct {
     border-bottom: 1px solid rgb(194, 193, 193, 0.6);
-    z-index:400;
+    z-index:1000;
     
 }
 #price {
@@ -17,12 +17,16 @@
     font-size: 1.2em;
     font-weight: bold;
 }
-.left {
-    z-index:100;
+
+.rightSingleProduct {
+   
+    z-index:2000;
 }
-.right {
-    background: rgb(248, 245, 245);
-    z-index:200;
+.rightSingleProduct > div {
+    border-bottom: 1px solid rgb(194, 193, 193, 0.6);
+}
+.rightSingleProduct > div:last-child {
+    border-bottom: none;
 }
  
 /* .buy {
@@ -35,18 +39,18 @@
 
 img {
     cursor: pointer;
+    z-index: 100;
 }
 
 .productWrapper li {
     font-size: 1em;
-    font-weight: bold;
+   
 }
 
 .productWrapper div{
     padding: 10px;
   
 }
-
 
 .zoom {      
     -webkit-transition: all 0.35s ease-in-out;    
@@ -69,7 +73,11 @@ img {
     -webkit-transform: scale(1.75);  
     -o-transform: scale(1.75);  
     transform: scale(1.75);
-     
     position:relative;      
     z-index:100;   
     }
+
+    #conteinerForProduct {
+        border-bottom: 1px solid rgb(4, 4, 46, 0.2);
+        margin-left: 0px;
+      }

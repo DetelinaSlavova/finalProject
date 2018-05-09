@@ -24,6 +24,8 @@ app.controller('favoriteController',function(productService, $scope, $rootScope)
                 sessionStorage.removeItem('favorites') 
             }
         }
+
+        $rootScope.isFavorite = $scope.favorites.length;
     }
     
 });

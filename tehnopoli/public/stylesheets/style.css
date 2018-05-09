@@ -1,6 +1,10 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+  background: rgb(235, 233, 233);
 }
 
 a {

@@ -7,23 +7,26 @@
             <div class="col-sm-6 left">
                 <img class="mx-auto d-block img-responsive zoom"ng-src="{{product.img}}"width: "300px" height="300px"/>
             </div>
-            <div class="col-sm-4 right side">
+            <div class="col-sm-4 rightSingleProduct side">
                 <div id="containerForPrice">
                     <div class="row">
                         <div class="col-sm-3"> ЦЕНА:</div>
-                        <div id = "price" class="col-sm-3"> {{product.price}} лв.</div>
-                        <div class="col-sm-3"><button type="button" class="btn btn-secondary red buy">КУПИ</button></div>
+                        <div id = "price" class="col-sm-4"> {{product.price}} лв.</div>
+                        <div class="text-center col-sm-8 col-md-4">
+                        <button type="button" class="btn btn-block red">ДОБАВИ</button>
+                         </div>
                     </div>
                 </div>
                     <div class="row">
                         <div class="col-sm-8 small font-weight-bold text-left"> <img src="images/freeDelivery.png" width="60px" alt="heart"> БЕЗПЛАТНА ДОСТАВКА:</div>
     
                     </div>
-                    <div class="row">
-                        <div class="col-sm-4 small cursor"><img src="images/heart.png" width="15px" alt="heart">
+                    <div  ng-controller="productController"class="row">
+                        <div class="col-sm-4 small cursor"><img src="images/heart.png" width="15px" alt="heart"
+                            ng-click="addToFavorite(product)">
                             Любими &nbsp;</div>
-                        <div class="col-sm-4 small"> <img src="images/compare.png" width="15px" alt="compare"
-                             ng-click="compareProducts(product)"> Сравни</div>
+                        <div ng-controller="productController" class="col-sm-4 small"> <img src="images/compare.png" width="15px" alt="compare"
+                             ng-click="addForCompare(product)"> Сравни</div>
                     </div>
                     <div>
                         <li ng-repeat="(key, value) in product.info[0]"> {{key|uppercase}}: {{value}}</li>

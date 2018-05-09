@@ -2,13 +2,20 @@ app.controller('cartController',function(cartService, $scope, $rootScope){
     $scope.totalPrice = 0;
     $scope.data = sessionStorage.getItem('productForBuy')
     if ($scope.data) {
-        $scope.productsInCart = JSON.parse($scope.data); 
-    } else {
-        alert ("нямате добавени продукти в кошницата")
-    }
+        $scope.totalPrice = 0;
+        $scope.productsInCart = JSON.parse($scope.data);    
+        $scope.refreshTotalPrice = function(){
+            $scope.totalPrice = 0;
+            $scope.productsInCart.forEach(function(p){
+                $scope.totalPrice += (+p.price);
+                });     
+        }
+        $scope.refreshTotalPrice()
+    } 
 
 
     $scope.RemoveFromCart = function(product){  
+        $scope.refreshTotalPrice()
         $scope.product = product;
         $scope.data = sessionStorage.getItem('productForBuy')
         if ($scope.data) {
@@ -21,14 +28,14 @@ app.controller('cartController',function(cartService, $scope, $rootScope){
             $scope.productsInCart.splice(index,1);
             if (index > 0) {
                 sessionStorage.setItem('productForBuy',JSON.stringify($scope.productsInCart));
-                refreshTotalPrice();
+                // $scope.refreshTotalPrice();
             } else {
                 sessionStorage.removeItem('productForBuy') 
             }
         }
-        
+        $rootScope.isBadge = $scope.productsInCart.length;
+       
     }
-    
 
     //Detelina add
 
@@ -39,7 +46,7 @@ app.controller('cartController',function(cartService, $scope, $rootScope){
             if (response.status >= 200 && response.status <= 399) {
                 sessionStorage.removeItem('productForBuy');
                 $scope.productsInCart = [];
-                alert ("Покупката завърши успешно")
+                alert("Покупката завърши успешно")
             }
         })
         .catch (function (err){
@@ -64,8 +71,5 @@ app.controller('cartController',function(cartService, $scope, $rootScope){
                alert("Моля влезте в профила си")
                 
             })
-        }
-
-          
-    
+        } 
 });

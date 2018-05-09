@@ -1,57 +1,57 @@
+<body ng-controller="loginController" ng-app="app">
 
-
-<body ng-controller="loginController" ng-app = "app">
-<div>
-    <div class="registration">
+    <div class="loginAndRegistration">
         <div ng-app="app">
-                <div class="containerForTitel">
-                       <!-- <div id="regTitle"> <h3>ВХОД/РЕГИСТРАЦИЯ</h3> </div> 
+            <div class="containerForTitel">
+                <!-- <div id="regTitle"> <h3>ВХОД/РЕГИСТРАЦИЯ</h3> </div> 
                         -->
-                    </div>
+            </div>
             <div class="row">
-                
-              
-                    <div class="col-sm-4 side">
-                            <h4>ВХОД:</h4>
-                            <p ng-show="isLoged" href="#!/login">{{logedUser.email}}</p> 
-                          
-                            <hr>
-                            
-                            <p>Аз вече съм ваш клиент:</p>
-                            
-                            <fieldset>Електронна поща:<sup>*</sup></fieldset>
-                        <input  ng-model='logedUser.email' ng-keypress="" required = "required" id="loginEmail" class="col-sm-8" type="email" name="email" id="loginEmail" />
-                        <p ng-show = "wrongEmail" class="{red: error">Грешен емейл</p>
-                        <div class="password">
-                            <fieldset>Парола:<sup>*</sup></fieldsetc>
-                            <input ng-model = "logedUser.password"  class="col-sm-8" type="password" name="password" required="required" id="loginPassword"/>
-                            <p ng-show = "wrongPassword" class="error">Грешна парола</p>
-                            <p ng-show = "isError" class="error">Грешна парола</p>
-                        </div>
-                        <button type="button" class="btn col-sm-5 blue" ng-click="userLogin($event)">ВХОД </button>
+
+                <div id="loginWraper" class="col-sm-4 side">
+                    <h4>ВХОД:</h4>
+
+                    <hr>
+
+                    <p>Аз вече съм ваш клиент:</p>
+
+                    <fieldset>Електронна поща:
+                        <sup>*</sup>
+                    </fieldset>
+                    <div>
+                        <input ng-model='logedUser.email' ng-keypress="" required="required" id="loginEmail" class="col-sm-8" type="email" name="email"
+                            id="loginEmail" />
+                        <p ng-show="wrongEmail" class="{red: error">Грешен емейл</p>
                     </div>
 
-                
-             
+                    <div class="password">
+                        <fieldset>Парола:
+                            <sup>*</sup>
+                        </fieldset>
+                        <input ng-model="logedUser.password" class="col-sm-8" type="password" name="password" required="required" id="loginPassword"
+                        />
+                        <p ng-show="wrongPassword" class="error">Грешна парола</p>
+                        <p ng-show="isError" class="error">Грешна парола</p>
+                    </div>
 
-                <div class="col-sm-4 side"> 
-                    
-                    <h4 >РЕГИСТРАЦИЯ:</h4>
-                   <p ng-show="isLoged" href="#!/login">{{logedUser.email}}</p> 
+
+                </div>
+
+                <div id="centerLogin"class="col-sm-4 side">
+                    <h4>РЕГИСТРАЦИЯ:</h4>
+                    <p ng-show="isLoged" href="#!/login">{{logedUser.email}}</p>
                     <hr>
-                </hr>
-                    <p>Аз съм нов клиент:
-                            Ако сте нов клиент, моля регистрирайте се, за да можете да правите поръчки на наши продукти.
-                             С посочването на E-mail адрес и парола ще създадете свой личен потребителски акаунт, който освен възможността за пазаруване ще Ви осигури достъп и до допълнителни функционалности като:
-                    </p>     
-                    <ul id="regInfo" > 
+                    </hr>
+                    <p>Аз съм нов клиент: Ако сте нов клиент, моля регистрирайте се, за да можете да правите поръчки на наши
+                        продукти. С посочването на E-mail адрес и парола ще създадете свой личен потребителски акаунт, който
+                        освен възможността за пазаруване ще Ви осигури достъп и до допълнителни функционалности като:
+                    </p>
+                    <ul id="regInfo">
                         <li>Архив поръчки</li>
                         <li>Персонализация</li>
                         <li>Преглед на изпратени поръчки и проследяване на поръчка</li>
                         <li>Запазване на кошници с покупки</li>
                     </ul>
-                   
-                    <button type="button" class="btn col-sm-7 blue" ng-click = "changeLocation('/register')" >РЕГИСТРИРАЙ СЕ</button>
 
 
                 </div>
@@ -59,15 +59,30 @@
                     <h4>Вход с Facebook</h4>
                     <hr>
                     <p>Регистрирай се чрез Facebook профила си</p>
-                    <button type="button" class="btn col-sm-7 blue" ng-click="clearAllInput()">Влез с facebook</button>
 
                 </div>
-            
             </div>
-
+            <div class="row">
+                <div class="col-sm-4 side">
+                    <div class="col-sm-12  col-md-6">
+                        <button type="button" class="btn btn-block blue" ng-click="userLogin($event)">ВХОД </button>
+                    </div>
+                </div>
+                <div  class="col-sm-4 side">
+                    <div class="col-sm-12 col-md-8">
+                        <button type="button" class="btn btn-block blue" ng-click="changeLocation('/register')">РЕГИСТРИРАЙ СЕ</button>
+                    </div>
+                </div>
+                <div  class="col-sm-4 side">
+                    <div class="col-sm-12 col-md-8">
+                        <button type="button" class="btn btn-block blue" ng-click="clearAllInput()">Влез с facebook</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
-</div>
+
 
 </body>
+

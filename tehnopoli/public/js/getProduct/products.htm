@@ -1,76 +1,53 @@
 <div ng-controller="productController" class="mainWrapper">
-    <!--For sorts -->
-    <!-- <input list="prods">
-                  
-           <datalist id="prods">
-            <option ng-click ='ascendingName()' value="Име (възходящ ред)"> </option>
-            <option  ng-click='descendingName()' value="Име (низходящ ред)"></option>
-            <option value="Цена (възходящ ред)"> </option>
-            <option value="Цена (низходящ ред)"> </option>
-            </datalist> -->
-    <div class="row">
-        <div id="first" class="dropbtn"> Сортирай:
-            <i class="fa fa-caret-down"></i>
-            <div id="TV" class="dropdown-content">
-                <ul>
-                    <div class="col-sm-2" ng-click='ascendingName()'>
-                        <li>
-                            <a href="">Име (възходящ ред)</a>
-                        </li>
+    <div id="sortContainer" class="left">
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="first" class="dropbtn"> Сортирай по име:
+                    <i class="fa fa-caret-down"></i>
+                    <div id="TV" class="dropdown-content">
+                        <ul>
+                            <div class="col-sm-2" ng-click='ascendingName()'>
+                                <li>
+                                    <a href="">Име (възходящ ред)</a>
+                                </li>
+                            </div>
+                            <div class="col-sm-2">
+                                <li class="item" ng-click='descendingName()'>
+                                    <a href="">Име (низходящ ред)</a>
+                                </li>
+                            </div>
+                        </ul>
                     </div>
-                    <div class="col-sm-2">
-                        <li class="item" ng-click='descendingName()'>
-                            <a href="">Име (низходящ ред)</a>
-                        </li>
-                    </div>
-                    <div class="col-sm-2">
-                        <li class="item" ng-click='ascendingPrice()'>
-                            <a href="">Цена (възходящ ред)</a>
-                        </li>
-                    </div>
-                    <div class="col-sm-2">
-                        <li class="item" ng-click='descendingPrice()'>
-                            <a href="">Цена (низходящ ред)</a>
-                        </li>
-                    </div>
-                </ul>
+                </div>
             </div>
+            <div class="col-sm-2">
+                <div id="first" class="dropbtn"> Сортирай по цена:
+                    <i class="fa fa-caret-down"></i>
+                    <div id="TV" class="dropdown-content">
+                        <ul>
+                            <div class="col-sm-2">
+                                <li class="item" ng-click='ascendingPrice()'>
+                                    <a href="">Цена (възходящ ред)</a>
+                                </li>
+                            </div>
+                            <div class="col-sm-2">
+                                <li class="item" ng-click='descendingPrice()'>
+                                    <a href="">Цена (низходящ ред)</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-
-    <!--         
-        <div id='boxes'>
-        <input type="checkbox" class='try' id='b' value='TOSHIBA' ng-click='sortByBrand()'>TOSHIBA</input>
-        <input type="checkbox" class='try' id='s' value='SANG' ng-click='sortByBrand()'>SANG</input>
-        <input type="checkbox" class='try' id='r' value='JVC' ng-click='sortByBrand()'>JVC</input>            
-        </div> -->
-
-
-
-    <br>
-
-    <!--End of sorts -->
-    <!-- <div  class= "main-divs"> -->
-
     <div class="row">
-        <div class="col-sm-2">
-            <label>
-                <div ng-repeat="product in products">
-                    <input type="checkbox" ng-true-value="'{{product.brand}}'" ng-false-value="''" ng-model="selectedBrands[$index]"
-                    ng-change="selectBrand(product)"> {{product.brand}}
-                </div>
 
-            </label>
-            <div ng-repeat="brand in selectedBrands track by $index" ng-if="brand">
-
-                <div ng-repeat="product in products" ng-hide='check(product)'>
-                </div>
-            </div>
-        </div>
         <div class="col-sm-12">
             <div id="conteinerForProduct" class="row" ng-repeat="product in products | filter:{isSold:false}">
-                <div class="col-sm-2 side left">
+                <div class="col-sm-3 side left">
                     <div class="first">
                         <a href="#!/product/{{product._id}}">
                             <img ng-src="{{product.img}}" width: "150px" height="150px" />
@@ -88,7 +65,7 @@
                 </div>
                 <div class="col-sm-4 side center">
                     <div class="first">
-                        <p class="text-uppercase font-weight-bold">{{product.name}}</p>
+                        <p class="text font-weight-bold">{{product.name}}</p>
                         <p class="text-uppercase font-weight-bold">КОД:{{product.code}}</p>
                         <ul>
                             <li class="text-justify" ng-repeat="(key, value) in product.info[0]"> {{key|uppercase}}: {{value}}</li>
@@ -110,28 +87,62 @@
                     <br>
                 </div>
                 <div class="col-sm-3 side right">
-                    <p>ЦЕНА: {{product.price}} лв.</p>
-                    <hr>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-secondary btn-sm blue buy" ng-click="AddToCart(product)">КУПИ</button>
+                    <div class="text-left">
+                        <span class="font-weight-bold">ЦЕНА:</span>
+                        <span id="price">{{product.price}} лв.</span>
+                        <hr>
+                    </div>
+
+                    <div class="text-center col-sm-12 col-md-8">
+                        <button type="button" class=" btn btn-block blue buy" ng-click="AddToCart(product)">ДОБАВИ</button>
                     </div ng-controller="loginController">
-                    <div class="text-center">
-                        <button type="button" class="btn btn-secondary btn-sm red" ng-click=changeLocation("/product/param._id}}")>
+                    <div class="text-center col-sm-12 col-md-8">
+                        <button type="button" class="btn btn-primary btn-block red" ng-click="">
                             <a href="#!/product/{{product._id}}">ВИЖ ОЩЕ</a>
                         </button>
                     </div>
-                    <div ng-show="isAdmin" class="text-center" ng-controller="adminController">
-                        <button type="button" class="btn btn-secondary btn-sm red">ПРЕМАХНИ</button>
+                    <div ng-show="isAdmin" class="text-center  col-sm-12 col-md-8" ng-controller="adminController">
+                        <button type="button" class="btn btn-block blue">ПРЕМАХНИ</button>
                     </div>
-                    <div ng-show="isAdmin" class="text-center">
-                        <button type="button" class="btn btn-secondary btn-sm red" ng-click="">
+                    <div ng-show="isAdmin" class="text-center  col-sm-12 col-md-8">
+                        <button type="button" class="btn btn-block red" ng-click="">
                             <a href="#!/admin/edit/{{product._id}}">РЕДАКТИРАЙ</a>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
+</div>
+<section class="banner-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" ng-repeat="product in products | filter: { isPromotion : true }">
+                <div class="card">
+                    <a href="#!/product/{{product._id}}">
+                        <img class="img-fluid" ng-src="{{product.img}}" alt="">
+                        <div class="card-img-overlay">
+                            <span class="badge badge-pill badge-danger">Промоция</span>
+                        </div>
+                    </a>
+                    <div class="card-body">
+                        <div class="promo-title">
+                            <p class=" title-small">
+                                {{product.name | uppercase}}
+                            </p>
+                        </div>
+                        <p class="card-text ">
+                            <large class="text-price">
+                                {{product.price}} лв.
+                            </large>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
 </div>
