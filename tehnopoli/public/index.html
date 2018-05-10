@@ -19,7 +19,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-    <script src="ng-google-recaptcha.js"></script>
+    <!-- <script src="ng-google-recaptcha.js"></script> -->
     <!-- <scrpt src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.1.0/bootbox.min.js"></scrpt> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -47,17 +47,17 @@
 
 
                 <nav id="user-nav">
-                    <ul  ng-class="navbar-nav " controller="loginController" ng-app="app">
+                    <ul ng-class="navbar-nav " controller="loginController" ng-app="app">
                         <li>
                             <a ng-show="!isLog" href="#!/login">ВХОД </a>
                         </li>
                         <li>
                             <a ng-show="isLog" ng-click="userLogout($event)" href="#!/">ИЗХОД
-                                <p>Потребител: {{logUser}} </p>
+                                <!-- <p>Потребител: {{logUser}} </p> -->
                             </a>
                         </li>
                         <li>/</li>
-                        
+
                         <li>
                             <a href="#!/register">МОЯТ ПРОФИЛ</a>
                         </li>
@@ -72,10 +72,14 @@
                                 <img width="40px" src="images/byingbasket.png" alt="">
                                 <sup class="badge badge-light">{{isBadge}}</sup>
                             </a>
+                        </li>
+                        <li ng-controller="compareController">
                             <a href="#!/compare">
                                 <img width="40px" src="images/compare.png" alt="compare">
                                 <sup class="badge badge-light">{{isCompare}}</sup>
                             </a>
+                        </li>
+
                         </li>
                     </ul>
                 </nav>
@@ -86,7 +90,7 @@
         <br>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light ">
+        <nav class="navbar navbar-default navbar-expand-lg navbar-light ">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="#myNavbar" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -99,7 +103,7 @@
                         <i class=""></i>
                         <br>
                         <br>
-                        <div id="TV" class="dropdown-content">
+                        <div id="TV" class="dropdown-content content-fluid">
                             <ul>
                                 <li>
                                     <a href="#!/TvVideoGaming/tv">ТЕЛЕВИЗОРИ</a>
@@ -333,7 +337,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li id="eleven">ДОМАКИНСКИ ЕЛЕКТРОУРЕДИ
+                    <!-- <li id="eleven">ДОМАКИНСКИ ЕЛЕКТРОУРЕДИ
                         <i class=""></i>
                         <br>
                         <br>
@@ -356,7 +360,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 

@@ -62,7 +62,7 @@ app.config(function ($routeProvider) {
 
         .when('/compare',{
             templateUrl: 'js/compare/compare.htm',
-            controller : 'productController'
+            controller : 'compareController'
         })
         
         .otherwise({

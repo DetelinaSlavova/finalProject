@@ -71,7 +71,7 @@ app.controller('loginController', function ($scope,$http, $rootScope, loginServi
     $scope.userLogout = function ($event) {
         $event.preventDefault(); 
         loginService.logout()
-            $rootScope.isLog = false;
+            $rootScope.isLog = !$rootScope.isLog;
             $rootScope.isAdmin = false;
             $location.path('/');       
     }

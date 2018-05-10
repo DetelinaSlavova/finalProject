@@ -15,18 +15,18 @@
 
                         </tr>
                     </thead>
-                    <tbody ng-controller="productController">
+                    <tbody ng-controller="productController", "favoriteController">
                         <tr ng-repeat="product in favorites">
                             <td class="text-center">
                                 <img width="100px" ng-src="{{product.img}}" alt=""> </td>
                             <td>{{product.name }}</td>
                             <td class="text-right">{{product.price}} лв.</td>
-                            <td ng-click="AddToCart(product); RemoveFromFavorite(product)" class="text-right">
+                            <td ng-click="AddToCart(product); removeFromFavorite(product)" class="text-right">
                                 <button class="btn btn-sm btn-danger">
                                     <i class="fa fa-shopping-cart"></i>
                                 </button>
                             </td>
-                            <td ng-click="RemoveFromFavorite(product); refreshTotalPrice()" class="text-right">
+                            <td ng-click="removeFromFavorite(product); refreshTotalPrice()" class="text-right">
                                 <button class="btn btn-sm btn-danger">
                                     <i class="fa fa-trash-o"></i>
                                 </button>

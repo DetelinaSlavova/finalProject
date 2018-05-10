@@ -1,14 +1,15 @@
 app.controller('favoriteController',function(productService, $scope, $rootScope){
-    $scope.data = sessionStorage.getItem('favorites')
+    $scope.data = localStorage.getItem('favorites')
+    console.log($scope.data)
     if ($scope.data) {
         $scope.favorites = JSON.parse($scope.data); 
     } else {
         alert ("нямате добавени продукти любими")
     }
 
-    $scope.RemoveFromFavorite = function(product){  
+    $scope.removeFromFavorite = function(product){  
         $scope.product = product;
-        $scope.data = sessionStorage.getItem('favorites')
+        $scope.data = localStorage.getItem('favorites')
         if ($scope.data) {
             $scope.favorites = JSON.parse($scope.data);
           
@@ -17,15 +18,14 @@ app.controller('favoriteController',function(productService, $scope, $rootScope)
             });
          
             $scope.favorites.splice(index,1);
-            if (index > 0) {
-                sessionStorage.setItem('favorites',JSON.stringify($scope.favorites));
-            } else {
-                // $scope.favorites.splice(index,1);
-                sessionStorage.removeItem('favorites') 
+            localStorage.setItem('favorites', JSON.stringify($scope.favorites));
+            if ($scope.favorites.length == 0) {
+                localStorage.removeItem('favorites');
             }
         }
-
         $rootScope.isFavorite = $scope.favorites.length;
     }
+
+    
     
 });

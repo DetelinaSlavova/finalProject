@@ -5,13 +5,13 @@
                 <div id="first" class="dropbtn"> Сортирай по име:
                     <i class="fa fa-caret-down"></i>
                     <div id="TV" class="dropdown-content">
-                        <ul>
-                            <div class="col-sm-2" ng-click='ascendingName()'>
-                                <li>
+                        <ul class="listSort">
+                            <div  ng-click='ascendingName()'>
+                                <li class="item">
                                     <a href="">Име (възходящ ред)</a>
                                 </li>
                             </div>
-                            <div class="col-sm-2">
+                            <div>
                                 <li class="item" ng-click='descendingName()'>
                                     <a href="">Име (низходящ ред)</a>
                                 </li>
@@ -24,13 +24,13 @@
                 <div id="first" class="dropbtn"> Сортирай по цена:
                     <i class="fa fa-caret-down"></i>
                     <div id="TV" class="dropdown-content">
-                        <ul>
-                            <div class="col-sm-2">
+                        <ul class="listSort">
+                            <div >
                                 <li class="item" ng-click='ascendingPrice()'>
                                     <a href="">Цена (възходящ ред)</a>
                                 </li>
                             </div>
-                            <div class="col-sm-2">
+                            <div>
                                 <li class="item" ng-click='descendingPrice()'>
                                     <a href="">Цена (низходящ ред)</a>
                                 </li>
@@ -47,7 +47,7 @@
 
         <div class="col-sm-12">
             <div id="conteinerForProduct" class="row" ng-repeat="product in products | filter:{isSold:false}">
-                <div class="col-sm-3 side left">
+                <div class="col-sm-4 side left">
                     <div class="first">
                         <a href="#!/product/{{product._id}}">
                             <img ng-src="{{product.img}}" width: "150px" height="150px" />
@@ -63,7 +63,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-4 side center">
+                <div class="col-sm-5 side center">
                     <div class="first">
                         <p class="text font-weight-bold">{{product.name}}</p>
                         <p class="text-uppercase font-weight-bold">КОД:{{product.code}}</p>
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="text-center col-sm-12 col-md-8">
-                        <button type="button" class=" btn btn-block blue buy" ng-click="AddToCart(product)">ДОБАВИ</button>
+                        <button type="button" class=" btn btn-block blue buy" ng-click="addToCart(product)">ДОБАВИ</button>
                     </div ng-controller="loginController">
                     <div class="text-center col-sm-12 col-md-8">
                         <button type="button" class="btn btn-primary btn-block red" ng-click="">

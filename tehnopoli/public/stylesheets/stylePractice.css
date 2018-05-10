@@ -1,10 +1,16 @@
-@media (min-width: 780px) {
-    .navbar-nav > li > a {
-      padding-top    : 0;
-      padding-bottom : 0;
-      height      : 75px;
-      border-right: none;
-      line-height : 75px; /* align the line center vertically */
+@media (max-width: 1000px) {
+    .navbar-nav > li  {
+    /* font-size: 0.4em; */
+    }
+  }
+
+
+@media (max-width: 300px) {
+    .navbar-nav > li {
+    width: 50%;
+    border-right: none;
+    height: 70px;
+    
     }
   }
 
@@ -30,6 +36,7 @@
 #wrapper{
     width: 90%;
     margin-left: 50px;
+    overflow: hidden;
 }
 
 /* Logo */
@@ -60,7 +67,6 @@
         z-index: 1000;
     }
 
-
 /* profile-favorites section */
 
 #profile-favorites{
@@ -79,7 +85,6 @@
 }
 #user-nav > ul{
     list-style-type: none;
-    padding: 5px 10px;
     text-decoration: none;
     text-align: right;
     
@@ -99,7 +104,6 @@
 
 /* MAIN NAV */
 
-
 /* main-window */
 
 .main-window{
@@ -110,11 +114,9 @@
     height: 333px;
 }
 
-
 .card{float: left; width:100%}
 .card-block{padding:0 10px 10px;}
 .card-text{margin: 0}
-
 
 /*promo */
 .banner-sec{
@@ -138,7 +140,6 @@
     background: rgb(235, 233, 233);
     height: 60px;
 }
-
 
 #first:hover  #TV, #second:hover #Phones, #third:hover #Cameras, #fourth:hover #GPS, 
 #five:hover #Computers, #six:hover #CompAcsesory, #seven:hover #Sport, #eight:hover #HomeGarden,
@@ -165,22 +166,21 @@
     
   }
 
-
-  
   /* Dropdown content (hidden by default) */
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    
+    background-color:white;
+  
     z-index: 1000;
+    /* margin-top: 10px; */
+    box-shadow: 1px 1px 1px 1px  rgb(235, 233, 233);
   }
   
   /* Links inside the dropdown */
   .dropdown-content a {
     float: none;
-    color: grey;
+    color: rgb(57, 119, 160);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -188,18 +188,28 @@
     font-weight: bold;
     text-align: left;
   }
-
   
   /* Add a grey background color to dropdown links on hover */
   .dropdown-content li:hover {
-    background-color: #ddd;
+   
     text-decoration: none;
   }
   
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content { 
-    display: block;
+    display: block; 
   }
+
+  .navbar-default .navbar-collapse > ul>li:hover {
+    color: rgb(85, 85, 85);
+  }
+    
+  li.dropdown:hover > .dropdown-menu {
+      display: block;
+  }
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
 
   .btn > a {
       text-decoration: none;
@@ -219,7 +229,7 @@ main {
 
 .navbar-nav> li{
     float:none; 
-    width: 9%;
+    width: 10%;
     font-size: 0.7em; 
     text-align: center;
     border-right: 1px solid rgb(4, 4, 46, 0.2);
@@ -262,10 +272,24 @@ ul>li {
 .sort {
     background: white;
 }
-#sortContainer {
+
+.listSort div {
+    border-bottom: 1px solid rgb(4, 4, 46, 0.2); 
+}
+
+.listSort :last-child {
+    border-bottom: none;
+}
+#sortContainer  {
     padding: 20px 10px;
-    border-bottom: 1px solid rgb(4, 4, 46, 0.2);    
     background: white;
+    border-bottom: 1px solid rgb(4, 4, 46, 0.2);
+}
+
+
+.item>a{
+    font-size: 0.7em; 
+    font-family: inherit
 }
 /* #conteinerForProduct p, div{
    padding: 20px;
@@ -322,7 +346,6 @@ ul>li {
     text-align: justify;
 }
 
-
 .myOrder {
     margin-top: 20px;
     border-bottom: 1px solid rgb(4, 4, 46, 0.2); 
@@ -332,7 +355,12 @@ ul>li {
 #wrapperForUser {
     background: white;  
 }
-
+@media screen and (max-width: 850px) {
+    .navbar-nav > li {
+        width: 90%;
+        text-align: left;
+    }
+}
 
 
  

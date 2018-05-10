@@ -12,8 +12,8 @@
                     <div class="row">
                         <div class="col-sm-3"> ЦЕНА:</div>
                         <div id = "price" class="col-sm-4"> {{product.price}} лв.</div>
-                        <div class="text-center col-sm-8 col-md-4">
-                        <button type="button" class="btn btn-block red">ДОБАВИ</button>
+                        <div ng-controller="productController" ng-click="addToCart(product)" class="text-center col-sm-8 col-md-4">
+                        <button  type="button" class="btn btn-block red">ДОБАВИ</button>
                          </div>
                     </div>
                 </div>

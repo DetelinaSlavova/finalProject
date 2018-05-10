@@ -7,29 +7,29 @@ app.controller('productController', function ($scope, $routeParams, $rootScope, 
     $scope.compareProducts = [];
 
     $scope.addForCompare = function (product) {
-        if (sessionStorage.getItem('compareProducts') != null) {
-            $scope.compareProducts = JSON.parse(sessionStorage.getItem('compareProducts'));
+        if (localStorage.getItem('compareProducts') != null) {
+            $scope.compareProducts = JSON.parse(localStorage.getItem('compareProducts'));
         }
         if($scope.compareProducts.length >= 4){
             alert('Неможе да сравните повече от 4 продукта');
         } else {
             $scope.compareProducts.push(product);
-            sessionStorage.setItem('compareProducts', JSON.stringify($scope.compareProducts));
+            localStorage.setItem('compareProducts', JSON.stringify($scope.compareProducts));
             console.log($scope.compareProducts);
         }
         $rootScope.isCompare = $scope.compareProducts.length;
     }
 
-    $scope.AddToCart = function (product) {
-        if (sessionStorage.getItem("productForBuy")) {
-            $scope.productForBuy = sessionStorage.getItem("productForBuy");
+    $scope.addToCart = function (product) {
+        if (localStorage.getItem("productForBuy")) {
+            $scope.productForBuy = localStorage.getItem("productForBuy");
             $scope.productForBuy = JSON.parse($scope.productForBuy)
             $scope.productForBuy.push(product);
-            sessionStorage.setItem("productForBuy", JSON.stringify($scope.productForBuy))
+            localStorage.setItem("productForBuy", JSON.stringify($scope.productForBuy))
         } else {
             $scope.productForBuy = [];
             $scope.productForBuy.push(product)
-            sessionStorage.setItem("productForBuy", JSON.stringify($scope.productForBuy))
+            localStorage.setItem("productForBuy", JSON.stringify($scope.productForBuy))
         }
         $rootScope.isBadge = $scope.productForBuy.length;
         
@@ -43,16 +43,16 @@ app.controller('productController', function ($scope, $routeParams, $rootScope, 
     // Detelina new
 
     $scope.addToFavorite = function (product) {
-        if (sessionStorage.getItem("favorites")) {
-            $scope.favorites = sessionStorage.getItem("favorites");
-            // sessionStorage.removeItem("favorites");
+        if (localStorage.getItem("favorites")) {
+            $scope.favorites = localStorage.getItem("favorites");
+            // localStorage.removeItem("favorites");
             $scope.favorites = JSON.parse($scope.favorites)
             $scope.favorites.push(product);
-            sessionStorage.setItem("favorites", JSON.stringify($scope.favorites))
+            localStorage.setItem("favorites", JSON.stringify($scope.favorites))
         } else {
             $scope.favorites = [];
             $scope.favorites.push(product)
-            sessionStorage.setItem("favorites", JSON.stringify($scope.favorites))
+            localStorage.setItem("favorites", JSON.stringify($scope.favorites))
         }
         $rootScope.isFavorite = $scope.favorites.length;
     }
