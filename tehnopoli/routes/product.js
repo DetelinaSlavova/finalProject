@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 router.get('/', function(req, res){
     var db = req.db;
-    var collection = req.db.get('TvVideoGaming');
+    var collection = req.db.get('allProduct');
    
     collection.find({}, {}, function(err, result){
         if(err){
@@ -18,7 +18,6 @@ router.get('/', function(req, res){
 router.get('/:id', function(req, res){
     var db = req.db;
     var collection = req.db.get('allProducts');
-
     collection.find({_id:req.params.id}, {}, function(err, result){
         if(err){
             res.status(500);

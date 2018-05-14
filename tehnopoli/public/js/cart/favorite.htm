@@ -1,0 +1,39 @@
+<div ng-controller="favoriteController">
+    <div class="row myOrder" >
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <h4 >ЛЮБИМИ ПРОДУКТИ</h4>
+                    <thead>
+                        <tr>
+                            <th scope="col"> Продукт</th>
+                            <th scope="col"></th>
+
+                            <th class="cartTh text-uppercase text-right" scope="col">Цена</th>
+                            <th> </th>
+                            <th> </th>
+
+                        </tr>
+                    </thead>
+                    <tbody ng-controller="productController", "favoriteController">
+                        <tr ng-repeat="product in favorites">
+                            <td class="text-center">
+                                <img width="100px" ng-src="{{product.img}}" alt=""> </td>
+                            <td>{{product.name }}</td>
+                            <td class="text-right">{{product.price}} лв.</td>
+                            <td ng-click="AddToCart(product); removeFromFavorite(product)" class="text-right">
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </button>
+                            </td>
+                            <td ng-click="removeFromFavorite(product); refreshTotalPrice()" class="text-right">
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>

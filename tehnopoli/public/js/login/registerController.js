@@ -1,67 +1,5 @@
 
 
-<<<<<<< HEAD
-app.controller('registerController', function ($scope, registerService) {
-   $scope.newUser = {
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    password: "",
-    repeatedpass: "",
-    cart: [],
-    favorite: [],
-    orders: [],
-    isAdmin: false
-   }
-
-   $scope.wrongEmail = false;
-   $scope.wrongFirstName = false;
-   $scope.wrongLastName = false;
-   $scope.wrongPassword = false;
-   $scope.wrongReapedPass = false;
-   $scope.wrongPhoneNumber = false;
-   $scope.registered = false;
-
-   const PASS_LENGHT = 8;
-   const MAX_LENGHT = 25;
-
-   function isValidEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  };
-  
-  function isValidString(str) {
-    return (typeof str === 'string' && str.length > 0 && str.length <=MAX_LENGHT);
-  };
-  
-  
-  function isValidPassword(pass) {
-    return (isValidString && pass.length >= PASS_LENGHT && pass.length<=MAX_LENGHT)
-  };
-  
-  function isValidPhoneNumber(phone) {
-    var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-    return re.test(String(phone));
-  };
-
-  $scope.clearAllInput = function (){
-      $scope.newUser.email = "";
-      $scope.newUser.password = "";
-      $scope.newUser.firstname = "";
-      $scope.newUser.lastname = "";
-      $scope.newUser.repeatedpass = "";
-      $scope.newUser.phone = "";
-  }
-
-  
-  $scope.userRegister = function ($event) {
-    $event.preventDefault();
-    if (!(isValidEmail($scope.newUser.email))){
-        $scope.wrongEmail = true;
-        $scope.newUser.email = "";
-        return;
-=======
 app.controller('registerController', function ($scope, registerService, $location) {
     $scope.newUser = {
      firstname: "",
@@ -73,8 +11,8 @@ app.controller('registerController', function ($scope, registerService, $locatio
      cart: [],
      favorite: [],
      orders: [],
-     isAdmin: false
->>>>>>> f6ba3dedec8b652a3ac5f73a02939c8cb2b37608
+     isAdmin: false,
+     isLoged: false,
     }
  
     $scope.wrongEmail = false;
@@ -90,9 +28,9 @@ app.controller('registerController', function ($scope, registerService, $locatio
     const MAX_LENGHT = 25;
  
     function isValidEmail(email) {
-     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-     return re.test(String(email).toLowerCase());
-   };
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    };
    
    function isValidString(str) {
      return (typeof str === 'string' && str.length > 0 && str.length <=MAX_LENGHT);
@@ -107,16 +45,6 @@ app.controller('registerController', function ($scope, registerService, $locatio
      var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
      return re.test(String(phone));
    };
- 
-//    $scope.clearAllInput = function (){
-//        $scope.newUser.email = "";
-//        $scope.newUser.password = "";
-//        $scope.newUser.firstname = "";
-//        $scope.newUser.lastname = "";
-//        $scope.newUser.repeatedpass = "";
-//        $scope.newUser.phone = "";
-       
-//    }
 
     $scope.changeLocation = function (path){
         $location.path(path);
@@ -152,10 +80,6 @@ app.controller('registerController', function ($scope, registerService, $locatio
     $scope.wrongPhoneNumber = false;
    });
 
-   angular.element("#cancelRegForm").on("click", function(){
-    $location.path("/");
-   });
-   
   
 
    $scope.userRegister = function ($event, path) {
@@ -194,8 +118,6 @@ app.controller('registerController', function ($scope, registerService, $locatio
          $scope.newUser.phone = "";
          return;
      }
-
-
      registerService.register($scope.newUser)
         .then(function (data) {
             $location.path('/login')
@@ -204,28 +126,63 @@ app.controller('registerController', function ($scope, registerService, $locatio
             if (err){
                 $scope.isError = true;
                 $scope.error = err.data.statusText;
-            } 
-            
+            }     
         })
 
         $scope.changeLocation = function (path){
             $location.path(path);
         };
     }
-<<<<<<< HEAD
-    registerService.register($scope.newUser)
-    .then(function (data) {
-        location.replace('#');
-        $scope.$apply(function () {
-            $scope.registered = true;
-            console.log($scope.reqistered)
-            })
-        
-    })
-}
 
-})
-=======
+    // var myCtrl = function (recaptchaFactory) {
+    //     var recaptcha = recaptchaFactory.create('.my-recaptcha', {
+    //         sitekey: '6LcfD1gUAAAAAIQb6mP_dK1w3W74SJsgR0NoZlps'
+    //     });
+    //     recaptcha.render();
+    // }
+    
+    // angular
+    //     .module("app", ['ngGoogleRecaptcha'])
+    //     .controller("myCtrl", [
+    //         'recaptchaFactory',
+    //         myCtrl
+    //     ]);
+
+    //     var callbacks = {
+    //         /* executes when recaptcha is successfully rendered on page */
+    //         created: function (widgetId) {
+    //             console.log("I'm created with widgetId: " + widgetId);
+    //         },
+    //         /* executes when user submits successfull recaptcha response */
+    //         success: function (response) {
+    //             console.log('Successfully got response from Google:', response);
+    //             var params = {
+    //                 response: response
+    //             };
+    //             /* makes GET request to given url with some params and executes callback on success */
+    //             recaptcha.verify('/your_verification_url', params, function(data){
+    //                 console.log('Verified and get response: ', data);
+    //             });
+    //         },
+    //         /* executes when recaptcha response expires */
+    //         expired: function (widgetId) {
+    //             console.log("Recaptcha with widgetId: " + widgetId + " is expired");
+    //             recaptcha.reload();
+    //         }
+    //     }
+    //     recaptcha.setConfig(callbacks);
+    //     recaptcha.render();
+
+    //     var lookConfig = {
+    //         /* 'light' by default */
+    //         theme: 'dark',
+    //         /* 'image' by default */
+    //         type: 'audio',
+    //         /* 'normal' by default */
+    //         size: 'compact',
+    //         /* 0 by default */
+    //         tabindex: 1
+    //     };
+    //     recaptcha.setConfig(lookConfig);
 
  })
->>>>>>> f6ba3dedec8b652a3ac5f73a02939c8cb2b37608

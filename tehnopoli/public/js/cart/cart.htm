@@ -1,0 +1,79 @@
+<div ng-controller="cartController">
+    <div class="row myOrder" >
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th class="cartTh secondColm text-uppercase" scope="col">Продукт</th>
+
+                            <th class="cartTh text-uppercase text-right" scope="col" >Цена</th>
+                            <th> </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in productsInCart">
+                            <td class="text-center">
+                                <img  width="100px" ng-src="{{product.img}}" alt=""> </td>
+                            <td>{{product.name }}</td>
+                            <td class="text-right">{{product.price}} лв.</td>
+                            
+                            <td ng-click="removeFromCart(product); refreshTotalPrice()" class="text-right">
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+
+                        <td></td>
+                        <td class="text-right">
+                            <strong>Total:</strong>
+                        </td>
+                        <td class="text-right text-uppercase">
+                            <strong>{{totalPrice}} лв.</strong>
+                        </td>
+                        <td></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col mb-2">
+            <div class="row ">
+                <div class="col-sm-6  col-md-2">
+                    <button ng-show=showOrders ng-click="buy($event)" class="btn btn-block red text-uppercase">КУПИ</button>
+                </div>
+                <div class="col-sm-6  col-md-2">
+                    <button ng-show="showOrders" ng-click="myOrders($event)" class="btn btn-block blue text-uppercase">Моите поръчки</button>
+                </div>
+                <div class="col-sm-6 col-md-2 ">
+                    <button ng-show="!showOrders" ng-click="myOrders($event)" class="btn btn-block blue text-uppercase">Затвори</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" class="myOrder">
+        <div class="col-12">
+            
+            <div class="table-responsive">
+                <table class="table table-striped">
+                <tr class="font-weight-bold">МОИТЕ ПОРЪЧКИ:</tr>
+
+                    <tbody ng-repeat="order in orders">
+                        <tr ng-show=!showOrders ng-repeat="o in order">
+                            <td>
+                                <img width="100px" ng-src="{{o.img}}" alt=""> </td>
+                            <td>{{o.name }}</td>
+                            <td class="text-right">{{o.price}} лв.</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

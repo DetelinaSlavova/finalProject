@@ -1,32 +1,26 @@
-.registration {
-    width: 80%;
-   
+.loginAndRegistration {
+    border: 1px solid rgba(185, 184, 184, 0.8);
+    background: white;
+    padding: 20px;
 }
 
-a, p, span, p > a, li, fieldset {
-    font-size: 0.8em;
-}
 
 
 .containerForTitel {
     padding: 5px 20px;
     border-bottom: 1px solid rgb(194, 193, 193, 0.6);
 }
-
 .clientInfo {
     padding: 20px;
     margin-bottom: 20px;
-    background: rgb(248, 245, 245);
     border-bottom: 1px solid rgb(194, 193, 193, 0.6);
 }
-
 #clientInfo input, select {
     opacity: 0.9;
     height: 30px;
     background-color: white;
     font-size: 0.8em;
-    border: 1px solid rgb(194, 193, 193, 0.6)   ;
-   
+    border: 1px solid rgb(194, 193, 193, 0.6)   ;   
 }
 #clientInfo fieldset {
     margin-top: 20px;
@@ -48,11 +42,16 @@ a, p, span, p > a, li, fieldset {
 
 .blue {
     background-color: #004fa2;
-    padding: 5px 30px;
+    color: white;
+    
 }
 .red {
-    background-color: #dc1f26;
-    padding: 5px 15px;
+    background-color: #df070e;
+    color: white; 
+}
+
+.red > a {
+    text-decoration: none;
 }
 
 button, input, select {
@@ -73,12 +72,23 @@ sup {
 
 .side {
     border-right: 1px solid rgba(185, 184, 184, 0.8);
+    text-align: justify;
+   
 }
 
 .side:last-child {
     border-right: none;
 }
 
+.side p, ul {
+    font-size: 1em;
+    padding: 10px;
+}
+.side  ul  {
+    text-align: left;
+    font-size: 1em;
+    padding-left: 20px;
+}
 #regInfo {
     list-style-type: disc;
     list-style: red;
@@ -87,4 +97,14 @@ sup {
 
 #regTitle {
     background: white;
+}
+
+/*Login*/
+
+#loginWraper > div {
+    margin-bottom: 20px;
+}
+
+.col-sm-4 p a ul>li {
+    font-size: 1em;
 }

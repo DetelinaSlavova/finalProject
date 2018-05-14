@@ -1,0 +1,83 @@
+.productWrapper {
+    /* margin-top: 20px; */
+    width: 100%;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    z-index:1000;
+}
+
+.tittleForSingleProduct {
+    border-bottom: 1px solid rgb(194, 193, 193, 0.6);
+    z-index:1000;
+    
+}
+#price {
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.rightSingleProduct {
+   
+    z-index:2000;
+}
+.rightSingleProduct > div {
+    border-bottom: 1px solid rgb(194, 193, 193, 0.6);
+}
+.rightSingleProduct > div:last-child {
+    border-bottom: none;
+}
+ 
+/* .buy {
+    width: 100px;
+} */
+
+.containerForDetail{
+    border-bottom: 1px solid rgb(194, 193, 193, 0.6);
+}
+
+img {
+    cursor: pointer;
+    z-index: 100;
+}
+
+.productWrapper li {
+    font-size: 1em;
+   
+}
+
+.productWrapper div{
+    padding: 10px;
+  
+}
+
+.zoom {      
+    -webkit-transition: all 0.35s ease-in-out;    
+    -moz-transition: all 0.35s ease-in-out;    
+    transition: all 0.35s ease-in-out;     
+    cursor: -webkit-zoom-in;      
+    cursor: -moz-zoom-in;  
+    overflow: hidden;      
+    cursor: zoom-in;  
+    margin-top: 50px
+    }     
+    
+    .zoom:hover,  
+    .zoom:active,   
+    .zoom:focus {
+    /**adjust scale to desired size, 
+    add browser prefixes**/
+    -ms-transform: scale(1.75);    
+    -moz-transform: scale(1.75);  
+    -webkit-transform: scale(1.75);  
+    -o-transform: scale(1.75);  
+    transform: scale(1.75);
+    position:relative;      
+    z-index:100;   
+    }
+
+    #conteinerForProduct {
+        border-bottom: 1px solid rgb(4, 4, 46, 0.2);
+        margin-left: 0px;
+      }

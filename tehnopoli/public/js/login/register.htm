@@ -3,7 +3,7 @@
 </head>
 <body ng-controller='registerController'ng-app="app">
 <div >
-    <div class="registration">
+    <div class="loginAndRegistration">
         <div class="containerForTitel">
             <h3>Регистрация</h3>
             <p ng-show ="isError" class="{red: error}" >{{error}}</p>
@@ -15,7 +15,7 @@
                     <h5 >Информация за клиент</h5>
                 <div class="row">
                     <div class="col-sm-4">
-                        
+
                         <fieldset>Обръщение:<sup>*</sup></fieldset>
                         <select class="col-sm-8" id="addressTo">
                                 <option>Моля изберете:</option>
@@ -23,6 +23,7 @@
                                 <option value="mrs">Г-жа</option>
                                 <option value="miss"><sup>*</sup>Г-ца</option>
                         </select>
+                        <br>
                         <fieldset>Емейл:<sup>*</sup></fieldset>
                         <input  ng-model='newUser.email' ng-keypress="" required = "required" id="emailForRegister" class="col-sm-8" type="email" name="email" required='required' />
                         <p ng-show = "wrongEmail" class="error">Грешен емейл</p>
@@ -63,10 +64,13 @@
                     <input  type="checkbox" required="required" name="agreed"><span>Приемам  </span><a href="">Общите условия</a>
                 </br><a href="">Сигурност на информацията и защита на личните данни</a>
                 </div>
-                <div class="col-sm-4 robot"> 
-                    <button ng-click="changeLocation('/')"type="button" class="btn btn-secondary blue" >ОТКАЗ</button>
-                    <button type="button" class="btn btn-secondary red" ng-click="userRegister($event)">ЗАПАЗВАНЕ</button>
-                </div>
+                <!-- <div class="my-recaptcha" data-sitekey="6LcfD1gUAAAAAIQb6mP_dK1w3W74SJsgR0NoZlps"> -->
+                        <div class="col-sm-4  col-md-2">
+                                <button ng-click="changeLocation('/')"type="button" class="btn btn-block blue" >ОТКАЗ</button>
+                                <button type="button" class="btn btn-block red" ng-click="userRegister($event)">ЗАПАЗВАНЕ</button>
+                            </div>
+                <!-- </div> -->
+               
             </div>  
         </div>
     </div> 

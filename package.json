@@ -10,6 +10,7 @@
     "start": "node ./tehnopoli/bin/www"
   },
   "dependencies": {
+    "@types/bootbox": "^4.4.36",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
@@ -19,6 +20,7 @@
     "mongodb": "^3.0.7",
     "monk": "^6.0.5",
     "morgan": "~1.9.0",
+    "ng-google-recaptcha": "^0.1.0",
     "nodemon": "^1.17.3",
     "sha1": "^1.1.1"
   },

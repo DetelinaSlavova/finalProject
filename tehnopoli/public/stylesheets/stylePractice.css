@@ -1,3 +1,20 @@
+@media (max-width: 1000px) {
+    .navbar-nav > li  {
+    /* font-size: 0.4em; */
+    }
+  }
+
+
+@media (max-width: 300px) {
+    .navbar-nav > li {
+    width: 50%;
+    border-right: none;
+    height: 70px;
+    
+    }
+  }
+
+
 #body{
     width: 100%;
     height: 100%;
@@ -5,43 +22,21 @@
     cursor: default;
     position: relative;
     overflow-x: hidden;
-    background-color: #e6e6e6;
+   
 }
 
 /* TOP NAV */
 
-#top-nav{
-    width: 110%;
-    height: 43px;
-    top: 0;
-    left: 0;
-    background-color: white;
-    margin-left: -20px;
-    padding-right: 105px;
-    font-size: 0.8em;
-}
-#top-nav > ul{
-    list-style-type: none;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-#top-nav > ul > li{
-    float: left;
-    padding-left: 10px;
-}
-#top-nav > ul > li > a{
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+#top-navbar {
+    background: rgb(235, 233, 233);
 }
 
 /* Main Wrapper */
 
 #wrapper{
-    width: 100%;
-    margin: 3%;
+    width: 90%;
+    margin-left: 50px;
+    overflow: hidden;
 }
 
 /* Logo */
@@ -52,27 +47,25 @@
 #logo-name{
     margin-bottom: 20px;
 }
-#search-form > form > input{
-    /* float: left; */
-    position: relative;
-    left: 36px;
-    z-index: 12;
-    background-color: white;
-    width: 38%;
-    height: 50px;
-    font-size: 1em;
-    padding: 0 15px;
-    background-image:url(../images/search-icon2.ico); 
-    background-repeat: no-repeat; 
-    background-position: 97% 50%;
-}
-#search-form > form > ul {
-    position: absolute;
-    width: 38%;
-    left: 438px;
-    z-index: 1000;
-}
-
+#search-form > input{
+        float: left;
+        position: relative;
+        z-index: 12;
+        width: 350px;
+        height: 60px;
+        background-color: white;
+        font-size: 1em;
+        padding: 0 15px;
+        background-repeat: no-repeat; 
+        background-image:url(../images/search-icon2.ico); 
+        background-repeat: no-repeat; 
+        background-position: 97% 50%;
+        border-radius: 0%;
+    }
+    #search-form > ul {
+        position: absolute;
+        z-index: 1000;
+    }
 
 /* profile-favorites section */
 
@@ -87,16 +80,19 @@
 }
 #user-nav{
     font-size: 0.8em;
+    background: white;
+    
 }
 #user-nav > ul{
     list-style-type: none;
-    text-align: center;
-    padding: 18px 10px;
     text-decoration: none;
+    text-align: right;
+    
 }
 #user-nav > ul > li{
     float: left;
-    padding-left: 5px;
+    padding-left: px;
+    margin: 5px;
 }
 #user-nav > ul > li > a{
     color: black;
@@ -105,53 +101,8 @@
     /* padding: 14px 16px; */
     text-decoration: none;
 }
-#user-nav > ul > li > a > img{
-    
-}
 
 /* MAIN NAV */
-#main-nav{
-    position: relative;
-    left: -40px;
-    text-align: center;
-}
-#main-nav > ul{
-    list-style-type: none;
-    padding: 18px 10px;
-    text-decoration: none;
-}   
-#main-nav > ul > li{
-    display: inline-block;
-    position: relative;
-    width: 7.5%;
-    height: 45px;
-    font-weight: bold;
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 0.8em;
-    line-height: 15px;
-    vertical-align: top;
-    background-color: steelblue;
-    color: white;
-    border: 0.5px solid black;
-}
-#main-nav > ul > li > button{
-    font-weight: bold;
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 0.8em;
-    line-height: 15px;
-    vertical-align: top;
-    color: white;
-    background-color: steelblue;
-    border: 0.5px solid black;
-}
-#main-nav > ul > li > a{
-    text-decoration: none;  
-    height: 45px;
-    text-align: center;
-    color: white;
-}
 
 /* main-window */
 
@@ -163,56 +114,32 @@
     height: 333px;
 }
 
-#promo-div{
-    position: absolute;
-    top: 651px;
-    left: 49px;
-    /* border: 1px solid steelblue; */
-    width: 1250px;
-    height: 350px;
-}
-#promo-images > ul > li >  img{
+.card{float: left; width:100%}
+.card-block{padding:0 10px 10px;}
+.card-text{margin: 0}
+
+/*promo */
+.banner-sec{
     float: left;
-}
-#promo-div > div {
-    height: 50px;
-}
-#promo-div > div > p{
-    font-weight: bold;
-    margin: 15px;
-    float: right;
-}
-#promo-div > div > h3{
-    float: left;
-    margin: 15px;
-}
-#promo-div > div > select{
-    float: right;
-    margin: 15px;
-}
-#reklami > img {
-    width: 100%;
+     width:100%;
+    background: white}
+
+.banner-sec .card{margin-bottom:20px;}
+
+.badge {
+    background: #df070e;
+    margin-left: -25px;
+    margin-bottom: -15px;
+   
+    z-index: 1000;
 }
 
-/* Main nav / navs  */
-
-
-/* #TV{
-    display: none;
+#promo {
+    padding: 10px 0; 
+    margin-top: 30px;
+    background: rgb(235, 233, 233);
+    height: 60px;
 }
-#TV > ul {
-    z-index: 200;
-}
-#TV > ul > li {
-    color: steelblue;
-    widows: 21px;
-    height: 42px;
-    background-color: white;
-    z-index: 200;
-    border-bottom: 1px solid grey;
-    font-size: 0.8em;
-} */
-/* Nav elements on hover  */
 
 #first:hover  #TV, #second:hover #Phones, #third:hover #Cameras, #fourth:hover #GPS, 
 #five:hover #Computers, #six:hover #CompAcsesory, #seven:hover #Sport, #eight:hover #HomeGarden,
@@ -221,38 +148,6 @@
     display: block;
 }
 
-
-
-
-
-
-#main-nav > ul > li:hover{
-    background-color: white;
-    color: steelblue;
-}
-#main-nav > ul > li > a:hover{
-    color: steelblue;
-    background-color: white
-}
-
-
-/* Navbar container */
-/* .navbar {
-    overflow: hidden;
-    background-color: #333;
-    font-family: Arial;
-  } */
-  
-  /* Links inside the navbar */
-  /* .navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  } */
-  
   /* The dropdown container */
   .dropdown {
     float: left;
@@ -262,97 +157,210 @@
   /* Dropdown button */
   .dropdown .dropbtn {
     display: block;
-    font-size: 16px; 
     border: none;
     outline: none;
     color: white;
-    font-size: em;
-    padding: 14px 16px;
-    background-color: inherit;
+    font-size: 0.8em;
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
     
   }
 
-  
-  
-  /* Add a red background color to navbar links on hover */
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-  }
-  
   /* Dropdown content (hidden by default) */
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-   
+    background-color:white;
+  
     z-index: 1000;
+    /* margin-top: 10px; */
+    box-shadow: 1px 1px 1px 1px  rgb(235, 233, 233);
   }
   
   /* Links inside the dropdown */
   .dropdown-content a {
     float: none;
-    color: grey;
+    color: rgb(57, 119, 160);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: bold;
     text-align: left;
   }
-
-  
   
   /* Add a grey background color to dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: #ddd;
+  .dropdown-content li:hover {
+   
     text-decoration: none;
   }
   
   /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    
-    display: block;
+  .dropdown:hover .dropdown-content { 
+    display: block; 
   }
 
-/* search items */
-/* Main-div */
+  .navbar-default .navbar-collapse > ul>li:hover {
+    color: rgb(85, 85, 85);
+  }
+    
+  li.dropdown:hover > .dropdown-menu {
+      display: block;
+  }
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
 
-/* #products{
-    position: relative;
-    top: 750px;
-} */
+  .btn > a {
+      text-decoration: none;
+      color: white;
+  }
 
 /* Detelina coments */
-
 main {
     z-index: 100;
 }
 .navbar {
     width: 100%;
     background: rgb(46, 46, 216);
-    
+    border-radius: 0px;
+    cursor: pointer;
 }
 
 .navbar-nav> li{
     float:none; 
-    width: 9%;
-    padding-left: 5px;
-    padding-right: 5px;
+    width: 10%;
     font-size: 0.7em; 
     text-align: center;
     border-right: 1px solid rgb(4, 4, 46, 0.2);
-    color: white;
-
+    color: rgb(241, 226, 226); 
+    padding: 0px 10px;
     
+}
+
+.navbar-nav> li > a{
+    padding: 0px 5px;
 }
 .navbar-nav> li:last-child{
     border-right: none;
 } 
 
+ul>li {
+   text-align: justify;
+}
+#allProductsWrapper {
+    margin-left: 0px;
+  }
 
 
+.left {
+    background: white;
+}
 
+.left > div{
+  text-align: center;
+}
+
+.right {
+    padding-top: 20px;
+    background: white;
+}
+.center {
+    background:  rgb(248, 248, 248); 
+}
+
+.sort {
+    background: white;
+}
+
+.listSort div {
+    border-bottom: 1px solid rgb(4, 4, 46, 0.2); 
+}
+
+.listSort :last-child {
+    border-bottom: none;
+}
+#sortContainer  {
+    padding: 20px 10px;
+    background: white;
+    border-bottom: 1px solid rgb(4, 4, 46, 0.2);
+}
+
+
+.item>a{
+    font-size: 0.7em; 
+    font-family: inherit
+}
+/* #conteinerForProduct p, div{
+   padding: 20px;
+  } */
+
+/* @-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(1, 1);
+    }
+    to {
+      -webkit-transform: scale(1.5, 1.5);
+    }
+  }
+  
+  @keyframes zoom {
+    from {
+      transform: scale(1, 1);
+    }
+    to {
+      transform: scale(1.5, 1.5);
+    }
+  } */
+  .carousel-indicators {
+      margin-bottom: -50px;
+  }
+
+  .carousel-indicators li {
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    border-radius: 50%;
+    background-color: rgba(58, 56, 56, 0.5);
+    cursor: pointer;
+    
+}
+
+.active {
+    background-color: rgba(19, 18, 18, 0.5);
+}
+
+.cartTh {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+}
+
+.secondColm {
+    text-align: justify;
+}
+
+.myOrder {
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(4, 4, 46, 0.2); 
+    background: white;
+}
+
+#wrapperForUser {
+    background: white;  
+}
+@media screen and (max-width: 850px) {
+    .navbar-nav > li {
+        width: 90%;
+        text-align: left;
+    }
+}
+
+
+ 

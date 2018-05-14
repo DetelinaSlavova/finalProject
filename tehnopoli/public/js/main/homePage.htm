@@ -1,0 +1,149 @@
+<div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+    <ul class="navbar-nav m-auto">
+        <li class="nav-item m-auto">
+            <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="category.html">Categories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="product.html">Product</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="contact.html">Cart
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+        <div class="input-group input-group-sm">
+            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-secondary btn-number">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <a class="btn btn-success btn-sm ml-3" href="cart.html">
+            <i class="fa fa-shopping-cart"></i> Cart
+            <span class="badge badge-light">3</span>
+        </a>
+    </form>
+</div>
+</div>
+
+
+<div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+    <ul class="navbar-nav m-auto">
+        <li class="nav-item m-auto">
+            <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="category.html">Categories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="product.html">Product</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="contact.html">Cart
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+        <div class="input-group input-group-sm">
+            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-secondary btn-number">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <a class="btn btn-success btn-sm ml-3" href="cart.html">
+            <i class="fa fa-shopping-cart"></i> Cart
+            <span class="badge badge-light">3</span>
+        </a>
+    </form>
+</div>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <img class="d-block w-100 img-responsive" src="images/reklami/reklama1.jpg" width="100%" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>My Caption Title (1st Image)</h5>
+                <p>The whole caption will only show up if the screen is at least medium size.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img class="d-block w-100 img-responsive" src="images/reklami/reklama2.jpg" width="100%" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 img-responsive" src="images/reklami/reklama3.jpg" width="100%" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 img-responsive" src="images/reklami/reklama4.jpg" width="100%" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 img-responsive" src="images/reklami/reklama5.jpg" width="100%" alt="Third slide">
+        </div>
+    </div>
+</div>
+
+<div id="promo" class="row">
+    <div class="col-sm-8">
+        <h3 class="text large">Промоции</h3>
+    </div>
+
+</div>
+<section class="banner-sec">
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-3" ng-repeat="product in products | filter: { isPromotion : true }">
+                <div class="card">
+                    <a href="#!/product/{{product._id}}">
+                        <img class="img-fluid" ng-src="{{product.img}}" alt="">
+                        <div class="card-img-overlay">
+                            <span class="badge badge-pill badge-danger">Промоция</span>
+                        </div>
+                    </a>
+                    <div class="card-body">
+                        <div class="promo-title">
+                            <p class=" title-small">
+                                {{product.name | uppercase}}
+                            </p>
+                        </div>
+
+                        <p class="card-text ">
+                            <large class="text-price font-weight-bold text-danger">
+                                {{product.price}} лв.
+                            </large>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+

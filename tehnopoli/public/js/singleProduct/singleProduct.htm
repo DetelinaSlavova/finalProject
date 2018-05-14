@@ -1,5 +1,37 @@
-<div>
-    <h1>{{product.name}}</h1>
-    <img ng-src="{{product.img}}" alt="">
-    <h3>{{product.price | currency}}</h3>
-</div>
+<div ng-controller="singleProductController"  ng-app="app" class="productWrapper">
+        <div class="tittleForSingleProduct">
+        <p>КОД: {{product.code}}</p>
+        <h3 >{{product.name}}</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 left">
+                <img class="mx-auto d-block img-responsive zoom"ng-src="{{product.img}}"width: "300px" height="300px"/>
+            </div>
+            <div class="col-sm-4 rightSingleProduct side">
+                <div id="containerForPrice">
+                    <div class="row">
+                        <div class="col-sm-3"> ЦЕНА:</div>
+                        <div id = "price" class="col-sm-4"> {{product.price}} лв.</div>
+                        <div ng-controller="productController" ng-click="addToCart(product)" class="text-center col-sm-8 col-md-4">
+                        <button  type="button" class="btn btn-block red">ДОБАВИ</button>
+                         </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-8 small font-weight-bold text-left"> <img src="images/freeDelivery.png" width="60px" alt="heart"> БЕЗПЛАТНА ДОСТАВКА:</div>
+    
+                    </div>
+                    <div  ng-controller="productController"class="row">
+                        <div class="col-sm-4 small cursor"><img src="images/heart.png" width="15px" alt="heart"
+                            ng-click="addToFavorite(product)">
+                            Любими &nbsp;</div>
+                        <div ng-controller="productController" class="col-sm-4 small"> <img src="images/compare.png" width="15px" alt="compare"
+                             ng-click="addForCompare(product)"> Сравни</div>
+                    </div>
+                    <div>
+                        <li ng-repeat="(key, value) in product.info[0]"> {{key|uppercase}}: {{value}}</li>
+                </div>
+            </div>
+        </div>
+       
+    </div>

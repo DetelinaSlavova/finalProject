@@ -4,6 +4,12 @@ p{
 .main-divs{
     background-color: rgb(194, 193, 193, 0.6);
 }
+
+#wrapper{
+    background:  rgba(255, 252, 252, 0.6);
+    width: 80%;
+    /* border: 1px solid salmon; */
+    }
 .mainWrapper{
 background:  rgba(255, 252, 252, 0.6);
 width: 95%;
@@ -12,7 +18,7 @@ width: 95%;
 
 #conteinerForProduct {
     box-sizing: border-box;
-    width: 80%;
+    width: 70%;
     margin-left: 0px;
     
 }

@@ -1,83 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../stylesheets/reset.css">
-    <link rel="stylesheet" href="../stylesheets/category.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
-</head>
-
-<body>
-    <div ng-controller="productController" class="mainWrapper">
-        <!-- <div  class= "main-divs"> -->
-        <div id="conteinerForProduct" class="row" ng-repeat="product in products">
-                <div class="col-sm-3 side left" >
-                        <div class="first">
-                            <a href="#!/product/{{product._id}}">
-                            <img ng-src="{{product.img}}" width:"100px" height="100px"/>
-                            </a>
-                        </div>
-                        <hr style="visibility:hidden">
-                        <div>
-                            <span><img src="images/heart.png" width="15px" alt="heart">
-                                ЛЮБИМИ &nbsp;
-                            </span>
-                            <span><img src="images/compare.png" width="15px" alt="compare">
-                                СРАВНИ
-                            </span>
-                        </div>
-                </div>
-                <div class="col-sm-5 side center">
-                    <div class="first"> 
-                        <p>{{product.name}}</p>
-                        <p>КОД:{{product.code}}</p>
-                        <ul  >
-                            <li ng-repeat="(key, value) in product.info[0]"> {{key}}: {{value}}</li>
+<div ng-controller="productController" class="mainWrapper">
+    <div id="sortContainer" class="left">
+        <div class="row">
+            <div class="col-sm-2">
+                <div id="first" class="dropbtn"> Сортирай по име:
+                    <i class="fa fa-caret-down"></i>
+                    <div id="TV" class="dropdown-content">
+                        <ul class="listSort">
+                            <div  ng-click='ascendingName()'>
+                                <li class="item">
+                                    <a href="">Име (възходящ ред)</a>
+                                </li>
+                            </div>
+                            <div>
+                                <li class="item" ng-click='descendingName()'>
+                                    <a href="">Име (низходящ ред)</a>
+                                </li>
+                            </div>
                         </ul>
-                       
                     </div>
-                    
-                <hr>
-                <div>
-                    <span>
-                        <img src="images/star.png" width="12px" alt="">
-                        <img src="images/star.png" width="12px" alt="">
-                        <img src="images/star.png" width="12px" alt="">
-                        <img src="images/star.png" width="12px" alt="">
-                        <img src="images/star.png" width="12px" alt="">
-                    </span>
-                    <span>РЕЙТИНГ: </span>
                 </div>
             </div>
-            <div class="col-sm-3 side right">
-                <p>ЦЕНА: {{product.price}} лв.</p>
-                <hr>
-                <div>
-                    <button type="button" class="btn btn-secondary btn-sm blue buy" ng-click="">КУПИ</button>
+            <div class="col-sm-2">
+                <div id="first" class="dropbtn"> Сортирай по цена:
+                    <i class="fa fa-caret-down"></i>
+                    <div id="TV" class="dropdown-content">
+                        <ul class="listSort">
+                            <div >
+                                <li class="item" ng-click='ascendingPrice()'>
+                                    <a href="">Цена (възходящ ред)</a>
+                                </li>
+                            </div>
+                            <div>
+                                <li class="item" ng-click='descendingPrice()'>
+                                    <a href="">Цена (низходящ ред)</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
                 </div>
-               
-                    <div><button type="button" class="btn btn-secondary btn-sm red" ng-click="">ВИЖ ОЩЕ</button></div>
-                    
-    
-            
-        </div> 
-           
+            </div>
+
+        </div>
     </div>
 
+    <div class="row">
 
-</body>
+        <div class="col-sm-12">
+            <div id="conteinerForProduct" class="row" ng-repeat="product in products | filter:{isSold:false}">
+                <div class="col-sm-4 side left">
+                    <div class="first">
+                        <a href="#!/product/{{product._id}}">
+                            <img ng-src="{{product.img}}" width: "150px" height="150px" />
+                        </a>
+                    </div>
+                    <hr style="visibility: hidden">
+                    <div>
+                        <span>
+                            <img src="images/heart.png" width="15px" alt="heart" ng-click=addToFavorite(product)> ЛЮБИМИ &nbsp;
+                        </span>
+                        <span ng-click="addForCompare(product)">
+                            <img src="images/compare.png" width="15px" alt="compare"> СРАВНИ
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-5 side center">
+                    <div class="first">
+                        <p class="text font-weight-bold">{{product.name}}</p>
+                        <p class="text-uppercase font-weight-bold">КОД:{{product.code}}</p>
+                        <ul>
+                            <li class="text-justify" ng-repeat="(key, value) in product.info[0]"> {{key|uppercase}}: {{value}}</li>
+                        </ul>
 
-</html>
+                    </div>
+
+                    <hr>
+                    <div class="text-center">
+                        <span>РЕЙТИНГ: </span>
+                        <span>
+                            <img src="images/star.png" width="12px" alt="">
+                            <img src="images/star.png" width="12px" alt="">
+                            <img src="images/star.png" width="12px" alt="">
+                            <img src="images/star.png" width="12px" alt="">
+                            <img src="images/star.png" width="12px" alt="">
+                        </span>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-sm-3 side right">
+                    <div class="text-left">
+                        <span class="font-weight-bold">ЦЕНА:</span>
+                        <span id="price">{{product.price}} лв.</span>
+                        <hr>
+                    </div>
+
+                    <div class="text-center col-sm-12 col-md-8">
+                        <button type="button" class=" btn btn-block blue buy" ng-click="addToCart(product)">ДОБАВИ</button>
+                    </div ng-controller="loginController">
+                    <div class="text-center col-sm-12 col-md-8">
+                        <button type="button" class="btn btn-primary btn-block red" ng-click="">
+                            <a href="#!/product/{{product._id}}">ВИЖ ОЩЕ</a>
+                        </button>
+                    </div>
+                    <div ng-show="isAdmin" class="text-center  col-sm-12 col-md-8" ng-controller="adminController">
+                        <button type="button" class="btn btn-block blue">ПРЕМАХНИ</button>
+                    </div>
+                    <div ng-show="isAdmin" class="text-center  col-sm-12 col-md-8">
+                        <button type="button" class="btn btn-block red" ng-click="">
+                            <a href="#!/admin/edit/{{product._id}}">РЕДАКТИРАЙ</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section class="banner-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" ng-repeat="product in products | filter: { isPromotion : true }">
+                <div class="card">
+                    <a href="#!/product/{{product._id}}">
+                        <img class="img-fluid" ng-src="{{product.img}}" alt="">
+                        <div class="card-img-overlay">
+                            <span class="badge badge-pill badge-danger">Промоция</span>
+                        </div>
+                    </a>
+                    <div class="card-body">
+                        <div class="promo-title">
+                            <p class=" title-small">
+                                {{product.name | uppercase}}
+                            </p>
+                        </div>
+                        <p class="card-text ">
+                            <large class="text-price">
+                                {{product.price}} лв.
+                            </large>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+</div>
